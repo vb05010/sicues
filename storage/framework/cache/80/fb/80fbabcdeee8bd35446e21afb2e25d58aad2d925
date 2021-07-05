@@ -1,0 +1,85 @@
+1625524342a:1:{s:16:"testimonials.htm";a:7:{s:8:"fileName";s:16:"testimonials.htm";s:7:"content";s:3305:"description = "EVENTOS"
+
+[viewBag]
+==
+<div class="col-xs-12 col-sm-4 wow fadeInDown">
+                    <div class="testimonial">
+                        <!--<h2>EVENTOS</h2>-->
+                         <!-- <div class="media testimonial-inner">
+                            <div class="pull-left">
+                                <a href="http://vinculacion.sic.ues.edu.sv/" target="_blank"><img class="img-responsive img-circle" src="{{ 'assets/images/sobre-nosotros.png'|theme }}"></a>
+                            </div>
+                            <div class="media-body">
+                                <p align="left"><font color="#aa0000" size="4"><strong><a href="{{'samples/sobre-nosotros'|page}}">Sobre Nosotros</a></strong></font></p> 
+                                <p><i class="fa fa-sign-in" aria-hidden="true"></i>  <a href="{{'samples/sobre-nosotros'|page}}">Leer Más ></a></p>
+                                
+                            </div>
+                         </div> -->
+
+                         <div class="media testimonial-inner">
+                            <div class="pull-left">
+                                <a href="{{'samples/epi-sic'|page}}"><img src={{'assets/images/testimonials1.png'|theme}} style="width: 66px;height:66px;" class="img-responsive img-circle"></a>
+                            </div>
+                            <div class="media-body">
+                                <p align="left"><font color="#aa0000"><strong>PROYECTOS DE INVESTIGACIÓN</strong></font></p>
+                                <p><i class="fa fa-bullhorn" aria-hidden="true"></i> <a href="{{'samples/convocatoria19-2020.htm'|page}}">Convocatoria 19 2020</a> | <i class="fa fa-search" aria-hidden="true"></i>
+									<a href="#"> Consultar</a> </br> <i class="fa fa-file-text" aria-hidden="true"></i>
+									<a href="{{'storage/app/media/protocolo_investigacion.docx'}}" download="protocolo_investigacion.docx">Protocolo de Investigación</a></p>
+                                <!--<span><strong>-John Doe/</strong> Director of corlate.com</span>-->
+                            </div>
+                         </div>
+ 					<div class="media testimonial-inner">
+                            <div class="pull-left">
+                                <a href="{{'samples/memoria-labores'|page}}"> <img class="img-responsiveprotoco img-circle" src="{{ 'assets/images/testimonials2.png'|theme }}"></a>
+                            </div>
+                            <div class="media-body">
+                                <p align="left"><font color="#aa0000"><strong>REDES DE INVESTIGADORES</strong></font></p>
+                                <p><i class="fa fa-spinner" aria-hidden="true"></i> <a href="https://sic.ues.edu.sv/riues/" target="_blank"> Sistema RI-UES</a> | <i class="fa fa-bullseye" aria-hidden="true"></i>
+									<a href="https://sic.ues.edu.sv/refcs/" target="_blank"> REFCS</a> </br> <i class="fa fa-sign-in" aria-hidden="true"></i>
+									<a href="#">!Conoce como registrarse en RI-UES¡</a> 
+                                <!--<span><strong>-John Doe/</strong> Director of corlate.com</span>-->
+                            </div>
+                         </div>
+
+                    </div>
+                </div>";s:5:"mtime";i:1590463597;s:6:"markup";s:3267:"<div class="col-xs-12 col-sm-4 wow fadeInDown">
+                    <div class="testimonial">
+                        <!--<h2>EVENTOS</h2>-->
+                         <!-- <div class="media testimonial-inner">
+                            <div class="pull-left">
+                                <a href="http://vinculacion.sic.ues.edu.sv/" target="_blank"><img class="img-responsive img-circle" src="{{ 'assets/images/sobre-nosotros.png'|theme }}"></a>
+                            </div>
+                            <div class="media-body">
+                                <p align="left"><font color="#aa0000" size="4"><strong><a href="{{'samples/sobre-nosotros'|page}}">Sobre Nosotros</a></strong></font></p> 
+                                <p><i class="fa fa-sign-in" aria-hidden="true"></i>  <a href="{{'samples/sobre-nosotros'|page}}">Leer Más ></a></p>
+                                
+                            </div>
+                         </div> -->
+
+                         <div class="media testimonial-inner">
+                            <div class="pull-left">
+                                <a href="{{'samples/epi-sic'|page}}"><img src={{'assets/images/testimonials1.png'|theme}} style="width: 66px;height:66px;" class="img-responsive img-circle"></a>
+                            </div>
+                            <div class="media-body">
+                                <p align="left"><font color="#aa0000"><strong>PROYECTOS DE INVESTIGACIÓN</strong></font></p>
+                                <p><i class="fa fa-bullhorn" aria-hidden="true"></i> <a href="{{'samples/convocatoria19-2020.htm'|page}}">Convocatoria 19 2020</a> | <i class="fa fa-search" aria-hidden="true"></i>
+									<a href="#"> Consultar</a> </br> <i class="fa fa-file-text" aria-hidden="true"></i>
+									<a href="{{'storage/app/media/protocolo_investigacion.docx'}}" download="protocolo_investigacion.docx">Protocolo de Investigación</a></p>
+                                <!--<span><strong>-John Doe/</strong> Director of corlate.com</span>-->
+                            </div>
+                         </div>
+ 					<div class="media testimonial-inner">
+                            <div class="pull-left">
+                                <a href="{{'samples/memoria-labores'|page}}"> <img class="img-responsiveprotoco img-circle" src="{{ 'assets/images/testimonials2.png'|theme }}"></a>
+                            </div>
+                            <div class="media-body">
+                                <p align="left"><font color="#aa0000"><strong>REDES DE INVESTIGADORES</strong></font></p>
+                                <p><i class="fa fa-spinner" aria-hidden="true"></i> <a href="https://sic.ues.edu.sv/riues/" target="_blank"> Sistema RI-UES</a> | <i class="fa fa-bullseye" aria-hidden="true"></i>
+									<a href="https://sic.ues.edu.sv/refcs/" target="_blank"> REFCS</a> </br> <i class="fa fa-sign-in" aria-hidden="true"></i>
+									<a href="#">!Conoce como registrarse en RI-UES¡</a> 
+                                <!--<span><strong>-John Doe/</strong> Director of corlate.com</span>-->
+                            </div>
+                         </div>
+
+                    </div>
+                </div>";s:4:"code";N;s:11:"description";s:7:"EVENTOS";s:7:"viewBag";a:0:{}}}

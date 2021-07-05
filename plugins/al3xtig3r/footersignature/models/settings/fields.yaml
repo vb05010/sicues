@@ -1,0 +1,33 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    section_title:
+        label: al3xtig3r.footersignature::lang.fields.title
+        span: left
+        type: section
+    text:
+        label: al3xtig3r.footersignature::lang.fields.text
+        type: text
+        comment: al3xtig3r.footersignature::lang.fields.text_help
+    randomIcon:
+        label: al3xtig3r.footersignature::lang.fields.random
+        type: switch
+        comment: al3xtig3r.footersignature::lang.fields.random_help
+    selectedIcon:
+        label: al3xtig3r.footersignature::lang.fields.selected
+        type: dropdown
+    icons:
+        label: al3xtig3r.footersignature::lang.fields.icons.title
+        type: repeater
+        form:
+            fields:
+                name:
+                    label: al3xtig3r.footersignature::lang.fields.icons.name
+                    type: text
+                    span: left
+                classes:
+                    label: al3xtig3r.footersignature::lang.fields.icons.classes
+                    type: text
+                    span: right

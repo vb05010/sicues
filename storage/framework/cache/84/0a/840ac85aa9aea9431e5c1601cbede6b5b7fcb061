@@ -1,0 +1,35 @@
+1572387095a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:432:"description = "Default Layout"
+
+==
+
+{% partial 'header' %}
+
+    <header id="head" class="secondary"></header>
+
+    <!-- container -->
+    <div class="container">
+        <div class="row">
+            <!-- Article main content -->
+            <article class="col-sm-12 maincontent">
+                {% page %}
+            </article>
+            <!-- /Article -->
+        </div>
+    </div>  <!-- /container -->
+
+{% partial 'footer' %}";s:5:"mtime";i:1572386480;s:6:"markup";s:396:"{% partial 'header' %}
+
+    <header id="head" class="secondary"></header>
+
+    <!-- container -->
+    <div class="container">
+        <div class="row">
+            <!-- Article main content -->
+            <article class="col-sm-12 maincontent">
+                {% page %}
+            </article>
+            <!-- /Article -->
+        </div>
+    </div>  <!-- /container -->
+
+{% partial 'footer' %}";s:4:"code";N;s:11:"description";s:14:"Default Layout";}}

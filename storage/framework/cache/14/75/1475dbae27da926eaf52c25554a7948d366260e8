@@ -1,0 +1,373 @@
+1625524342a:1:{s:27:"samples/sobre-nosotros2.htm";a:12:{s:8:"fileName";s:27:"samples/sobre-nosotros2.htm";s:7:"content";s:8338:"title = "Sobre Nosotros2"
+url = "/sobre-nosotros2"
+layout = "default"
+description = "Equipo de Trabajo de la Secretaría de Investigaciones Cientificas de la Universidad de El Salvador"
+meta_title = "Sobre Nosotros"
+meta_description = "Equipo de Trabajo de la Secretaría de Investigaciones Cientificas de la Universidad de El Salvador, CIC-UES, SIC-UES, UES"
+is_hidden = 0
+==
+<section id="about-us">
+        <div class="container">
+			
+	<!-- our-team -->
+			<div class="team">
+				<div class="center wow fadeInDown">
+					<h2>Sobre Nosotros</h2>
+					<p class="lead">Equipo de trabajo de la Secretaría de Investigaciones Científicas</p>
+				</div>
+				
+            	<div class="row clearfix">
+					<div class="col-md-4 col-sm-6">	
+						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<!--<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/avatar1.png'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>---</h4>
+									<h5>Secretario de Investigación</h5>
+									<ul class="tag clearfix">
+										<li class="btn"><a href="{{'samples/miembros-consejo.htm'|page}}">Resumen Profesional</a></li>
+									</ul>
+									
+									<ul class="social_icons">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
+										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+						<!--	<p>Responsable de la administración, promoción y difusión de toda la investigación científica y tecnológica de la Universidad de El Salvador.</p> -->
+						</div>  
+					</div><!--/.col-lg-4 -->
+					
+					
+					<div class="col-md-4 col-sm-6 col-md-offset-2">	
+						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/miguels.jpg'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>Miguel Sermeño</h4>
+									<h5>Director Ejecutivo</h5>
+									<ul class="tag clearfix">
+										<li class="btn"><a href="{{'samples/miguel-sermeno.htm'|page}}">Resumen Profesional</a></li>
+										<li class="btn"><a href="{{'samples/miembros-consejo.htm'|page}}">Miembros del CIC-UES</a></li>
+									</ul>
+									<ul class="social_icons">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
+										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+							<p>Director Ejecutivo del Consejo de Investigaciones Científicas CIC-UES. Responsable de dar seguimiento a los proyectos de investigación</p>
+						</div>
+					</div><!--/.col-lg-4 -->					
+				</div> <!--/.row -->
+				<div class="row team-bar">
+					<div class="first-one-arrow hidden-xs">
+						<hr>
+					</div>
+					<div class="first-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-up"></i>
+					</div>
+					<div class="second-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-down"></i>
+					</div>
+					<div class="third-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-up"></i>
+					</div>
+					<div class="fourth-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-down"></i>
+					</div>
+				</div> <!--skill_border-->       
+
+				<div class="row clearfix">   
+					<div class="col-md-4 col-sm-6 col-md-offset-2">	
+						<div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/arely.jpg'|theme }}" alt=""></a>
+								</div>
+
+								<div class="media-body">
+									<h4>Administración Financiera</h4>
+									
+									<ul class="tag clearfix">
+										<li class="btn"><a href="#">Sobre Nosotros</a></li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+							<p>Son los responsables de administrar y cuidar con eficiencia los recursos financieros destinados a la Secretaría de Investigaciones Cientificas de la Universidad de El Salvador.</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-md-offset-2">
+						<div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/epi.jpg'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>EPI-CIC</h4>
+									<h5>Enlace y Promoción de la Investigación</h5>
+									<ul class="tag clearfix">
+										<li class="btn"><a href="https://www.facebook.com/investigacion.cientificaues/?hc_ref=PAGES_TIMELINE" target="_blank">Facebook</a></li>
+										<li class="btn"><a href="https://www.youtube.com/channel/UCqAn90MIpfE5MAowdU8klpw?sub_confirmation=1" target="_blank">Youtube</a></li>
+										<li class="btn"><a href="{{'samples/epi-sic.htm'|page}}">Sobre Nosotros</a></li>
+									</ul>
+
+								</div>
+							</div><!--/.media -->
+							<p>Enlace y Promoción de la Investigación es el responsable de divulgar a traves de los medios de comunicación el que hacer de los proyectos de investigación inscritos en la Secretaría de Investigación de la Universidad de El Salvador.</p>
+						</div>
+					</div>
+				</div>	<!--/.row-->
+					<div class="row team-bar">
+					<div class="first-one-arrow hidden-xs">
+						<hr>
+					</div>
+					<div class="first-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-up"></i>
+					</div>
+					<div class="second-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-down"></i>
+					</div>
+					<div class="third-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-up"></i>
+					</div>
+					<div class="fourth-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-down"></i>
+					</div>
+				</div> <!--skill_border--> 
+				
+				<div class="row clearfix">
+					<div class="col-md-4 col-sm-6">	
+						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/entorno.jpg'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>ENTORNO PRODUCTIVO</h4>
+									<!--<h5>Secretario de Investigación</h5>-->
+									<ul class="tag clearfix">
+										<li class="btn">Foro Técnologico</li>
+										<li class="btn">Observatorio </br>Técnologico</li>
+										<li class="btn">Educación Continua</li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+							<ul>
+							    <li class="btn">Oferta Científica y Técnologica</li>
+								
+							</ul>
+							<p>La relación UES – Entorno Productivo nace como un proyecto financiado por la AECID (Agencia Española de Cooperación Internacional para el Desarrollo), con el apoyo de la Universidad de Alicante.</p>
+						</div>
+					</div><!--/.col-lg-4 -->
+					
+					
+					<div class="col-md-4 col-sm-6 col-md-offset-2">	
+						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/informatica-sic.jpg'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>Informatica</h4>
+									<!--<h5>Director Ejecutivo</h5>-->
+									<ul class="tag clearfix">
+										<li class="btn"><a href="#">Sobre Nosotros</a></li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+							<p>Son los responsables de administrar y monitorizar el correcto funcionamiento de los sistemas informáticos de la Secretaría de Investigación.</p>
+						</div>
+					</div><!--/.col-lg-4 -->					
+				</div> <!--/.row -->
+			</div><!--section-->
+		</div><!--/.container-->
+    </section><!--/about-us-->";s:5:"mtime";i:1503330275;s:6:"markup";s:7961:"<section id="about-us">
+        <div class="container">
+			
+	<!-- our-team -->
+			<div class="team">
+				<div class="center wow fadeInDown">
+					<h2>Sobre Nosotros</h2>
+					<p class="lead">Equipo de trabajo de la Secretaría de Investigaciones Científicas</p>
+				</div>
+				
+            	<div class="row clearfix">
+					<div class="col-md-4 col-sm-6">	
+						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<!--<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/avatar1.png'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>---</h4>
+									<h5>Secretario de Investigación</h5>
+									<ul class="tag clearfix">
+										<li class="btn"><a href="{{'samples/miembros-consejo.htm'|page}}">Resumen Profesional</a></li>
+									</ul>
+									
+									<ul class="social_icons">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
+										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+						<!--	<p>Responsable de la administración, promoción y difusión de toda la investigación científica y tecnológica de la Universidad de El Salvador.</p> -->
+						</div>  
+					</div><!--/.col-lg-4 -->
+					
+					
+					<div class="col-md-4 col-sm-6 col-md-offset-2">	
+						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/miguels.jpg'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>Miguel Sermeño</h4>
+									<h5>Director Ejecutivo</h5>
+									<ul class="tag clearfix">
+										<li class="btn"><a href="{{'samples/miguel-sermeno.htm'|page}}">Resumen Profesional</a></li>
+										<li class="btn"><a href="{{'samples/miembros-consejo.htm'|page}}">Miembros del CIC-UES</a></li>
+									</ul>
+									<ul class="social_icons">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
+										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+							<p>Director Ejecutivo del Consejo de Investigaciones Científicas CIC-UES. Responsable de dar seguimiento a los proyectos de investigación</p>
+						</div>
+					</div><!--/.col-lg-4 -->					
+				</div> <!--/.row -->
+				<div class="row team-bar">
+					<div class="first-one-arrow hidden-xs">
+						<hr>
+					</div>
+					<div class="first-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-up"></i>
+					</div>
+					<div class="second-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-down"></i>
+					</div>
+					<div class="third-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-up"></i>
+					</div>
+					<div class="fourth-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-down"></i>
+					</div>
+				</div> <!--skill_border-->       
+
+				<div class="row clearfix">   
+					<div class="col-md-4 col-sm-6 col-md-offset-2">	
+						<div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/arely.jpg'|theme }}" alt=""></a>
+								</div>
+
+								<div class="media-body">
+									<h4>Administración Financiera</h4>
+									
+									<ul class="tag clearfix">
+										<li class="btn"><a href="#">Sobre Nosotros</a></li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+							<p>Son los responsables de administrar y cuidar con eficiencia los recursos financieros destinados a la Secretaría de Investigaciones Cientificas de la Universidad de El Salvador.</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-md-offset-2">
+						<div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/epi.jpg'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>EPI-CIC</h4>
+									<h5>Enlace y Promoción de la Investigación</h5>
+									<ul class="tag clearfix">
+										<li class="btn"><a href="https://www.facebook.com/investigacion.cientificaues/?hc_ref=PAGES_TIMELINE" target="_blank">Facebook</a></li>
+										<li class="btn"><a href="https://www.youtube.com/channel/UCqAn90MIpfE5MAowdU8klpw?sub_confirmation=1" target="_blank">Youtube</a></li>
+										<li class="btn"><a href="{{'samples/epi-sic.htm'|page}}">Sobre Nosotros</a></li>
+									</ul>
+
+								</div>
+							</div><!--/.media -->
+							<p>Enlace y Promoción de la Investigación es el responsable de divulgar a traves de los medios de comunicación el que hacer de los proyectos de investigación inscritos en la Secretaría de Investigación de la Universidad de El Salvador.</p>
+						</div>
+					</div>
+				</div>	<!--/.row-->
+					<div class="row team-bar">
+					<div class="first-one-arrow hidden-xs">
+						<hr>
+					</div>
+					<div class="first-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-up"></i>
+					</div>
+					<div class="second-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-down"></i>
+					</div>
+					<div class="third-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-up"></i>
+					</div>
+					<div class="fourth-arrow hidden-xs">
+						<hr> <i class="fa fa-angle-down"></i>
+					</div>
+				</div> <!--skill_border--> 
+				
+				<div class="row clearfix">
+					<div class="col-md-4 col-sm-6">	
+						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/entorno.jpg'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>ENTORNO PRODUCTIVO</h4>
+									<!--<h5>Secretario de Investigación</h5>-->
+									<ul class="tag clearfix">
+										<li class="btn">Foro Técnologico</li>
+										<li class="btn">Observatorio </br>Técnologico</li>
+										<li class="btn">Educación Continua</li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+							<ul>
+							    <li class="btn">Oferta Científica y Técnologica</li>
+								
+							</ul>
+							<p>La relación UES – Entorno Productivo nace como un proyecto financiado por la AECID (Agencia Española de Cooperación Internacional para el Desarrollo), con el apoyo de la Universidad de Alicante.</p>
+						</div>
+					</div><!--/.col-lg-4 -->
+					
+					
+					<div class="col-md-4 col-sm-6 col-md-offset-2">	
+						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+							<div class="media">
+								<div class="pull-left">
+									<a href="#"><img class="media-object" src="{{ 'assets/images/informatica-sic.jpg'|theme }}" alt=""></a>
+								</div>
+								<div class="media-body">
+									<h4>Informatica</h4>
+									<!--<h5>Director Ejecutivo</h5>-->
+									<ul class="tag clearfix">
+										<li class="btn"><a href="#">Sobre Nosotros</a></li>
+									</ul>
+								</div>
+							</div><!--/.media -->
+							<p>Son los responsables de administrar y monitorizar el correcto funcionamiento de los sistemas informáticos de la Secretaría de Investigación.</p>
+						</div>
+					</div><!--/.col-lg-4 -->					
+				</div> <!--/.row -->
+			</div><!--section-->
+		</div><!--/.container-->
+    </section><!--/about-us-->";s:4:"code";N;s:5:"title";s:15:"Sobre Nosotros2";s:3:"url";s:16:"/sobre-nosotros2";s:6:"layout";s:7:"default";s:11:"description";s:99:"Equipo de Trabajo de la Secretaría de Investigaciones Cientificas de la Universidad de El Salvador";s:10:"meta_title";s:14:"Sobre Nosotros";s:16:"meta_description";s:122:"Equipo de Trabajo de la Secretaría de Investigaciones Cientificas de la Universidad de El Salvador, CIC-UES, SIC-UES, UES";s:9:"is_hidden";s:1:"0";}}

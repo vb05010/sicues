@@ -1,0 +1,36 @@
+1572387253a:1:{s:16:"theme/footer.htm";a:5:{s:8:"fileName";s:16:"theme/footer.htm";s:7:"content";s:848:"<div class="container-fluid bg-light text-dark py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 order-3 col-lg-4 order-lg-1">
+                {{ 'layout.footer.left'|_({ date: 'today'|date('Y') }) }}
+                <div class="mt-2">
+                    {% component 'localePicker' %}
+                </div>
+            </div>
+            <div class="col-12 order-2 col-lg-4 py-3 py-lg-0">
+                {% component 'footerSignature' %}
+            </div>
+            <div class="col-12 order-1 col-lg-4 order-lg-3">
+                {{ 'layout.footer.right'|_({ love: (this.theme.font_awesome ? '<i class="fas fa-heart text-danger"></i>' : '<span class="text-danger"><strong>' ~ 'layout.footer.right.love'|_ ~ '</strong></span>') }) }}!
+            </div>
+        </div>
+    </div>
+</div>
+";s:5:"mtime";i:1572386642;s:6:"markup";s:847:"<div class="container-fluid bg-light text-dark py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 order-3 col-lg-4 order-lg-1">
+                {{ 'layout.footer.left'|_({ date: 'today'|date('Y') }) }}
+                <div class="mt-2">
+                    {% component 'localePicker' %}
+                </div>
+            </div>
+            <div class="col-12 order-2 col-lg-4 py-3 py-lg-0">
+                {% component 'footerSignature' %}
+            </div>
+            <div class="col-12 order-1 col-lg-4 order-lg-3">
+                {{ 'layout.footer.right'|_({ love: (this.theme.font_awesome ? '<i class="fas fa-heart text-danger"></i>' : '<span class="text-danger"><strong>' ~ 'layout.footer.right.love'|_ ~ '</strong></span>') }) }}!
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;}}

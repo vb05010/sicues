@@ -1,0 +1,47 @@
+title = "Inicio"
+url = "/"
+layout = "default"
+description = "Sitio Web oficial de la Secretaría de Investigaciones Científicas SIC-UES de la Universidad de El Salvador"
+meta_title = "Secretaría de Investigaciones Científicas de la Universidad de El Salvador"
+meta_description = "Sitio Web oficial de la Secretaría de Investigaciones Científicas SIC-UES de la Universidad de El Salvador"
+is_hidden = 0
+==
+<!-- <section id="main-slider" class="no-margin">
+	% partial "carousel" %}
+    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+        <i class="fa fa-chevron-left"></i>
+    </a>
+    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+        <i class="fa fa-chevron-right"></i>
+    </a>
+</section>
+<section id="main-slider" class="no-margin">
+	<!--% partial "ues-entornoproductivo" %}
+</section>  -->
+{% partial "slider2" %}
+
+<section id="content"><!--mision,vision,objetivos y directores-->
+    <div class="container">
+        <div class="row">
+			{% partial "tabs" %}
+			{% partial "testimonials" %}
+        </div><!--/.row-->
+    <div><!--/.container-->
+</section><!--/#content--><!--fin mision,vision,objetivos y directores-->
+<!--Aquí va la sección de Eventos-->
+
+<!--Aquí termina la sección de Eventos-->
+<section id="middle">
+    <div class="container">
+        <div class="row">
+			{% partial "reconocimientos" %}
+			{% partial "accordion" %}
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#middle-->
+<!--De interes-->
+
+
+
+
+<!--fin de Interes-->

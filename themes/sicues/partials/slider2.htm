@@ -1,0 +1,388 @@
+description = "carousel frontal"
+
+[viewBag]
+==
+<!--
+Inspired by http://dribbble.com/shots/890759-Ui-Kit-Metro/attachments/97174
+-->
+<div class="container">
+    <div class="row main">
+			<div class="col-md-8">
+				<!-- Carousel
+				================================================== -->
+				<div id="myCarousel" class="carousel slide slide-carousel" data-ride="carousel">
+				  <!-- Indicators -->
+				  <ol class="carousel-indicators">
+				    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				    <li data-target="#myCarousel" data-slide-to="1"></li>
+				    <li data-target="#myCarousel" data-slide-to="2"></li>
+				    <li data-target="#myCarousel" data-slide-to="3"></li>
+				  </ol>
+		    	<div class="container">
+		        <div class="carousel-caption">
+		          <h3><span class="glyphicon glyphicon-home"></span>      SIC-UES</h3>
+		          <hr>
+		          <!-- <h1>SIC-UES</h1> -->
+		          <p align="center">Secretaría de Investigaciones Científicas de la Universidad de El Salvador</p>
+		          <!-- <a href="{{'samples/unicaes-censalud'|page}}" class="btn btn-success" role="button">Ver Proyecto UNICAES-CENSALUD</a> -->
+		        </div>
+		      </div>
+				  <div class="carousel-inner">
+				    <div class="item active">
+				      <img src="{{'/assets/images/sliderfront1.png'|theme}}" class="img-responsive">
+				    </div>
+				    <div class="item">
+				      <img src="{{'/assets/images/sliderfront8.png'|theme}}" class="img-responsive">
+				    </div>
+				    <div class="item">
+				      <img src="{{'/assets/images/sliderfront2.png'|theme}}" class="img-responsive">
+				    </div>
+                    <div class="item">
+				      <img src="{{'/assets/images/sliderfront3.png'|theme}}" class="img-responsive">
+				    </div>
+				  </div>
+				  <!-- Controls 
+				  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				    <span class="icon-prev"></span>
+				  </a>
+				  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+				    <span class="icon-next"></span>
+				  </a>-->  
+				</div>
+				<!-- /.carousel -->
+			</div>
+
+			<div class="col-md-4 main-right">
+				<div class="subscribe">
+					<h1>SIPC</h1>
+					<h4>Sistema de Información de la Producción Cientifica de la Universidad de El Salvador</h4>
+					<p align="center"> <a class="btn btn-success" href="https://sipc.sic.ues.edu.sv" target="_blank">Registrar Proyecto de Investigación</br>Convocatoria 19 2020</a></p>
+					<a href="#">¿Cómo lo hago?</a>
+					<!-- <p align="left"><a href="">Más información</a></p>
+					<!--<p><a href="https://goo.gl/forms/Hs6Rs57WBJo8xGZS2" target="_blank" class="btn btn-success btn-xs" role="button">Inscribete</a></p>-->
+					
+					<!-- <div class="input-group">
+							      	<form accept-charset="UTF-8" role="form">
+							      					                    <div class="form-group">
+							      					                    	<input class="form-control" placeholder="Usuario" name="email" type="text">
+							      					                    </div>
+							      					                    <div class="form-group">
+							      					                        <input class="form-control" placeholder="Contraseña" name="password" type="password" value="">
+							      					                    </div>
+							      					                    <button type="submit" class="btn btn-success">Iniciar sesión</button>
+							      					                </form>
+							      	<input type="text" class="form-control" placeholder="Your email">
+							      	<span class="input-group-btn">
+							      	  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-save-file"></span></button>
+							      	</span>
+							    	</div> -->
+				</div>
+				<div class="subscribe"> <!--class="best"-->
+				<h2>Consultar Estado Proyecto</h2>
+					<h4>Consulta el estado actual del Proyecto de Investigación</h4>
+					<a href="{{'samples/estado-proyecto'|page}}"> <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consultar Estado Proyecto </button></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row main-nav">
+			<div class="col-md-4">
+				<a href="#" class="btn btn-default btn-circle"><i class="fa fa-users fa-2x" aria-hidden="true"></i></a>	
+				<a class="a" href="https://sic.ues.edu.sv/miembros-del-consejo/">Consejo de Investigaciones</a>
+			</div>
+			<div class="col-md-4">
+				<a href="http://minerva.sic.ues.edu.sv" target="_blank" class="btn btn-default btn-circle"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a> 
+				<a class="a" href="https://minerva.sic.ues.edu.sv/index.php/Minerva" target="_blank">Revista Científica Minerva</a>
+			</div>
+			<div class="col-md-4">
+				<a href="{{'samples/memoria-labores'|page}}" class="btn btn-default btn-circle"><i class="fa fa-bug fa-2x" aria-hidden="true"></i></a> 
+				<a class="a" href="https://sic.ues.edu.sv/portalminerva/#/home" target="_blank"> Portal Minerva </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	
+	/*
+Inspired by http://dribbble.com/shots/890759-Ui-Kit-Metro/attachments/97174
+*/
+
+.main {
+    /*background-color: #fff; */
+	margin-top: 20px;
+}
+.a {
+	color:#fff;
+	text-decoration:none;
+}
+.main-nav {
+	background: url(https://sic.ues.edu.sv/themes/sicues/assets/images/fondoslider2.png); /* http://habrastorage.org/files/f75/559/b17/f75559b1771b4a4d943730257b2b2a6d.png*/
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 800;
+}
+
+.main-nav .col-md-4,
+.main-nav .col-md-8,
+.main .col-md-4,
+.main .col-md-8 {
+	border: 1px solid #fff;
+	border-right: none;
+	margin-bottom: -1px;
+}
+
+
+.main .col-md-8,
+.main .main-right {
+	padding: 0;
+}
+
+.main-right {
+	min-height: 400px;
+}
+
+.main .col-md-8 {
+	color: #aa0000; /*antes #e92d00*/
+	margin-top: -6px;
+	border-top: 6px solid #aa0000; /*color de la barra #e92d00*/
+}
+
+.main .col-md-8:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 6px 6px 0;
+	border-color: #aa0000 transparent; /*antes #e92d00 esta es la flechita de la barra*/
+	display: block;
+	width: 0;
+	z-index: 1;
+	margin-left: -6px;
+	top: 0;
+	left: 75px;
+}
+
+.subscribe {
+	background: /*#fff;*/ url(https://sic.ues.edu.sv/themes/sicues/assets/images/sliderfront6.png);
+	background-size: cover;
+	width: 100%;
+	min-height: 232px;/*262px*/
+	max-height: 262px;
+	margin-top: -7px;
+	border-top: 6px solid #aa0000;/*#c86c00;*/
+	color: #fff;
+	text-align: center;
+}
+.subscribe:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 6px 6px 0;
+	border-color: #aa0000 transparent;/*#c86c00;*/
+	display: block;
+	width: 0;
+	z-index: 1;
+	margin-left: -6px;
+	left: 75px;
+}
+
+.subscribe h1 {
+	text-transform: uppercase;
+}
+
+.subscribe h4:before,
+.subscribe h4:after {
+	content: "–––";
+	padding: 10px; 
+}
+
+.subscribe .input-group {
+	margin: 0 50px;
+	padding: 10px;
+}
+
+.subscribe input {
+	padding: 22px 10px 22px 10px;
+}
+
+.subscribe .btn {
+	padding: 12px 10px 12px 10px;	
+}
+
+.best {
+	background: #A0A0A0;/*url(https://sic.ues.edu.sv/themes/sicues/assets/images/equipo-sic.png);*/
+	background-size: cover;
+	width: 100%;
+	min-height: 202px;
+	max-height: 202px;
+	margin-top: -7px;
+	border-top: 6px solid #aa0000; /* esta es la barrita de separación de las imagen lev antes #5da22d*/
+	text-align: center;
+	color: #fff;
+	
+}
+
+.best:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 6px 6px 0;
+	border-color: #aa0000 transparent; /*esta es la flechita de la imagen lev*/
+	display: block;
+	width: 0;
+	z-index: 1;
+	margin-left: -6px;
+	left: 75px;
+}
+.best h1 {
+	text-transform: uppercase;
+}
+
+.best h4:before,
+.best h4:after {
+	content: "–––";
+	padding: 10px; 
+}
+.best .input-group {
+	margin: 0 50px;
+	padding: 10px;
+}
+
+.best input {
+	padding: 22px 10px 22px 10px;
+}
+
+.best .btn {
+	padding: 12px 10px 10px 10px;
+	margin-top: 150px;
+}
+
+.main-nav .glyphicon {
+	font-size: 25px;
+	color: #abab9f;
+	padding: 0;
+}
+.main-nav .btn-circle {
+	border: 3px solid #abab9f;
+	width: 45px;
+	height: 45px;
+	text-align: center;
+	padding: 7px 0;
+	font-size: 12px;
+	border-radius: 50%;
+	margin: 20px 5px 20px 40px;
+}
+
+.main-nav {
+	border-radius: 0 0 5px 5px;
+}
+
+.main-nav .col-md-4 {
+	border-bottom: none;
+}
+.main-nav .col-md-4:first-child {
+	border-left: none;
+}
+.main-nav .col-md-4:last-child {
+	border-right: none;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 0px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+	height: 100%;
+	min-height: 450px;
+	padding: 0;
+	float: right;
+	width: 50%;
+}
+
+.carousel-indicators li {
+	width: 20px;
+	height: 20px;
+	background-color: rgba(0, 0, 0, .1);
+	border: 1px solid #aeafa0;
+}
+
+.carousel-indicators .active {
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	background-color: #71af42;
+}
+
+.carousel-indicators {
+	left: 25%;
+}
+
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 450px;
+  width: 100%;
+}
+
+.carousel-caption {
+	float: left;
+	margin-right: 50%;
+	top: 30px;
+	text-align: left;
+}
+
+.carousel-caption h3 {
+	color: #ec4720; 
+	text-transform: uppercase;
+}
+
+.carousel-caption h1 {
+	color: #aa0000;  /*color de las letras del titulo antes #ec4720*/
+	font-size: 30pt;
+	text-transform: uppercase;
+}
+
+.carousel-caption p {
+	color: #000;
+	font-size: 12pt;
+	font-weight: 100;
+}
+
+@media screen and (min-width: 768px) {
+	.carousel-caption {
+		right: 5%;
+		left: 10%;
+		padding-bottom: 30px;		
+	}
+}
+</style>
+
+<script>
+	window.onload=function (){$('.carousel .vertical .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  for (var i=1;i<2;i++) {
+    next=next.next();
+    if (!next.length) {
+    	next = $(this).siblings(':first');
+  	}
+    
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});}
+</script>

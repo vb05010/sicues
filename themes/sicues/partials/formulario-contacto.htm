@@ -1,0 +1,90 @@
+description = "Formulario principla de contacto del SIC-UES"
+
+[viewBag]
+==
+<div class="jumbotron jumbotron-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h20">
+                    Contáctanos <small>Secretaría de Investigación</small></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Nombre</label>
+                            <input type="text" class="form-control" id="name" placeholder="Escribir nombre" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Correo Electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" id="email" placeholder="Correo electrónico" required="required" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Dirigido a:</label>
+                            <select id="subject" name="subject" class="form-control" required="required">
+                                <option value="na" selected="">Selecione</option>
+                                <option value="service">Secretaría de Investigación SIC-UES</option>
+                                <option value="suggestions">Consejo de Investigación CIC-UES</option>
+                                <option value="product">Administración Financiera</option>
+                                <option value="product">OTRIVE</option>
+                                <option value="product">Recursos Humanos</option>
+                                <option value="product">Enlace y Promoción de la Investigación EPI</option>
+                                <option value="product">Informática</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Mensaje</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Mensaje"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Enviar Mensaje</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Generalidades</legend>
+            <p align="justify">La Universidad de El Salvador (UES) única Universidad Estatal del País, impulsa a través del consejo de Investigaciones Científicas (CIC_UES), mediante la Política de Investigación Científica y Tecnológica, el desarrollo de las Investigaciones en todas las áreas del Conocimiento que propicien la formación de recursos humanos capaces de impactar en el desarrollo científico y tecnológico de avanzada; e investigaciones que incluyan temáticas que respondan a necesidades críticas del País.</p>
+            	<p align="center"><a href="{{'samples/generalidades.htm'|page}}" class="btn btn-primary btn-lg" role="button">Leer más</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+	.jumbotron {
+background: #aa0000;
+color: #FFF;
+border-radius: 0px;
+}
+.jumbotron-sm { padding-top: 24px;
+padding-bottom: 24px; }
+.jumbotron small {
+color: #FFF;
+}
+.h20 small {
+font-size: 24px;
+}
+</style>

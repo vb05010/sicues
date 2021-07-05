@@ -1,0 +1,23 @@
+1625524342a:1:{s:13:"accordion.htm";a:7:{s:8:"fileName";s:13:"accordion.htm";s:7:"content";s:617:"description = "La Investigación Científica UES"
+
+[viewBag]
+==
+<div class="col-sm-6 wow fadeInDown">
+                    <div class="accordion">
+                        <h2>La Investigación Científica UES</h2>
+                        <div class="video-responsive">
+                       <iframe width="300" height="410" src="https://www.youtube.com/embed/videoseries?list=PL09RA5tZK7yoV2oGyUIdI7olM3R37cfuk" frameborder="0" allowfullscreen></iframe>
+                       </div>
+                        
+                        </div><!--/#accordion1-->
+                    </div>
+                </div>";s:5:"mtime";i:1589346715;s:6:"markup";s:553:"<div class="col-sm-6 wow fadeInDown">
+                    <div class="accordion">
+                        <h2>La Investigación Científica UES</h2>
+                        <div class="video-responsive">
+                       <iframe width="300" height="410" src="https://www.youtube.com/embed/videoseries?list=PL09RA5tZK7yoV2oGyUIdI7olM3R37cfuk" frameborder="0" allowfullscreen></iframe>
+                       </div>
+                        
+                        </div><!--/#accordion1-->
+                    </div>
+                </div>";s:4:"code";N;s:11:"description";s:33:"La Investigación Científica UES";s:7:"viewBag";a:0:{}}}

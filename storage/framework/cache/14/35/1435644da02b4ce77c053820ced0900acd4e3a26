@@ -1,0 +1,41 @@
+1625524347a:1:{s:17:"tagsproyectos.htm";a:7:{s:8:"fileName";s:17:"tagsproyectos.htm";s:7:"content";s:2019:"description = "tags por año proyectos aprobados"
+
+[viewBag]
+==
+<div class="widget tags">
+                        <h3><p align="center" class="panel panel-success">PROYECTOS APROBADOS 2002 - 2015</p></h3>
+                        <ul class="tag-cloud">
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2015"| page }}>2015</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2014"| page }}>2014</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2013"| page }}>2013</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2012"| page }}>2012</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2011"| page }}>2011</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2010"| page }}>2010</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2009"| page }}>2009</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2008"| page }}>2008</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2007"| page }}>2007</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2006"| page }}>2006</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2005"| page }}>2005</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2004"| page }}>2004</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2003"| page }}>2003</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2002"| page }}>2002</a></li>
+                        </ul>
+                    </div><!--/.tags-->";s:5:"mtime";i:1502723475;s:6:"markup";s:1955:"<div class="widget tags">
+                        <h3><p align="center" class="panel panel-success">PROYECTOS APROBADOS 2002 - 2015</p></h3>
+                        <ul class="tag-cloud">
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2015"| page }}>2015</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2014"| page }}>2014</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2013"| page }}>2013</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2012"| page }}>2012</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2011"| page }}>2011</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2010"| page }}>2010</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2009"| page }}>2009</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2008"| page }}>2008</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2007"| page }}>2007</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2006"| page }}>2006</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2005"| page }}>2005</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2004"| page }}>2004</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2003"| page }}>2003</a></li>
+                            <li><a class="btn btn-xs btn-primary" href={{"samples/proyectos2002"| page }}>2002</a></li>
+                        </ul>
+                    </div><!--/.tags-->";s:4:"code";N;s:11:"description";s:33:"tags por año proyectos aprobados";s:7:"viewBag";a:0:{}}}

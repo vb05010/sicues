@@ -1,0 +1,61 @@
+1625524347a:1:{s:32:"cronologia-directores-cicues.htm";a:7:{s:8:"fileName";s:32:"cronologia-directores-cicues.htm";s:7:"content";s:1774:"description = "cronología direcotres cic-ues"
+
+[viewBag]
+==
+<div class="widget categories">
+                        <h3><p align="center" class="panel panel-success">Cronología Directores CIC-UES</p></h3>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="single_comments">
+    								<a href="{{'samples/miguel-sermeno'|page}}"><img src="{{ 'assets/images/blog/ingsermeno.png'|theme }}" alt=""></a>
+    								<p> Ing. MSc., José Miguel Sermeño <br> Director Ejecutivo del CIC-UES</p>
+                                    <div class="entry-meta small muted">
+                                        <span>Junio 2016 - Actual</span>
+                                    </div>
+    							</div>
+    							<div class="single_comments">
+    								<img src="{{ 'assets/images/blog/ingportillo.png'|theme }}" alt="">
+    								<p>Ing. Ramon Portillo <br> Director Ejecutivo del CIC-UES </p>
+    								<div class="entry-meta small muted">
+                                       <span>Período 2010 - 2015</span>
+                                    </div>
+    							</div>
+    							<div class="single_comments">
+    								<a href="{{'samples/erlinda-handal'|page}}"><img src="{{ 'assets/images/blog/erlinda.png'|theme }}" alt=""></a>
+    								<p>Dra. Erlinda Hándal Vega <br>Directora Ejecutiva del CIC-UES </p>
+    								<div class="entry-meta small muted">
+                                        <span>Período 2001 - 2009</span>
+                                    </div>
+    							</div>
+    							
+                            </div>
+                        </div>                     
+                    </div><!--/.recent comments-->";s:5:"mtime";i:1500330114;s:6:"markup";s:1713:"<div class="widget categories">
+                        <h3><p align="center" class="panel panel-success">Cronología Directores CIC-UES</p></h3>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="single_comments">
+    								<a href="{{'samples/miguel-sermeno'|page}}"><img src="{{ 'assets/images/blog/ingsermeno.png'|theme }}" alt=""></a>
+    								<p> Ing. MSc., José Miguel Sermeño <br> Director Ejecutivo del CIC-UES</p>
+                                    <div class="entry-meta small muted">
+                                        <span>Junio 2016 - Actual</span>
+                                    </div>
+    							</div>
+    							<div class="single_comments">
+    								<img src="{{ 'assets/images/blog/ingportillo.png'|theme }}" alt="">
+    								<p>Ing. Ramon Portillo <br> Director Ejecutivo del CIC-UES </p>
+    								<div class="entry-meta small muted">
+                                       <span>Período 2010 - 2015</span>
+                                    </div>
+    							</div>
+    							<div class="single_comments">
+    								<a href="{{'samples/erlinda-handal'|page}}"><img src="{{ 'assets/images/blog/erlinda.png'|theme }}" alt=""></a>
+    								<p>Dra. Erlinda Hándal Vega <br>Directora Ejecutiva del CIC-UES </p>
+    								<div class="entry-meta small muted">
+                                        <span>Período 2001 - 2009</span>
+                                    </div>
+    							</div>
+    							
+                            </div>
+                        </div>                     
+                    </div><!--/.recent comments-->";s:4:"code";N;s:11:"description";s:30:"cronología direcotres cic-ues";s:7:"viewBag";a:0:{}}}

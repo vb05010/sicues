@@ -1,0 +1,82 @@
+title = "Inversion Proyectos"
+url = "/inversion-proyectos"
+layout = "default"
+description = "Inversion de los proyectos inscritos en la Secretaría de Investigaciones Científicas SIC-UES en el periodo 2002 - 2003"
+meta_title = "Inversión proyectos"
+meta_description = "Inversion de los proyectos de investigación inscritos en la Secretaría de Investigaciones Científicas SIC-UES en el periodo 2002 - 2003"
+is_hidden = 0
+==
+<section id="blog" class="container">
+        <div class="center">
+            <h2>CIC-UES</h2>
+            <p class="lead">Inversión Proyectos</p>
+        </div>
+
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-8">
+
+   <script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:{
+			text: "Presupuesto ejecutado por área del conocimiento 2002 - 2015"
+		},
+		exportFileName: "Pie Chart",
+		exportEnabled: true,
+        animationEnabled: true,
+		legend:{
+			verticalAlign: "bottom",
+			horizontalAlign: "center"
+		
+		},
+	
+		legend: {
+		fontSize: 18
+	},
+	
+		data: [
+		{       
+			type: "pie",
+			showInLegend: true,
+			toolTipContent: "{name}: <strong>{y}%</strong>",
+			indexLabel: "{name} {y}%",
+			indexLabelFontSize: 15,
+			dataPoints: [
+				{  y: 38, name: "Ciencias Exactas", exploded: true},
+				{  y: 22, name: "Ciencias de la Salud"},
+				{  y: 9, name: "Ciencias Agrìcolas"},
+				{  y: 8, name: "Ciencias Sociales"},
+				{  y: 12,  name: "Ingeniería y Tecnología"},
+				{  y: 11,  name: "Humanidades"}
+			]
+	}
+	]
+	});
+	chart.render();
+}
+</script>
+	<script type="text/javascript" src="{{'/assets/js/canvasjs.min.js'|theme}}"></script>
+	<div id="chartContainer" style="height: 500px; width: 100%;"></div>
+
+
+          </div><!--/.col-md-8-->
+            <aside class="col-md-4">
+                     <!--<div class="widget search">-->
+                        <!--<form role="form">-->
+                                <!--<input type="text" class="form-control search_box" autocomplete="off" placeholder="Buscar Aquí">-->
+                        <!--</form>-->
+                    <!--</div>--><!--/.search-->
+          
+        <div class="widget archieve">
+                        {%partial 'producion-cientifica'%}       
+                    </div><!--/.producción científica-->
+    				
+                </aside>     
+
+            </div><!--/.row-->
+
+         </div><!--/.blog-->
+
+    </section><!--/#blog-->

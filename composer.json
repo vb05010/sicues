@@ -1,0 +1,5 @@
+{
+    "require": {
+        "october/rain": "^1.0"
+    }
+}

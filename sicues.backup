@@ -1,0 +1,2458 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: backend_access_log; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE backend_access_log (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    ip_address character varying(255),
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE backend_access_log OWNER TO sicues;
+
+--
+-- Name: backend_access_log_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE backend_access_log_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE backend_access_log_id_seq OWNER TO sicues;
+
+--
+-- Name: backend_access_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE backend_access_log_id_seq OWNED BY backend_access_log.id;
+
+
+--
+-- Name: backend_user_groups; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE backend_user_groups (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    permissions text,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone,
+    code character varying(255),
+    description text,
+    is_new_user_default boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE backend_user_groups OWNER TO sicues;
+
+--
+-- Name: backend_user_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE backend_user_groups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE backend_user_groups_id_seq OWNER TO sicues;
+
+--
+-- Name: backend_user_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE backend_user_groups_id_seq OWNED BY backend_user_groups.id;
+
+
+--
+-- Name: backend_user_preferences; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE backend_user_preferences (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    namespace character varying(100) NOT NULL,
+    "group" character varying(50) NOT NULL,
+    item character varying(150) NOT NULL,
+    value text
+);
+
+
+ALTER TABLE backend_user_preferences OWNER TO sicues;
+
+--
+-- Name: backend_user_preferences_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE backend_user_preferences_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE backend_user_preferences_id_seq OWNER TO sicues;
+
+--
+-- Name: backend_user_preferences_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE backend_user_preferences_id_seq OWNED BY backend_user_preferences.id;
+
+
+--
+-- Name: backend_user_throttle; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE backend_user_throttle (
+    id integer NOT NULL,
+    user_id integer,
+    ip_address character varying(255),
+    attempts integer DEFAULT 0 NOT NULL,
+    last_attempt_at timestamp(0) without time zone,
+    is_suspended boolean DEFAULT false NOT NULL,
+    suspended_at timestamp(0) without time zone,
+    is_banned boolean DEFAULT false NOT NULL,
+    banned_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE backend_user_throttle OWNER TO sicues;
+
+--
+-- Name: backend_user_throttle_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE backend_user_throttle_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE backend_user_throttle_id_seq OWNER TO sicues;
+
+--
+-- Name: backend_user_throttle_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE backend_user_throttle_id_seq OWNED BY backend_user_throttle.id;
+
+
+--
+-- Name: backend_users; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE backend_users (
+    id integer NOT NULL,
+    first_name character varying(255),
+    last_name character varying(255),
+    login character varying(255) NOT NULL,
+    email character varying(255) NOT NULL,
+    password character varying(255) NOT NULL,
+    activation_code character varying(255),
+    persist_code character varying(255),
+    reset_password_code character varying(255),
+    permissions text,
+    is_activated boolean DEFAULT false NOT NULL,
+    activated_at timestamp(0) without time zone,
+    last_login timestamp(0) without time zone,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone,
+    is_superuser boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE backend_users OWNER TO sicues;
+
+--
+-- Name: backend_users_groups; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE backend_users_groups (
+    user_id integer NOT NULL,
+    user_group_id integer NOT NULL
+);
+
+
+ALTER TABLE backend_users_groups OWNER TO sicues;
+
+--
+-- Name: backend_users_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE backend_users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE backend_users_id_seq OWNER TO sicues;
+
+--
+-- Name: backend_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE backend_users_id_seq OWNED BY backend_users.id;
+
+
+--
+-- Name: cache; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE cache (
+    key character varying(255) NOT NULL,
+    value text NOT NULL,
+    expiration integer NOT NULL
+);
+
+
+ALTER TABLE cache OWNER TO sicues;
+
+--
+-- Name: cms_theme_data; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE cms_theme_data (
+    id integer NOT NULL,
+    theme character varying(255),
+    data text,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE cms_theme_data OWNER TO sicues;
+
+--
+-- Name: cms_theme_data_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE cms_theme_data_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE cms_theme_data_id_seq OWNER TO sicues;
+
+--
+-- Name: cms_theme_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE cms_theme_data_id_seq OWNED BY cms_theme_data.id;
+
+
+--
+-- Name: deferred_bindings; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE deferred_bindings (
+    id integer NOT NULL,
+    master_type character varying(255) NOT NULL,
+    master_field character varying(255) NOT NULL,
+    slave_type character varying(255) NOT NULL,
+    slave_id character varying(255) NOT NULL,
+    session_key character varying(255) NOT NULL,
+    is_bind boolean DEFAULT true NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE deferred_bindings OWNER TO sicues;
+
+--
+-- Name: deferred_bindings_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE deferred_bindings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE deferred_bindings_id_seq OWNER TO sicues;
+
+--
+-- Name: deferred_bindings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE deferred_bindings_id_seq OWNED BY deferred_bindings.id;
+
+
+--
+-- Name: failed_jobs; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE failed_jobs (
+    id integer NOT NULL,
+    connection text NOT NULL,
+    queue text NOT NULL,
+    payload text NOT NULL,
+    failed_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE failed_jobs OWNER TO sicues;
+
+--
+-- Name: failed_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE failed_jobs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE failed_jobs_id_seq OWNER TO sicues;
+
+--
+-- Name: failed_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE failed_jobs_id_seq OWNED BY failed_jobs.id;
+
+
+--
+-- Name: jobs; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE jobs (
+    id bigint NOT NULL,
+    queue character varying(255) NOT NULL,
+    payload text NOT NULL,
+    attempts smallint NOT NULL,
+    reserved smallint NOT NULL,
+    reserved_at integer,
+    available_at integer NOT NULL,
+    created_at integer NOT NULL
+);
+
+
+ALTER TABLE jobs OWNER TO sicues;
+
+--
+-- Name: jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE jobs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE jobs_id_seq OWNER TO sicues;
+
+--
+-- Name: jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE jobs_id_seq OWNED BY jobs.id;
+
+
+--
+-- Name: migrations; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE migrations (
+    migration character varying(255) NOT NULL,
+    batch integer NOT NULL
+);
+
+
+ALTER TABLE migrations OWNER TO sicues;
+
+--
+-- Name: rainlab_blog_categories; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE rainlab_blog_categories (
+    id integer NOT NULL,
+    name character varying(255),
+    slug character varying(255),
+    code character varying(255),
+    description text,
+    parent_id integer,
+    nest_left integer,
+    nest_right integer,
+    nest_depth integer,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE rainlab_blog_categories OWNER TO sicues;
+
+--
+-- Name: rainlab_blog_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE rainlab_blog_categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rainlab_blog_categories_id_seq OWNER TO sicues;
+
+--
+-- Name: rainlab_blog_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE rainlab_blog_categories_id_seq OWNED BY rainlab_blog_categories.id;
+
+
+--
+-- Name: rainlab_blog_posts; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE rainlab_blog_posts (
+    id integer NOT NULL,
+    user_id integer,
+    title character varying(255),
+    slug character varying(255) NOT NULL,
+    excerpt text,
+    content text,
+    content_html text,
+    published_at timestamp(0) without time zone,
+    published boolean DEFAULT false NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE rainlab_blog_posts OWNER TO sicues;
+
+--
+-- Name: rainlab_blog_posts_categories; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE rainlab_blog_posts_categories (
+    post_id integer NOT NULL,
+    category_id integer NOT NULL
+);
+
+
+ALTER TABLE rainlab_blog_posts_categories OWNER TO sicues;
+
+--
+-- Name: rainlab_blog_posts_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE rainlab_blog_posts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rainlab_blog_posts_id_seq OWNER TO sicues;
+
+--
+-- Name: rainlab_blog_posts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE rainlab_blog_posts_id_seq OWNED BY rainlab_blog_posts.id;
+
+
+--
+-- Name: rainlab_user_mail_blockers; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE rainlab_user_mail_blockers (
+    id integer NOT NULL,
+    email character varying(255),
+    template character varying(255),
+    user_id integer,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE rainlab_user_mail_blockers OWNER TO sicues;
+
+--
+-- Name: rainlab_user_mail_blockers_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE rainlab_user_mail_blockers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE rainlab_user_mail_blockers_id_seq OWNER TO sicues;
+
+--
+-- Name: rainlab_user_mail_blockers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE rainlab_user_mail_blockers_id_seq OWNED BY rainlab_user_mail_blockers.id;
+
+
+--
+-- Name: sessions; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE sessions (
+    id character varying(255) NOT NULL,
+    payload text,
+    last_activity integer
+);
+
+
+ALTER TABLE sessions OWNER TO sicues;
+
+--
+-- Name: system_event_logs; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_event_logs (
+    id integer NOT NULL,
+    level character varying(255),
+    message text,
+    details text,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE system_event_logs OWNER TO sicues;
+
+--
+-- Name: system_event_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_event_logs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_event_logs_id_seq OWNER TO sicues;
+
+--
+-- Name: system_event_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_event_logs_id_seq OWNED BY system_event_logs.id;
+
+
+--
+-- Name: system_files; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_files (
+    id integer NOT NULL,
+    disk_name character varying(255) NOT NULL,
+    file_name character varying(255) NOT NULL,
+    file_size integer NOT NULL,
+    content_type character varying(255) NOT NULL,
+    title character varying(255),
+    description text,
+    field character varying(255),
+    attachment_id character varying(255),
+    attachment_type character varying(255),
+    is_public boolean DEFAULT true NOT NULL,
+    sort_order integer,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE system_files OWNER TO sicues;
+
+--
+-- Name: system_files_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_files_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_files_id_seq OWNER TO sicues;
+
+--
+-- Name: system_files_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_files_id_seq OWNED BY system_files.id;
+
+
+--
+-- Name: system_mail_layouts; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_mail_layouts (
+    id integer NOT NULL,
+    name character varying(255),
+    code character varying(255),
+    content_html text,
+    content_text text,
+    content_css text,
+    is_locked boolean DEFAULT false NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE system_mail_layouts OWNER TO sicues;
+
+--
+-- Name: system_mail_layouts_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_mail_layouts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_mail_layouts_id_seq OWNER TO sicues;
+
+--
+-- Name: system_mail_layouts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_mail_layouts_id_seq OWNED BY system_mail_layouts.id;
+
+
+--
+-- Name: system_mail_templates; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_mail_templates (
+    id integer NOT NULL,
+    code character varying(255),
+    subject character varying(255),
+    description text,
+    content_html text,
+    content_text text,
+    layout_id integer,
+    is_custom boolean DEFAULT false NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE system_mail_templates OWNER TO sicues;
+
+--
+-- Name: system_mail_templates_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_mail_templates_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_mail_templates_id_seq OWNER TO sicues;
+
+--
+-- Name: system_mail_templates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_mail_templates_id_seq OWNED BY system_mail_templates.id;
+
+
+--
+-- Name: system_parameters; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_parameters (
+    id integer NOT NULL,
+    namespace character varying(100) NOT NULL,
+    "group" character varying(50) NOT NULL,
+    item character varying(150) NOT NULL,
+    value text
+);
+
+
+ALTER TABLE system_parameters OWNER TO sicues;
+
+--
+-- Name: system_parameters_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_parameters_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_parameters_id_seq OWNER TO sicues;
+
+--
+-- Name: system_parameters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_parameters_id_seq OWNED BY system_parameters.id;
+
+
+--
+-- Name: system_plugin_history; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_plugin_history (
+    id integer NOT NULL,
+    code character varying(255) NOT NULL,
+    type character varying(20) NOT NULL,
+    version character varying(50) NOT NULL,
+    detail text,
+    created_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE system_plugin_history OWNER TO sicues;
+
+--
+-- Name: system_plugin_history_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_plugin_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_plugin_history_id_seq OWNER TO sicues;
+
+--
+-- Name: system_plugin_history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_plugin_history_id_seq OWNED BY system_plugin_history.id;
+
+
+--
+-- Name: system_plugin_versions; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_plugin_versions (
+    id integer NOT NULL,
+    code character varying(255) NOT NULL,
+    version character varying(50) NOT NULL,
+    created_at timestamp(0) without time zone,
+    is_disabled boolean DEFAULT false NOT NULL,
+    is_frozen boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE system_plugin_versions OWNER TO sicues;
+
+--
+-- Name: system_plugin_versions_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_plugin_versions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_plugin_versions_id_seq OWNER TO sicues;
+
+--
+-- Name: system_plugin_versions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_plugin_versions_id_seq OWNED BY system_plugin_versions.id;
+
+
+--
+-- Name: system_request_logs; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_request_logs (
+    id integer NOT NULL,
+    status_code integer,
+    url character varying(255),
+    referer text,
+    count integer DEFAULT 0 NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE system_request_logs OWNER TO sicues;
+
+--
+-- Name: system_request_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_request_logs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_request_logs_id_seq OWNER TO sicues;
+
+--
+-- Name: system_request_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_request_logs_id_seq OWNED BY system_request_logs.id;
+
+
+--
+-- Name: system_revisions; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_revisions (
+    id integer NOT NULL,
+    user_id integer,
+    field character varying(255),
+    "cast" character varying(255),
+    old_value text,
+    new_value text,
+    revisionable_type character varying(255) NOT NULL,
+    revisionable_id integer NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE system_revisions OWNER TO sicues;
+
+--
+-- Name: system_revisions_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_revisions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_revisions_id_seq OWNER TO sicues;
+
+--
+-- Name: system_revisions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_revisions_id_seq OWNED BY system_revisions.id;
+
+
+--
+-- Name: system_settings; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE system_settings (
+    id integer NOT NULL,
+    item character varying(255),
+    value text
+);
+
+
+ALTER TABLE system_settings OWNER TO sicues;
+
+--
+-- Name: system_settings_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE system_settings_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE system_settings_id_seq OWNER TO sicues;
+
+--
+-- Name: system_settings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE system_settings_id_seq OWNED BY system_settings.id;
+
+
+--
+-- Name: user_groups; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE user_groups (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    code character varying(255),
+    description text,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE user_groups OWNER TO sicues;
+
+--
+-- Name: user_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE user_groups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE user_groups_id_seq OWNER TO sicues;
+
+--
+-- Name: user_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE user_groups_id_seq OWNED BY user_groups.id;
+
+
+--
+-- Name: user_throttle; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE user_throttle (
+    id integer NOT NULL,
+    user_id integer,
+    ip_address character varying(255),
+    attempts integer DEFAULT 0 NOT NULL,
+    last_attempt_at timestamp(0) without time zone,
+    is_suspended boolean DEFAULT false NOT NULL,
+    suspended_at timestamp(0) without time zone,
+    is_banned boolean DEFAULT false NOT NULL,
+    banned_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE user_throttle OWNER TO sicues;
+
+--
+-- Name: user_throttle_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE user_throttle_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE user_throttle_id_seq OWNER TO sicues;
+
+--
+-- Name: user_throttle_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE user_throttle_id_seq OWNED BY user_throttle.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    name character varying(255),
+    email character varying(255) NOT NULL,
+    password character varying(255) NOT NULL,
+    activation_code character varying(255),
+    persist_code character varying(255),
+    reset_password_code character varying(255),
+    permissions text,
+    is_activated boolean DEFAULT false NOT NULL,
+    activated_at timestamp(0) without time zone,
+    last_login timestamp(0) without time zone,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone,
+    username character varying(255),
+    surname character varying(255),
+    deleted_at timestamp(0) without time zone,
+    last_seen timestamp(0) without time zone,
+    is_guest boolean DEFAULT false NOT NULL,
+    is_superuser boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE users OWNER TO sicues;
+
+--
+-- Name: users_groups; Type: TABLE; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE TABLE users_groups (
+    user_id integer NOT NULL,
+    user_group_id integer NOT NULL
+);
+
+
+ALTER TABLE users_groups OWNER TO sicues;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: sicues
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO sicues;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: sicues
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY backend_access_log ALTER COLUMN id SET DEFAULT nextval('backend_access_log_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY backend_user_groups ALTER COLUMN id SET DEFAULT nextval('backend_user_groups_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY backend_user_preferences ALTER COLUMN id SET DEFAULT nextval('backend_user_preferences_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY backend_user_throttle ALTER COLUMN id SET DEFAULT nextval('backend_user_throttle_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY backend_users ALTER COLUMN id SET DEFAULT nextval('backend_users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY cms_theme_data ALTER COLUMN id SET DEFAULT nextval('cms_theme_data_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY deferred_bindings ALTER COLUMN id SET DEFAULT nextval('deferred_bindings_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY failed_jobs ALTER COLUMN id SET DEFAULT nextval('failed_jobs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY jobs ALTER COLUMN id SET DEFAULT nextval('jobs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY rainlab_blog_categories ALTER COLUMN id SET DEFAULT nextval('rainlab_blog_categories_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY rainlab_blog_posts ALTER COLUMN id SET DEFAULT nextval('rainlab_blog_posts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY rainlab_user_mail_blockers ALTER COLUMN id SET DEFAULT nextval('rainlab_user_mail_blockers_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_event_logs ALTER COLUMN id SET DEFAULT nextval('system_event_logs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_files ALTER COLUMN id SET DEFAULT nextval('system_files_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_mail_layouts ALTER COLUMN id SET DEFAULT nextval('system_mail_layouts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_mail_templates ALTER COLUMN id SET DEFAULT nextval('system_mail_templates_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_parameters ALTER COLUMN id SET DEFAULT nextval('system_parameters_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_plugin_history ALTER COLUMN id SET DEFAULT nextval('system_plugin_history_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_plugin_versions ALTER COLUMN id SET DEFAULT nextval('system_plugin_versions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_request_logs ALTER COLUMN id SET DEFAULT nextval('system_request_logs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_revisions ALTER COLUMN id SET DEFAULT nextval('system_revisions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY system_settings ALTER COLUMN id SET DEFAULT nextval('system_settings_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY user_groups ALTER COLUMN id SET DEFAULT nextval('user_groups_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY user_throttle ALTER COLUMN id SET DEFAULT nextval('user_throttle_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: sicues
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: backend_access_log; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY backend_access_log (id, user_id, ip_address, created_at, updated_at) FROM stdin;
+1	1	138.255.154.162	2016-11-03 19:18:36	2016-11-03 19:18:36
+2	1	138.255.154.162	2016-11-03 22:03:42	2016-11-03 22:03:42
+3	1	138.255.154.162	2016-11-04 19:04:40	2016-11-04 19:04:40
+4	1	138.255.154.162	2016-11-04 22:32:34	2016-11-04 22:32:34
+5	1	179.5.103.49	2016-11-08 03:49:43	2016-11-08 03:49:43
+6	1	138.255.154.162	2016-11-08 16:07:15	2016-11-08 16:07:15
+\.
+
+
+--
+-- Name: backend_access_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('backend_access_log_id_seq', 6, true);
+
+
+--
+-- Data for Name: backend_user_groups; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY backend_user_groups (id, name, permissions, created_at, updated_at, code, description, is_new_user_default) FROM stdin;
+1	Owners	\N	2016-10-31 21:47:07	2016-10-31 21:47:07	owners	Default group for website owners.	f
+\.
+
+
+--
+-- Name: backend_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('backend_user_groups_id_seq', 1, true);
+
+
+--
+-- Data for Name: backend_user_preferences; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY backend_user_preferences (id, user_id, namespace, "group", item, value) FROM stdin;
+1	1	backend	backend	preferences	{"locale":"es","fallback_locale":"en","timezone":"America\\/El_Salvador","editor_font_size":"12","editor_word_wrap":"fluid","editor_code_folding":"manual","editor_tab_size":"4","editor_theme":"twilight","editor_show_invisibles":"0","editor_highlight_active_line":"1","editor_use_hard_tabs":"1","editor_show_gutter":"1","editor_auto_closing":"1","editor_autocompletion":"manual","editor_enable_snippets":"1","editor_display_indent_guides":"1","editor_show_print_margin":"1","user_id":"1"}
+\.
+
+
+--
+-- Name: backend_user_preferences_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('backend_user_preferences_id_seq', 1, true);
+
+
+--
+-- Data for Name: backend_user_throttle; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY backend_user_throttle (id, user_id, ip_address, attempts, last_attempt_at, is_suspended, suspended_at, is_banned, banned_at) FROM stdin;
+1	1	138.255.154.162	0	2016-11-03 14:25:45	f	\N	f	\N
+2	1	179.5.103.49	0	\N	f	\N	f	\N
+\.
+
+
+--
+-- Name: backend_user_throttle_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('backend_user_throttle_id_seq', 2, true);
+
+
+--
+-- Data for Name: backend_users; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY backend_users (id, first_name, last_name, login, email, password, activation_code, persist_code, reset_password_code, permissions, is_activated, activated_at, last_login, created_at, updated_at, is_superuser) FROM stdin;
+1	Secretaría de Investigación	SIC-UES	informatica-sic	admin@domain.tld	$2y$10$S31Ooup6jIJATRalJvPWFO7IUc7KV4F9DgPMJtv5sELZQKbu1bBhi	\N	$2y$10$gqbPjoCGAGVVg.ReBTE01.uw/QV1ChMmuYfLafjXH2r83lwzanQ1u	\N		t	\N	2016-11-08 16:07:15	2016-10-31 21:47:07	2016-11-08 16:07:15	t
+\.
+
+
+--
+-- Data for Name: backend_users_groups; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY backend_users_groups (user_id, user_group_id) FROM stdin;
+1	1
+\.
+
+
+--
+-- Name: backend_users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('backend_users_id_seq', 1, true);
+
+
+--
+-- Data for Name: cache; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY cache (key, value, expiration) FROM stdin;
+\.
+
+
+--
+-- Data for Name: cms_theme_data; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY cms_theme_data (id, theme, data, created_at, updated_at) FROM stdin;
+1	jtherczeg-corlate	{"site_name":"Corlate"}	2016-11-03 19:35:27	2016-11-03 19:35:27
+2	sicues	{"site_name":"SIC-UES"}	2016-11-03 19:42:32	2016-11-03 19:43:30
+\.
+
+
+--
+-- Name: cms_theme_data_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('cms_theme_data_id_seq', 2, true);
+
+
+--
+-- Data for Name: deferred_bindings; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY deferred_bindings (id, master_type, master_field, slave_type, slave_id, session_key, is_bind, created_at, updated_at) FROM stdin;
+3	Backend\\Models\\BrandSetting	logo	System\\Models\\File	2	ZBLAP3oja8umHFAkrmPjDA9P5mxwYMEANVMVNji3	f	2016-11-04 05:02:58	2016-11-04 05:02:58
+\.
+
+
+--
+-- Name: deferred_bindings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('deferred_bindings_id_seq', 4, true);
+
+
+--
+-- Data for Name: failed_jobs; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY failed_jobs (id, connection, queue, payload, failed_at) FROM stdin;
+\.
+
+
+--
+-- Name: failed_jobs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('failed_jobs_id_seq', 1, false);
+
+
+--
+-- Data for Name: jobs; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY jobs (id, queue, payload, attempts, reserved, reserved_at, available_at, created_at) FROM stdin;
+\.
+
+
+--
+-- Name: jobs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('jobs_id_seq', 1, false);
+
+
+--
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY migrations (migration, batch) FROM stdin;
+2013_10_01_000001_Db_Deferred_Bindings	1
+2013_10_01_000002_Db_System_Files	1
+2013_10_01_000003_Db_System_Plugin_Versions	1
+2013_10_01_000004_Db_System_Plugin_History	1
+2013_10_01_000005_Db_System_Settings	1
+2013_10_01_000006_Db_System_Parameters	1
+2013_10_01_000007_Db_System_Add_Disabled_Flag	1
+2013_10_01_000008_Db_System_Mail_Templates	1
+2013_10_01_000009_Db_System_Mail_Layouts	1
+2014_10_01_000010_Db_Jobs	1
+2014_10_01_000011_Db_System_Event_Logs	1
+2014_10_01_000012_Db_System_Request_Logs	1
+2014_10_01_000013_Db_System_Sessions	1
+2015_10_01_000014_Db_System_Mail_Layout_Rename	1
+2015_10_01_000015_Db_System_Add_Frozen_Flag	1
+2015_10_01_000016_Db_Cache	1
+2015_10_01_000017_Db_System_Revisions	1
+2015_10_01_000018_Db_FailedJobs	1
+2016_10_01_000019_Db_System_Plugin_History_Detail_Text	1
+2016_10_01_000020_Db_System_Timestamp_Fix	1
+2013_10_01_000001_Db_Backend_Users	2
+2013_10_01_000002_Db_Backend_User_Groups	2
+2013_10_01_000003_Db_Backend_Users_Groups	2
+2013_10_01_000004_Db_Backend_User_Throttle	2
+2014_01_04_000005_Db_Backend_User_Preferences	2
+2014_10_01_000006_Db_Backend_Access_Log	2
+2014_10_01_000007_Db_Backend_Add_Description_Field	2
+2015_10_01_000008_Db_Backend_Add_Superuser_Flag	2
+2016_10_01_000009_Db_Backend_Timestamp_Fix	2
+2014_10_01_000001_Db_Cms_Theme_Data	3
+2016_10_01_000002_Db_Cms_Timestamp_Fix	3
+\.
+
+
+--
+-- Data for Name: rainlab_blog_categories; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY rainlab_blog_categories (id, name, slug, code, description, parent_id, nest_left, nest_right, nest_depth, created_at, updated_at) FROM stdin;
+1	Uncategorized	uncategorized	\N	\N	\N	1	2	0	2016-10-31 21:47:03	2016-10-31 21:47:03
+\.
+
+
+--
+-- Name: rainlab_blog_categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('rainlab_blog_categories_id_seq', 1, true);
+
+
+--
+-- Data for Name: rainlab_blog_posts; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY rainlab_blog_posts (id, user_id, title, slug, excerpt, content, content_html, published_at, published, created_at, updated_at) FROM stdin;
+1	\N	First blog post	first-blog-post	The first ever blog post is here. It might be a good idea to update this post with some more relevant content.	This is your first ever **blog post**! It might be a good idea to update this post with some more relevant content.\n\nYou can edit this content by selecting **Blog** from the administration back-end menu.\n\n*Enjoy the good times!*	<p>This is your first ever <strong>blog post</strong>! It might be a good idea to update this post with some more relevant content.</p>\n<p>You can edit this content by selecting <strong>Blog</strong> from the administration back-end menu.</p>\n<p><em>Enjoy the good times!</em></p>	2016-10-31 21:47:03	t	2016-10-31 21:47:03	2016-10-31 21:47:03
+\.
+
+
+--
+-- Data for Name: rainlab_blog_posts_categories; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY rainlab_blog_posts_categories (post_id, category_id) FROM stdin;
+\.
+
+
+--
+-- Name: rainlab_blog_posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('rainlab_blog_posts_id_seq', 1, true);
+
+
+--
+-- Data for Name: rainlab_user_mail_blockers; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY rainlab_user_mail_blockers (id, email, template, user_id, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: rainlab_user_mail_blockers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('rainlab_user_mail_blockers_id_seq', 1, false);
+
+
+--
+-- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY sessions (id, payload, last_activity) FROM stdin;
+\.
+
+
+--
+-- Data for Name: system_event_logs; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_event_logs (id, level, message, details, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: system_event_logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_event_logs_id_seq', 1, false);
+
+
+--
+-- Data for Name: system_files; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_files (id, disk_name, file_name, file_size, content_type, title, description, field, attachment_id, attachment_type, is_public, sort_order, created_at, updated_at) FROM stdin;
+1	581b8e6a5f018875084411.png	avatarsic.png	23223	image/png	\N	\N	avatar	1	Backend\\Models\\User	t	1	2016-11-03 19:22:18	2016-11-03 19:23:42
+3	581c168b9aad9754656798.png	logo.png	27933	image/png	\N	\N	logo	2	Backend\\Models\\BrandSetting	t	3	2016-11-04 05:03:07	2016-11-04 05:03:12
+\.
+
+
+--
+-- Name: system_files_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_files_id_seq', 3, true);
+
+
+--
+-- Data for Name: system_mail_layouts; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_mail_layouts (id, name, code, content_html, content_text, content_css, is_locked, created_at, updated_at) FROM stdin;
+1	Default	default	<html>\n    <head>\n        <style type="text/css" media="screen">\n            {{ css|raw }}\n        </style>\n    </head>\n    <body>\n        {{ content|raw }}\n    </body>\n</html>	{{ content|raw }}	a, a:hover {\n    text-decoration: none;\n    color: #0862A2;\n    font-weight: bold;\n}\n\ntd, tr, th, table {\n    padding: 0px;\n    margin: 0px;\n}\n\np {\n    margin: 10px 0;\n}	t	2016-10-31 21:47:07	2016-10-31 21:47:07
+2	System	system	<html>\n    <head>\n        <style type="text/css" media="screen">\n            {{ css|raw }}\n        </style>\n    </head>\n    <body>\n        {{ content|raw }}\n        <hr />\n        <p>This is an automatic message. Please do not reply to it.</p>\n    </body>\n</html>	{{ content|raw }}\n\n\n---\nThis is an automatic message. Please do not reply to it.	a, a:hover {\n    text-decoration: none;\n    color: #0862A2;\n    font-weight: bold;\n}\n\ntd, tr, th, table {\n    padding: 0px;\n    margin: 0px;\n}\n\np {\n    margin: 10px 0;\n}	t	2016-10-31 21:47:07	2016-10-31 21:47:07
+\.
+
+
+--
+-- Name: system_mail_layouts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_mail_layouts_id_seq', 2, true);
+
+
+--
+-- Data for Name: system_mail_templates; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_mail_templates (id, code, subject, description, content_html, content_text, layout_id, is_custom, created_at, updated_at) FROM stdin;
+4	rainlab.user::mail.welcome	Tu cuenta ha sido confirmada!	Bienvenido, este correo sera enviado cuando un usuario es activado.	<p>Hello {{- name -}},</p>\r\n\r\n<p>Este mensaje es para informarte que tu cuenta ha sido activada con éxito.</p>	Hello {{- name -}},\r\n\r\nThis is a message to inform you that your account has been activated successfully.	1	t	2016-11-04 02:35:50	2016-11-04 02:37:23
+5	rainlab.user::mail.restore	Solicitud para Restablecer Contraseña	Instrucciones para restablecer la contraseña del usuario	<p>Hello {{ name }},</p>\r\n\r\n<p>Alguien a solicitado una contraseña reset for tu cuenta, if este mensaje no es tuyo, por favor ignora este correo.</p>\r\n\r\n<p>\r\n    Use el siguiente código de activación para restablecer la contraseña:<br />\r\n    {{ code }}\r\n</p>\r\n\r\n<p>\r\n    Tu puedes use el siguiente link:<br />\r\n    <a href="{{ link }}">{{ link }}</a>\r\n</p>\r\n\r\n<hr />\r\n<p>Este mensaje es automatico. por favor do no lo respondas.</p>	Hello {{ name }},\r\n\r\nSomebody has requested a password reset for your account, if this was not you, please ignore this email.\r\n\r\nUse the this activation code to restore your password:\r\n{{ code }}\r\n\r\n\r\nYou can use the following link:\r\n{{ link }}\r\n\r\n\r\n---\r\nThis is an automatic message. Please do not reply to it.	1	t	2016-11-04 02:35:50	2016-11-04 02:38:20
+7	rainlab.user::mail.reactivate	Bienvenido de nuevo! Tu cuenta ha sido reactivada	Notificación de los usuarios quienes reactivan su cuenta	<p>Bienvenido de Nuevo, {{ name }}!</p>\r\n\r\n<p> Este es un mensaje para informarle de que se ha registrado con éxito and su cuenta ha sido reactivada.</p>\r\n en y reactivar su cuenta\r\n<p>Si no solicito esto, le sugerimos cambiar su contraseña antes de desactivar su cuenta de nuevo.</p>	Welcome back, {{ name }}!\r\n\r\nThis is a message to inform you that you have successfully signed in and reactivated your account.\r\n\r\nIf you did not prompt this, we suggest changing your password before deactivating your account again.	1	t	2016-11-04 02:35:50	2016-11-04 02:39:09
+6	rainlab.user::mail.new_user	Un nuevo usuario se ha resgistrado.	Enviado a los administradores cuando un nuevo usuario se une.	<p>Hola {{ name }},</p>\r\n\r\n<p>Un new user se ha registrado. Aquí estan sus detalles:</p>\r\n\r\n<ul>\r\n    <li>ID: {{ id }}</li>\r\n    <li>Name: {{ name }}</li>\r\n    <li>Email: {{ email }}</li>\r\n</ul>	Hello {{ name }},\r\n\r\nA new user has just signed up. Here are there details:\r\n\r\nID: {{ id }}\r\nName: {{ name }}\r\nEmail: {{ email }}	2	t	2016-11-04 02:35:50	2016-11-04 02:40:07
+3	rainlab.user::mail.activate	Confirme su cuenta	Activación de correo electrónico enviado a los nuevos usuarios.	<p>Hola {{ name }},</p>\r\n\r\n<p>Necesitamos verificar que se trata de su dirección de correo electrónico.</p>\r\n\r\n<p>\r\n    Por favor de clic en el link para confirmar su cuenta:<br />\r\n    <a href="{{ link }}">{{ link }}</a>\r\n</p>	Hello {{ name }},\r\n\r\nWe need to verify that this is your email address.\r\n\r\nPlease click the link below to confirm your account:\r\n{{ link }}	1	t	2016-11-04 02:35:50	2016-11-04 02:41:14
+2	backend::mail.restore	Restablecimiento de contraseña	instrucciones para restablecer la contraseña de back-end-y administradores.	<p>Hello {{ name }},</p>\r\n\r\n<p>Alguien ha solicitado una contraseña reset for su cuenta, if no fue usted, por favor, ignora este mensaje.</p>\r\n\r\n<p>\r\n    Tu puedes use el siguiente link para restablecer su contraseña:<br />\r\n    <a href="{{ link }}">{{ link }}</a>\r\n</p>	Hello {{ name }},\r\n\r\nSomebody has requested a password reset for your account, if this was not you, please ignore this email.\r\n\r\nYou can use the following link to restore your password:\r\n{{ link }}	2	t	2016-11-04 02:35:50	2016-11-04 02:42:06
+1	backend::mail.invite	Bienvenido a October CMS	Invitación para los administradores de nueva creación.	<p>Hi {{ name }},</p>\r\n\r\n<p>Una cuenta de usuario ha sido creada for usted.</p>\r\n\r\n<p>\r\n    Usuario: {{ login }}<br />\r\n    Contraseña: {{ password }}\r\n</p>\r\n\r\n<p>Después de iniciar sesión debe cambiar su contraseña haciendo clic en su nombre en la esquina superior derecha de la zona de administración.</p>\r\n\r\n<p>\r\n    Ustede puede use el siguiente link para iniciar sesión:<br />\r\n    <a href="{{ link }}">{{ link }}</a>\r\n</p>	Hi {{ name }},\r\n\r\nA user account has been created for you.\r\n\r\nLogin: {{ login }}\r\n\r\nPassword: {{ password }}\r\n\r\n\r\nAfter signing in you should change your password by clicking your name on the top right corner of the administration area.\r\n\r\nYou can use the following link to sign in:\r\n{{ link }}	2	t	2016-11-04 02:35:50	2016-11-04 02:43:05
+\.
+
+
+--
+-- Name: system_mail_templates_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_mail_templates_id_seq', 7, true);
+
+
+--
+-- Data for Name: system_parameters; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_parameters (id, namespace, "group", item, value) FROM stdin;
+2	system	core	hash	"ca5ef4c35c423dc4e66260030c3f1c64"
+3	system	core	build	"376"
+5	system	theme	history	{"jtherczeg.Corlate":"jtherczeg-corlate"}
+6	cms	theme	active	"jtherczeg-corlate"
+1	system	update	count	0
+4	system	update	retry	1478663397
+\.
+
+
+--
+-- Name: system_parameters_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_parameters_id_seq', 6, true);
+
+
+--
+-- Data for Name: system_plugin_history; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_plugin_history (id, code, type, version, detail, created_at) FROM stdin;
+1	October.Demo	comment	1.0.1	First version of Demo	2016-10-31 21:47:02
+2	RainLab.Blog	script	1.0.1	create_posts_table.php	2016-10-31 21:47:02
+3	RainLab.Blog	script	1.0.1	create_categories_table.php	2016-10-31 21:47:03
+4	RainLab.Blog	script	1.0.1	seed_all_tables.php	2016-10-31 21:47:03
+5	RainLab.Blog	comment	1.0.1	Initialize plugin.	2016-10-31 21:47:03
+6	RainLab.Blog	comment	1.0.2	Added the processed HTML content column to the posts table.	2016-10-31 21:47:03
+7	RainLab.Blog	comment	1.0.3	Category component has been merged with Posts component.	2016-10-31 21:47:03
+8	RainLab.Blog	comment	1.0.4	Improvements to the Posts list management UI.	2016-10-31 21:47:03
+9	RainLab.Blog	comment	1.0.5	Removes the Author column from blog post list.	2016-10-31 21:47:03
+10	RainLab.Blog	comment	1.0.6	Featured images now appear in the Post component.	2016-10-31 21:47:03
+11	RainLab.Blog	comment	1.0.7	Added support for the Static Pages menus.	2016-10-31 21:47:03
+12	RainLab.Blog	comment	1.0.8	Added total posts to category list.	2016-10-31 21:47:03
+13	RainLab.Blog	comment	1.0.9	Added support for the Sitemap plugin.	2016-10-31 21:47:03
+14	RainLab.Blog	comment	1.0.10	Added permission to prevent users from seeing posts they did not create.	2016-10-31 21:47:03
+15	RainLab.Blog	comment	1.0.11	Deprecate "idParam" component property in favour of "slug" property.	2016-10-31 21:47:03
+16	RainLab.Blog	comment	1.0.12	Fixes issue where images cannot be uploaded caused by latest Markdown library.	2016-10-31 21:47:03
+17	RainLab.Blog	comment	1.0.13	Fixes problem with providing pages to Sitemap and Pages plugins.	2016-10-31 21:47:03
+18	RainLab.Blog	comment	1.0.14	Add support for CSRF protection feature added to core.	2016-10-31 21:47:03
+19	RainLab.Blog	comment	1.1.0	Replaced the Post editor with the new core Markdown editor.	2016-10-31 21:47:03
+20	RainLab.Blog	comment	1.1.1	Posts can now be imported and exported.	2016-10-31 21:47:03
+21	RainLab.Blog	comment	1.1.2	Posts are no longer visible if the published date has not passed.	2016-10-31 21:47:03
+22	RainLab.Blog	comment	1.1.3	Added a New Post shortcut button to the blog menu.	2016-10-31 21:47:03
+23	RainLab.Blog	script	1.2.0	categories_add_nested_fields.php	2016-10-31 21:47:03
+24	RainLab.Blog	comment	1.2.0	Categories now support nesting.	2016-10-31 21:47:03
+25	RainLab.Blog	comment	1.2.1	Post slugs now must be unique.	2016-10-31 21:47:03
+26	RainLab.Blog	comment	1.2.2	Fixes issue on new installs.	2016-10-31 21:47:03
+27	RainLab.Blog	comment	1.2.3	Minor user interface update.	2016-10-31 21:47:03
+28	RainLab.Blog	script	1.2.4	update_timestamp_nullable.php	2016-10-31 21:47:03
+29	RainLab.Blog	comment	1.2.4	Database maintenance. Updated all timestamp columns to be nullable.	2016-10-31 21:47:03
+30	RainLab.Blog	comment	1.2.5	Added translation support for blog posts.	2016-10-31 21:47:03
+31	RainLab.Blog	comment	1.2.6	The published field can now supply a time with the date.	2016-10-31 21:47:03
+32	RainLab.Blog	comment	1.2.7	Introduced a new RSS feed component.	2016-10-31 21:47:03
+33	RainLab.Blog	comment	1.2.8	Fixes issue with translated `content_html` attribute on blog posts.	2016-10-31 21:47:03
+34	RainLab.Blog	comment	1.2.9	Added translation support for blog categories.	2016-10-31 21:47:03
+35	RainLab.Blog	comment	1.2.10	Added translation support for post slugs.	2016-10-31 21:47:03
+36	RainLab.Blog	comment	1.2.11	Fixes bug where excerpt is not translated.	2016-10-31 21:47:03
+37	RainLab.Blog	comment	1.2.12	Description field added to category form.	2016-10-31 21:47:03
+38	RainLab.Blog	comment	1.2.13	Improved support for Static Pages menus, added a blog post and all blog posts.	2016-10-31 21:47:03
+39	RainLab.User	script	1.0.1	create_users_table.php	2016-10-31 21:47:04
+40	RainLab.User	script	1.0.1	create_throttle_table.php	2016-10-31 21:47:04
+41	RainLab.User	comment	1.0.1	Initialize plugin.	2016-10-31 21:47:04
+42	RainLab.User	comment	1.0.2	Seed tables.	2016-10-31 21:47:04
+43	RainLab.User	comment	1.0.3	Translated hard-coded text to language strings.	2016-10-31 21:47:04
+44	RainLab.User	comment	1.0.4	Improvements to user-interface for Location manager.	2016-10-31 21:47:04
+45	RainLab.User	comment	1.0.5	Added contact details for users.	2016-10-31 21:47:04
+46	RainLab.User	script	1.0.6	create_mail_blockers_table.php	2016-10-31 21:47:04
+47	RainLab.User	comment	1.0.6	Added Mail Blocker utility so users can block specific mail templates.	2016-10-31 21:47:04
+48	RainLab.User	comment	1.0.7	Add back-end Settings page.	2016-10-31 21:47:04
+49	RainLab.User	comment	1.0.8	Updated the Settings page.	2016-10-31 21:47:04
+50	RainLab.User	comment	1.0.9	Adds new welcome mail message for users and administrators.	2016-10-31 21:47:04
+51	RainLab.User	comment	1.0.10	Adds administrator-only activation mode.	2016-10-31 21:47:04
+52	RainLab.User	script	1.0.11	users_add_login_column.php	2016-10-31 21:47:04
+53	RainLab.User	comment	1.0.11	Users now have an optional login field that defaults to the email field.	2016-10-31 21:47:04
+54	RainLab.User	script	1.0.12	users_rename_login_to_username.php	2016-10-31 21:47:04
+55	RainLab.User	comment	1.0.12	Create a dedicated setting for choosing the login mode.	2016-10-31 21:47:04
+56	RainLab.User	comment	1.0.13	Minor fix to the Account sign in logic.	2016-10-31 21:47:04
+57	RainLab.User	comment	1.0.14	Minor improvements to the code.	2016-10-31 21:47:05
+58	RainLab.User	script	1.0.15	users_add_surname.php	2016-10-31 21:47:05
+59	RainLab.User	comment	1.0.15	Adds last name column to users table (surname).	2016-10-31 21:47:05
+60	RainLab.User	comment	1.0.16	Require permissions for settings page too.	2016-10-31 21:47:05
+61	RainLab.User	comment	1.1.0	!!! Profile fields and Locations have been removed.	2016-10-31 21:47:05
+62	RainLab.User	script	1.1.1	create_user_groups_table.php	2016-10-31 21:47:05
+63	RainLab.User	script	1.1.1	seed_user_groups_table.php	2016-10-31 21:47:05
+64	RainLab.User	comment	1.1.1	Users can now be added to groups.	2016-10-31 21:47:05
+65	RainLab.User	comment	1.1.2	A raw URL can now be passed as the redirect property in the Account component.	2016-10-31 21:47:05
+66	RainLab.User	comment	1.1.3	Adds a super user flag to the users table, reserved for future use.	2016-10-31 21:47:05
+67	RainLab.User	comment	1.1.4	User list can be filtered by the group they belong to.	2016-10-31 21:47:05
+68	RainLab.User	comment	1.1.5	Adds a new permission to hide the User settings menu item.	2016-10-31 21:47:05
+69	RainLab.User	script	1.2.0	users_add_deleted_at.php	2016-10-31 21:47:05
+70	RainLab.User	comment	1.2.0	Users can now deactivate their own accounts.	2016-10-31 21:47:05
+71	RainLab.User	comment	1.2.1	New feature for checking if a user is recently active/online.	2016-10-31 21:47:05
+72	RainLab.User	comment	1.2.2	Add bulk action button to user list.	2016-10-31 21:47:05
+73	RainLab.User	comment	1.2.3	Included some descriptive paragraphs in the Reset Password component markup.	2016-10-31 21:47:05
+74	RainLab.User	comment	1.2.4	Added a checkbox for blocking all mail sent to the user.	2016-10-31 21:47:05
+75	RainLab.User	script	1.2.5	update_timestamp_nullable.php	2016-10-31 21:47:05
+76	RainLab.User	comment	1.2.5	Database maintenance. Updated all timestamp columns to be nullable.	2016-10-31 21:47:05
+77	RainLab.User	script	1.2.6	users_add_last_seen.php	2016-10-31 21:47:05
+78	RainLab.User	comment	1.2.6	Add a dedicated last seen column for users.	2016-10-31 21:47:05
+79	RainLab.User	comment	1.2.7	Minor fix to user timestamp attributes.	2016-10-31 21:47:05
+80	RainLab.User	comment	1.2.8	Add date range filter to users list. Introduced a logout event.	2016-10-31 21:47:05
+81	RainLab.User	comment	1.2.9	Add invitation mail for new accounts created in the back-end.	2016-10-31 21:47:05
+82	RainLab.User	script	1.3.0	users_add_guest_flag.php	2016-10-31 21:47:06
+83	RainLab.User	script	1.3.0	users_add_superuser_flag.php	2016-10-31 21:47:06
+84	RainLab.User	comment	1.3.0	Introduced guest user accounts.	2016-10-31 21:47:06
+85	RainLab.User	comment	1.3.1	User notification variables can now be extended.	2016-10-31 21:47:06
+86	RainLab.User	comment	1.3.2	Minor fix to the Auth::register method.	2016-10-31 21:47:06
+87	RainLab.Pages	comment	1.0.1	Implemented the static pages management and the Static Page component.	2016-10-31 21:47:06
+88	RainLab.Pages	comment	1.0.2	Fixed the page preview URL.	2016-10-31 21:47:06
+89	RainLab.Pages	comment	1.0.3	Implemented menus.	2016-10-31 21:47:06
+90	RainLab.Pages	comment	1.0.4	Implemented the content block management and placeholder support.	2016-10-31 21:47:06
+91	RainLab.Pages	comment	1.0.5	Added support for the Sitemap plugin.	2016-10-31 21:47:06
+92	RainLab.Pages	comment	1.0.6	Minor updates to the internal API.	2016-10-31 21:47:06
+93	RainLab.Pages	comment	1.0.7	Added the Snippets feature.	2016-10-31 21:47:06
+94	RainLab.Pages	comment	1.0.8	Minor improvements to the code.	2016-10-31 21:47:06
+95	RainLab.Pages	comment	1.0.9	Fixes issue where Snippet tab is missing from the Partials form.	2016-10-31 21:47:06
+96	RainLab.Pages	comment	1.0.10	Add translations for various locales.	2016-10-31 21:47:06
+97	RainLab.Pages	comment	1.0.11	Fixes issue where placeholders tabs were missing from Page form.	2016-10-31 21:47:06
+98	RainLab.Pages	comment	1.0.12	Implement Media Manager support.	2016-10-31 21:47:06
+99	RainLab.Pages	script	1.1.0	snippets_rename_viewbag_properties.php	2016-10-31 21:47:06
+100	RainLab.Pages	comment	1.1.0	Adds meta title and description to pages. Adds |staticPage filter.	2016-10-31 21:47:06
+101	RainLab.Pages	comment	1.1.1	Add support for Syntax Fields.	2016-10-31 21:47:06
+102	RainLab.Pages	comment	1.1.2	Static Breadcrumbs component now respects the hide from navigation setting.	2016-10-31 21:47:06
+103	RainLab.Pages	comment	1.1.3	Minor back-end styling fix.	2016-10-31 21:47:06
+104	RainLab.Pages	comment	1.1.4	Minor fix to the StaticPage component API.	2016-10-31 21:47:06
+105	RainLab.Pages	comment	1.1.5	Fixes bug when using syntax fields.	2016-10-31 21:47:06
+106	RainLab.Pages	comment	1.1.6	Minor styling fix to the back-end UI.	2016-10-31 21:47:06
+107	RainLab.Pages	comment	1.1.7	Improved menu item form to include CSS class, open in a new window and hidden flag.	2016-10-31 21:47:06
+108	RainLab.Pages	comment	1.1.8	Improved the output of snippet partials when saved.	2016-10-31 21:47:07
+109	RainLab.Pages	comment	1.1.9	Minor update to snippet inspector internal API.	2016-10-31 21:47:07
+110	RainLab.Pages	comment	1.1.10	Fixes a bug where selecting a layout causes permanent unsaved changes.	2016-10-31 21:47:07
+111	RainLab.Pages	comment	1.1.11	Add support for repeater syntax field.	2016-10-31 21:47:07
+112	RainLab.Pages	comment	1.2.0	Added support for translations, UI updates.	2016-10-31 21:47:07
+113	RainLab.Pages	comment	1.2.1	Use nice titles when listing the content files.	2016-10-31 21:47:07
+114	RainLab.Pages	comment	1.2.2	Minor styling update.	2016-10-31 21:47:07
+115	RainLab.Pages	comment	1.2.3	Snippets can now be moved by dragging them.	2016-10-31 21:47:07
+116	RainLab.Pages	comment	1.2.4	Fixes a bug where the cursor is misplaced when editing text files.	2016-10-31 21:47:07
+117	RainLab.Pages	comment	1.2.5	Fixes a bug where the parent page is lost upon changing a page layout.	2016-10-31 21:47:07
+118	RainLab.Pages	comment	1.2.6	Shared view variables are now passed to static pages.	2016-10-31 21:47:07
+119	RainLab.Pages	comment	1.2.7	Fixes issue with duplicating properties when adding multiple snippets on the same page.	2016-10-31 21:47:07
+120	RainLab.Pages	comment	1.2.8	Fixes a bug where creating a content block without extension doesn't save the contents to file.	2016-10-31 21:47:07
+121	RainLab.Pages	comment	1.2.9	Add conditional support for translating page URLs.	2016-10-31 21:47:07
+122	RainLab.Pages	comment	1.2.10	Streamline generation of URLs to use the new Cms::url helper.	2016-10-31 21:47:07
+\.
+
+
+--
+-- Name: system_plugin_history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_plugin_history_id_seq', 122, true);
+
+
+--
+-- Data for Name: system_plugin_versions; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_plugin_versions (id, code, version, created_at, is_disabled, is_frozen) FROM stdin;
+1	October.Demo	1.0.1	2016-10-31 21:47:02	f	f
+2	RainLab.Blog	1.2.13	2016-10-31 21:47:03	f	f
+3	RainLab.User	1.3.2	2016-10-31 21:47:06	f	f
+4	RainLab.Pages	1.2.10	2016-10-31 21:47:07	f	f
+\.
+
+
+--
+-- Name: system_plugin_versions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_plugin_versions_id_seq', 4, true);
+
+
+--
+-- Data for Name: system_request_logs; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_request_logs (id, status_code, url, referer, count, created_at, updated_at) FROM stdin;
+1	404	http://138.255.154.180/october/install_files/images/leaves.png	["http:\\/\\/138.255.154.180\\/october\\/install_files\\/css\\/vendor.css"]	1	2016-10-31 21:47:08	2016-10-31 21:47:08
+2	404	http://138.255.154.180/october/themes/sicues/assets/js/Chart.js	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 20:42:52	2016-11-03 20:42:52
+3	404	http://138.255.154.180/october/themes/sicues/assets/images/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 21:07:23	2016-11-03 21:07:23
+4	404	http://138.255.154.180/october/themes/sicues/storage/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 21:09:27	2016-11-03 21:09:27
+5	404	http://138.255.154.180/october/themes/sicues/storage/app/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 21:09:50	2016-11-03 21:09:50
+9	404	http://138.255.154.180/october/themes/sicues/http://138.255.154.180/october/storage/app/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 21:13:58	2016-11-03 21:13:58
+10	404	http://138.255.154.180/october/themes/sicues//sicues/storage/app/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 21:26:42	2016-11-03 21:26:42
+11	404	http://138.255.154.180/october/themes/sicues/sicues/storage/app/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 21:26:58	2016-11-03 21:26:58
+12	404	http://138.255.154.180/october/themes/sicues/october/storage/app/media/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 21:31:31	2016-11-03 21:31:31
+13	404	http://138.255.154.180/october/themes/sicues//october/storage/app/media/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	1	2016-11-03 21:32:10	2016-11-03 21:32:10
+6	404	http://138.255.154.180/october/themes/sicues//october/storage/app/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	2	2016-11-03 21:10:27	2016-11-03 21:32:39
+7	404	http://138.255.154.180/october/themes/sicues/october/storage/app/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	2	2016-11-03 21:11:55	2016-11-03 21:32:56
+14	404	http://138.255.154.180/october/sicues	\N	1	2016-11-03 21:57:31	2016-11-03 21:57:31
+8	404	http://138.255.154.180/october/themes/sicues/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/october\\/"]	7	2016-11-03 21:12:11	2016-11-03 22:21:47
+15	404	http://138.255.154.180/sicues/themes/sicues/media/tabs/tab2.png	["http:\\/\\/138.255.154.180\\/sicues\\/"]	2	2016-11-03 22:31:42	2016-11-03 22:34:16
+17	404	http://138.255.154.180/sicues/themes/sicues/assets/images/portfolio/recent/erick.png	["http:\\/\\/138.255.154.180\\/sicues\\/"]	2	2016-11-04 02:18:27	2016-11-04 02:21:26
+20	404	http://138.255.154.180/sicues/themes/sicues/assets/images/portfolio/recent/salvador.png	["http:\\/\\/138.255.154.180\\/sicues\\/"]	2	2016-11-04 02:18:27	2016-11-04 02:21:26
+19	404	http://138.255.154.180/sicues/themes/sicues/assets/images/portfolio/recent/antonio.png	["http:\\/\\/138.255.154.180\\/sicues\\/"]	2	2016-11-04 02:18:27	2016-11-04 02:21:26
+18	404	http://138.255.154.180/sicues/themes/sicues/assets/images/portfolio/recent/julio.png	["http:\\/\\/138.255.154.180\\/sicues\\/"]	2	2016-11-04 02:18:27	2016-11-04 02:21:26
+16	404	http://138.255.154.180/sicues/storage/app/media/UHWB-rolac-san%20salvador-FG.pdf	["http:\\/\\/138.255.154.180\\/sicues\\/eventos"]	6	2016-11-04 01:33:28	2016-11-04 13:58:45
+21	404	http://138.255.154.180/sicues/storage/app/media/eventos	["http:\\/\\/138.255.154.180\\/sicues\\/"]	1	2016-11-08 03:52:28	2016-11-08 03:52:28
+22	404	http://138.255.154.180/sicues/samples/eventos	["http:\\/\\/138.255.154.180\\/sicues\\/"]	2	2016-11-08 03:53:39	2016-11-08 03:55:02
+\.
+
+
+--
+-- Name: system_request_logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_request_logs_id_seq', 22, true);
+
+
+--
+-- Data for Name: system_revisions; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_revisions (id, user_id, field, "cast", old_value, new_value, revisionable_type, revisionable_id, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: system_revisions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_revisions_id_seq', 1, false);
+
+
+--
+-- Data for Name: system_settings; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY system_settings (id, item, value) FROM stdin;
+1	user_settings	{"require_activation":"1","activate_mode":"admin","use_throttle":"1","allow_registration":"1","welcome_template":"rainlab.user::mail.welcome","login_attribute":"email"}
+3	system_mail_settings	{"send_mode":"mail","sender_name":"Secretar\\u00eda de Investigaciones Cient\\u00edficas SIC-UES","sender_email":"sic@ues.edu.sv","sendmail_path":"\\/usr\\/sbin\\/sendmail -bs","smtp_address":"smtp.mailgun.org","smtp_port":"587","smtp_user":"","smtp_password":"","smtp_authorization":"0","smtp_encryption":"tls","mailgun_domain":"","mailgun_secret":"","mandrill_secret":"","ses_key":"","ses_secret":"","ses_region":""}
+2	backend_brand_settings	{"app_name":"OctoberCMS","app_tagline":"Secretar\\u00eda de Investigaciones Cient\\u00edficas","primary_color":"#aa0000","secondary_color":"#e67e22","accent_color":"#3498db","menu_mode":"inline","custom_css":""}
+\.
+
+
+--
+-- Name: system_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('system_settings_id_seq', 3, true);
+
+
+--
+-- Data for Name: user_groups; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY user_groups (id, name, code, description, created_at, updated_at) FROM stdin;
+1	Guest	guest	Default group for guest users.	2016-10-31 21:47:05	2016-10-31 21:47:05
+2	Registered	registered	Default group for registered users.	2016-10-31 21:47:05	2016-10-31 21:47:05
+\.
+
+
+--
+-- Name: user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('user_groups_id_seq', 2, true);
+
+
+--
+-- Data for Name: user_throttle; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY user_throttle (id, user_id, ip_address, attempts, last_attempt_at, is_suspended, suspended_at, is_banned, banned_at) FROM stdin;
+\.
+
+
+--
+-- Name: user_throttle_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('user_throttle_id_seq', 1, false);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY users (id, name, email, password, activation_code, persist_code, reset_password_code, permissions, is_activated, activated_at, last_login, created_at, updated_at, username, surname, deleted_at, last_seen, is_guest, is_superuser) FROM stdin;
+\.
+
+
+--
+-- Data for Name: users_groups; Type: TABLE DATA; Schema: public; Owner: sicues
+--
+
+COPY users_groups (user_id, user_group_id) FROM stdin;
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: sicues
+--
+
+SELECT pg_catalog.setval('users_id_seq', 1, false);
+
+
+--
+-- Name: backend_access_log_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_access_log
+    ADD CONSTRAINT backend_access_log_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: backend_user_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_user_groups
+    ADD CONSTRAINT backend_user_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: backend_user_preferences_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_user_preferences
+    ADD CONSTRAINT backend_user_preferences_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: backend_user_throttle_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_user_throttle
+    ADD CONSTRAINT backend_user_throttle_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: backend_users_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_users_groups
+    ADD CONSTRAINT backend_users_groups_pkey PRIMARY KEY (user_id, user_group_id);
+
+
+--
+-- Name: backend_users_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_users
+    ADD CONSTRAINT backend_users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cache_key_unique; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY cache
+    ADD CONSTRAINT cache_key_unique UNIQUE (key);
+
+
+--
+-- Name: cms_theme_data_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY cms_theme_data
+    ADD CONSTRAINT cms_theme_data_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: deferred_bindings_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY deferred_bindings
+    ADD CONSTRAINT deferred_bindings_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: email_unique; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_users
+    ADD CONSTRAINT email_unique UNIQUE (email);
+
+
+--
+-- Name: failed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY failed_jobs
+    ADD CONSTRAINT failed_jobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY jobs
+    ADD CONSTRAINT jobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: login_unique; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_users
+    ADD CONSTRAINT login_unique UNIQUE (login);
+
+
+--
+-- Name: name_unique; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY backend_user_groups
+    ADD CONSTRAINT name_unique UNIQUE (name);
+
+
+--
+-- Name: rainlab_blog_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY rainlab_blog_categories
+    ADD CONSTRAINT rainlab_blog_categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rainlab_blog_posts_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY rainlab_blog_posts_categories
+    ADD CONSTRAINT rainlab_blog_posts_categories_pkey PRIMARY KEY (post_id, category_id);
+
+
+--
+-- Name: rainlab_blog_posts_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY rainlab_blog_posts
+    ADD CONSTRAINT rainlab_blog_posts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rainlab_user_mail_blockers_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY rainlab_user_mail_blockers
+    ADD CONSTRAINT rainlab_user_mail_blockers_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sessions_id_unique; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY sessions
+    ADD CONSTRAINT sessions_id_unique UNIQUE (id);
+
+
+--
+-- Name: system_event_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_event_logs
+    ADD CONSTRAINT system_event_logs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_files_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_files
+    ADD CONSTRAINT system_files_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_mail_layouts_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_mail_layouts
+    ADD CONSTRAINT system_mail_layouts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_mail_templates_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_mail_templates
+    ADD CONSTRAINT system_mail_templates_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_parameters_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_parameters
+    ADD CONSTRAINT system_parameters_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_plugin_history_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_plugin_history
+    ADD CONSTRAINT system_plugin_history_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_plugin_versions_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_plugin_versions
+    ADD CONSTRAINT system_plugin_versions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_request_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_request_logs
+    ADD CONSTRAINT system_request_logs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_revisions_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_revisions
+    ADD CONSTRAINT system_revisions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: system_settings_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY system_settings
+    ADD CONSTRAINT system_settings_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY user_groups
+    ADD CONSTRAINT user_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user_throttle_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY user_throttle
+    ADD CONSTRAINT user_throttle_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_email_unique; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_email_unique UNIQUE (email);
+
+
+--
+-- Name: users_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY users_groups
+    ADD CONSTRAINT users_groups_pkey PRIMARY KEY (user_id, user_group_id);
+
+
+--
+-- Name: users_login_unique; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_login_unique UNIQUE (username);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: sicues; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: act_code_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX act_code_index ON backend_users USING btree (activation_code);
+
+
+--
+-- Name: backend_user_throttle_ip_address_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX backend_user_throttle_ip_address_index ON backend_user_throttle USING btree (ip_address);
+
+
+--
+-- Name: backend_user_throttle_user_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX backend_user_throttle_user_id_index ON backend_user_throttle USING btree (user_id);
+
+
+--
+-- Name: cms_theme_data_theme_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX cms_theme_data_theme_index ON cms_theme_data USING btree (theme);
+
+
+--
+-- Name: code_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX code_index ON backend_user_groups USING btree (code);
+
+
+--
+-- Name: deferred_bindings_master_field_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX deferred_bindings_master_field_index ON deferred_bindings USING btree (master_field);
+
+
+--
+-- Name: deferred_bindings_master_type_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX deferred_bindings_master_type_index ON deferred_bindings USING btree (master_type);
+
+
+--
+-- Name: deferred_bindings_slave_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX deferred_bindings_slave_id_index ON deferred_bindings USING btree (slave_id);
+
+
+--
+-- Name: deferred_bindings_slave_type_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX deferred_bindings_slave_type_index ON deferred_bindings USING btree (slave_type);
+
+
+--
+-- Name: item_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX item_index ON system_parameters USING btree (namespace, "group", item);
+
+
+--
+-- Name: rainlab_blog_categories_parent_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX rainlab_blog_categories_parent_id_index ON rainlab_blog_categories USING btree (parent_id);
+
+
+--
+-- Name: rainlab_blog_categories_slug_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX rainlab_blog_categories_slug_index ON rainlab_blog_categories USING btree (slug);
+
+
+--
+-- Name: rainlab_blog_posts_slug_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX rainlab_blog_posts_slug_index ON rainlab_blog_posts USING btree (slug);
+
+
+--
+-- Name: rainlab_blog_posts_user_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX rainlab_blog_posts_user_id_index ON rainlab_blog_posts USING btree (user_id);
+
+
+--
+-- Name: rainlab_user_mail_blockers_email_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX rainlab_user_mail_blockers_email_index ON rainlab_user_mail_blockers USING btree (email);
+
+
+--
+-- Name: rainlab_user_mail_blockers_template_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX rainlab_user_mail_blockers_template_index ON rainlab_user_mail_blockers USING btree (template);
+
+
+--
+-- Name: rainlab_user_mail_blockers_user_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX rainlab_user_mail_blockers_user_id_index ON rainlab_user_mail_blockers USING btree (user_id);
+
+
+--
+-- Name: reset_code_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX reset_code_index ON backend_users USING btree (reset_password_code);
+
+
+--
+-- Name: system_event_logs_level_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_event_logs_level_index ON system_event_logs USING btree (level);
+
+
+--
+-- Name: system_files_attachment_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_files_attachment_id_index ON system_files USING btree (attachment_id);
+
+
+--
+-- Name: system_files_attachment_type_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_files_attachment_type_index ON system_files USING btree (attachment_type);
+
+
+--
+-- Name: system_files_field_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_files_field_index ON system_files USING btree (field);
+
+
+--
+-- Name: system_mail_templates_layout_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_mail_templates_layout_id_index ON system_mail_templates USING btree (layout_id);
+
+
+--
+-- Name: system_plugin_history_code_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_plugin_history_code_index ON system_plugin_history USING btree (code);
+
+
+--
+-- Name: system_plugin_history_type_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_plugin_history_type_index ON system_plugin_history USING btree (type);
+
+
+--
+-- Name: system_plugin_versions_code_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_plugin_versions_code_index ON system_plugin_versions USING btree (code);
+
+
+--
+-- Name: system_revisions_field_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_revisions_field_index ON system_revisions USING btree (field);
+
+
+--
+-- Name: system_revisions_revisionable_id_revisionable_type_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_revisions_revisionable_id_revisionable_type_index ON system_revisions USING btree (revisionable_id, revisionable_type);
+
+
+--
+-- Name: system_revisions_user_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_revisions_user_id_index ON system_revisions USING btree (user_id);
+
+
+--
+-- Name: system_settings_item_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX system_settings_item_index ON system_settings USING btree (item);
+
+
+--
+-- Name: user_groups_code_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX user_groups_code_index ON user_groups USING btree (code);
+
+
+--
+-- Name: user_item_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX user_item_index ON backend_user_preferences USING btree (user_id, namespace, "group", item);
+
+
+--
+-- Name: user_throttle_ip_address_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX user_throttle_ip_address_index ON user_throttle USING btree (ip_address);
+
+
+--
+-- Name: user_throttle_user_id_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX user_throttle_user_id_index ON user_throttle USING btree (user_id);
+
+
+--
+-- Name: users_activation_code_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX users_activation_code_index ON users USING btree (activation_code);
+
+
+--
+-- Name: users_login_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX users_login_index ON users USING btree (username);
+
+
+--
+-- Name: users_reset_password_code_index; Type: INDEX; Schema: public; Owner: sicues; Tablespace: 
+--
+
+CREATE INDEX users_reset_password_code_index ON users USING btree (reset_password_code);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

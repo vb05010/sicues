@@ -1,0 +1,2 @@
+{% set icon = __SELF__.icon() %}
+{{ __SELF__.text()|replace({ ':icon': '<i class="' ~ icon ~ '" alt="' ~ icon.name ~ '"></i>' })|raw }}

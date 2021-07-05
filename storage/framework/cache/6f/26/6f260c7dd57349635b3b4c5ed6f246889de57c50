@@ -1,0 +1,353 @@
+1625524342a:1:{s:25:"samples/proyectos2014.htm";a:12:{s:8:"fileName";s:25:"samples/proyectos2014.htm";s:7:"content";s:7631:"title = "proyectos2014"
+url = "/proyectos2014"
+layout = "default"
+description = "Proyectos de investigación aprobados en el año 2014 por la Secretaría de Investigaciones Científicas de la Universidad de El Salvador SIC-UES"
+meta_title = "Proyectos aprobados año 2014"
+meta_description = "Proyectos de investigación aprobados en el año 2014 por la Secretaría de Investigaciones Científicas de la Universidad de El Salvador SIC-UES"
+is_hidden = 0
+==
+<section id="blog" class="container">
+        <div class="center">
+            <h2><i class="fa fa-folder-open" aria-hidden="true"></i>  Documentos SIC-UES.</h2>
+            <p class="lead">"Proyectos Aprobados Año 2014"</p>
+        </div>
+
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-8">
+                  
+<!-- <table class="table table-bordered table-hover results"> -->
+<table id="di" class="display" width="100%" cellspacing="0" data-page-length='5'>
+
+<thead>
+  <tr>
+     <th>N°</br>Registro</th>
+    <th>Nombre del </br>proyecto</th>
+    <th>Investigador</br>principal</th>
+    <th>Facultad/</br>Unidad</th>
+    <th>Área de </br>Conocimiento</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>13.01</td>
+    <td>Identificación de los mamíferos silvestres y domésticos presentes en El Salvador a través de los pelos de guardia”</td>
+    <td>MsD. Virginia Geraldine Ramírez</td>
+    <td>Ciencias Naturales y Matemática, Escuela de Biología.</td>
+    <td>Ciencias Exactas</td>
+  </tr>
+  <tr>
+    <td>13.03</td>
+    <td>Evaluación morfoagronómica de cultivadores de soya (Glicine max) con potencial productivo y resistencia climática en diferentes zonas de El Salvador, como propuesta de diversificación de cultivo en los sistemas de producción de pequeño productor</td>
+    <td>Ing. Agr. M. Sc. Raúl Iraheta Villatoro</td>
+    <td>Ciencias Agronómicas, Departamento de Fitotecnia</td>
+    <td>Ciencias Agrícolas</td>
+  </tr>
+  <tr>
+    <td>13.04</td>
+    <td>Caracterización ecológica y pesquera de tiburones y rayas de la zona costera de El Salvador</td>
+    <td>M.Sc. José Alberto González Leiva</td>
+    <td>Ciencias Naturales y Matemática, Escuela de Biología</td>
+    <td>Ciencias Exactas</td>
+  </tr>
+  <tr>
+    <td>13.05</td>
+    <td>Uso de la consola de videojuego Wii en la rehabilitación de pacientes con daño cerebral causado por Evento Cerebrovascular y Trauma Craneano Encefálico</td>
+    <td>Lic. Leonardo Alfredo Pérez Palacios</td>
+    <td>Medicina carrera de Licenciatura en Fisioterapia y Terapia Ocupacional</td>
+    <td>Ciencias de la Salud</td>
+  </tr>
+  <tr>
+  	<td>13.06</td>
+  	<td>Identificación y cuantificación de Citrato de Sildenafilo en preparados herbolarios medicinales, comercializados en el Municipio de San Salvador, utilizando las técnicas de CCF, RMN y HPLC</td>
+  	<td>Dr. David Francisco Torres Romero</td>
+  	<td>Química y Farmacia, Departamento de Bioquímica y Contaminación Ambiental</td>
+  	<td>Ciencias de la Salud</td>
+  </tr>
+  <tr>
+  	<td>13.07</td>
+  	<td>Rescate, conservación y desarrollo de genotipos de cacao criollo (Theobroma cacao) en El Salvador</td>
+  	<td>Ing. Agr. Omar Antonio Lara Díaz</td>
+  	<td>Ciencias Agronómicas, Estación experimental y de Prácticas</td>
+  	<td>Ciencias Agrícolas</td>
+  </tr>
+  <tr>
+  	<td>13.08</td>
+  	<td>Mapa de Irradiancia solar de El Salvador</td>
+  	<td>Ing. Jorge Alberto Zetino Chicas</td>
+  	<td>Ingeniería y Arquitectura, Escuela de Ingeniería Eléctrica </td>
+  	<td>Ingeniería y Tecnología</td>
+  </tr>
+  <tr>
+  	<td>13.10</td>
+  	<td>Salud Ecológica de los arrecifes de El Salvador ante el cambio climático”</td>
+  	<td>M.Sc. Zoila Virginia Guerrero Mendoza</td>
+  	<td>Facultad de Ciencias Naturales y Matemática, Escuela de Biología</td>
+  	<td>Ciencias Exactas</td>
+  </tr>
+  <tr>
+  	<td>13.11</td>
+  	<td>Determinación de hongos productores de Ocratoxinas del género Aspergillus y de Ocratoxina A en granos de café verde (Coffea arabica L.) procedente de la zona occidental de El Salvador</td>
+  	<td>Dra. Tania Ethel Cuadra Zelaya </td>
+  	<td>Facultad de Química y Farmacia, Departamento de Bioquímica y Microbiología</td>
+  	<td>Ciencias Exactas</td>
+  </tr>
+  <tr>
+  	<td>13.12</td>
+  	<td>Evolución histórica del constitucionalismo salvadoreño y sus desafíos actuales</td>
+  	<td>Dra. Evelyn Beatriz Farfán Mata</td>
+  	<td>Facultad de Jurisprudencia y Ciencias Sociales, Unidad de Investigación.</td>
+  	<td>Ciencias Sociales</td>
+  </tr>
+  <tr>
+  	<td>13.13</td>
+  	<td>Estudio in vitro sobre la influencia de los métodos de postcurado y protocolos de cementación en las fuerzas adhesivas de endocrowns confeccionados con resina composita de uso directo</td>
+  	<td>Dr. Mauricio Eduardo Méndez Renderos</td>
+  	<td>Facultad de Odontología, Centro de investigaciones en el área restaurativa</td>
+  	<td>Ciencias de la Salud</td>
+  </tr>
+  <tr>
+  	<td>13.14</td>
+  	<td>Encuesta de salud bucal en El Salvador 2015</td>
+  	<td>Dr. Guillermo Alfonso Aguirre Escobar</td>
+  	<td>Facultad de Odontología, Centro de investigaciones en el área de epidemiología</td>
+  	<td>Ciencias de la Salud</td>
+  </tr>
+  <tr>
+  	<td>13.15</td>
+  	<td>Optimización del balance de proteína en vacas de doble propósito en ordeño utilizando leguminosas forrajeras tropicales</td>
+  	<td>Ing. Agr. Elmer Edgardo Corea Guillén</td>
+  	<td>Facultad de Ciencias Agronómicas, Departamento de</td>
+  	<td>Ciencias Agrícolas</td>
+  </tr>
+  </tbody>
+</table>
+          </div><!--/.col-md-8-->
+                <aside class="col-md-4">
+                    <!-- <div class="widget search">
+                        <form role="form">
+                                <input type="text" class="form-control search_box" autocomplete="off" placeholder="Buscar Proyectos Aprobados 2014 Aquí">
+                        </form>
+                    </div> --><!--/.search-->
+    				<!--/.producción científica-->
+    				<div class="widget archieve">
+                                {% partial 'menudescargas' %}
+                    </div><!--/.producción científica-->
+    				<!--/.Seminarios científicos-->
+    				<div class="widget tags">
+    					 {% partial 'tagsproyectos' %}
+                    </div><!--/.tags-->	
+                    
+                </aside>     
+
+            </div><!--/.row-->
+
+         </div><!--/.blog-->
+
+    </section><!--/#blog-->
+    
+    
+     {% put scripts %}
+  <script>
+    $(document).ready(function() {
+    $('#di').DataTable({
+    	language:{
+    "decimal":        "",
+    "emptyTable":     "No hay datos disponibles en la tabla",
+    "info":           "Mostrando _START_ de _END_ de _TOTAL_ entradas",
+    "infoEmpty":      "Mostrando 0 to 0 of 0 entradas",
+    "infoFiltered":   "(filtrado de _MAX_ total entradas)",
+    "infoPostFix":    "",
+    "thousands":      ",",
+    "lengthMenu":     "Mostrar _MENU_ entradas",
+    "loadingRecords": "Cargando...",
+    "processing":     "Procesando...",
+    "search":         "Buscar:",
+    "zeroRecords":    "No se encontraron registros coincidentes",
+    "paginate": {
+        "first":      "Primero",
+        "last":       "Último",
+        "next":       "Siguiente",
+        "previous":   "Anterior"
+    },
+    "aria": {
+        "sortAscending":  ": Activar para ordenar la columna ascendente",
+        "sortDescending": ": Activar para ordenar la columna descendente"
+    }
+}
+    });
+} );
+</script>
+{% endput %}";s:5:"mtime";i:1502721931;s:6:"markup";s:7174:"<section id="blog" class="container">
+        <div class="center">
+            <h2><i class="fa fa-folder-open" aria-hidden="true"></i>  Documentos SIC-UES.</h2>
+            <p class="lead">"Proyectos Aprobados Año 2014"</p>
+        </div>
+
+        <div class="blog">
+            <div class="row">
+                <div class="col-md-8">
+                  
+<!-- <table class="table table-bordered table-hover results"> -->
+<table id="di" class="display" width="100%" cellspacing="0" data-page-length='5'>
+
+<thead>
+  <tr>
+     <th>N°</br>Registro</th>
+    <th>Nombre del </br>proyecto</th>
+    <th>Investigador</br>principal</th>
+    <th>Facultad/</br>Unidad</th>
+    <th>Área de </br>Conocimiento</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>13.01</td>
+    <td>Identificación de los mamíferos silvestres y domésticos presentes en El Salvador a través de los pelos de guardia”</td>
+    <td>MsD. Virginia Geraldine Ramírez</td>
+    <td>Ciencias Naturales y Matemática, Escuela de Biología.</td>
+    <td>Ciencias Exactas</td>
+  </tr>
+  <tr>
+    <td>13.03</td>
+    <td>Evaluación morfoagronómica de cultivadores de soya (Glicine max) con potencial productivo y resistencia climática en diferentes zonas de El Salvador, como propuesta de diversificación de cultivo en los sistemas de producción de pequeño productor</td>
+    <td>Ing. Agr. M. Sc. Raúl Iraheta Villatoro</td>
+    <td>Ciencias Agronómicas, Departamento de Fitotecnia</td>
+    <td>Ciencias Agrícolas</td>
+  </tr>
+  <tr>
+    <td>13.04</td>
+    <td>Caracterización ecológica y pesquera de tiburones y rayas de la zona costera de El Salvador</td>
+    <td>M.Sc. José Alberto González Leiva</td>
+    <td>Ciencias Naturales y Matemática, Escuela de Biología</td>
+    <td>Ciencias Exactas</td>
+  </tr>
+  <tr>
+    <td>13.05</td>
+    <td>Uso de la consola de videojuego Wii en la rehabilitación de pacientes con daño cerebral causado por Evento Cerebrovascular y Trauma Craneano Encefálico</td>
+    <td>Lic. Leonardo Alfredo Pérez Palacios</td>
+    <td>Medicina carrera de Licenciatura en Fisioterapia y Terapia Ocupacional</td>
+    <td>Ciencias de la Salud</td>
+  </tr>
+  <tr>
+  	<td>13.06</td>
+  	<td>Identificación y cuantificación de Citrato de Sildenafilo en preparados herbolarios medicinales, comercializados en el Municipio de San Salvador, utilizando las técnicas de CCF, RMN y HPLC</td>
+  	<td>Dr. David Francisco Torres Romero</td>
+  	<td>Química y Farmacia, Departamento de Bioquímica y Contaminación Ambiental</td>
+  	<td>Ciencias de la Salud</td>
+  </tr>
+  <tr>
+  	<td>13.07</td>
+  	<td>Rescate, conservación y desarrollo de genotipos de cacao criollo (Theobroma cacao) en El Salvador</td>
+  	<td>Ing. Agr. Omar Antonio Lara Díaz</td>
+  	<td>Ciencias Agronómicas, Estación experimental y de Prácticas</td>
+  	<td>Ciencias Agrícolas</td>
+  </tr>
+  <tr>
+  	<td>13.08</td>
+  	<td>Mapa de Irradiancia solar de El Salvador</td>
+  	<td>Ing. Jorge Alberto Zetino Chicas</td>
+  	<td>Ingeniería y Arquitectura, Escuela de Ingeniería Eléctrica </td>
+  	<td>Ingeniería y Tecnología</td>
+  </tr>
+  <tr>
+  	<td>13.10</td>
+  	<td>Salud Ecológica de los arrecifes de El Salvador ante el cambio climático”</td>
+  	<td>M.Sc. Zoila Virginia Guerrero Mendoza</td>
+  	<td>Facultad de Ciencias Naturales y Matemática, Escuela de Biología</td>
+  	<td>Ciencias Exactas</td>
+  </tr>
+  <tr>
+  	<td>13.11</td>
+  	<td>Determinación de hongos productores de Ocratoxinas del género Aspergillus y de Ocratoxina A en granos de café verde (Coffea arabica L.) procedente de la zona occidental de El Salvador</td>
+  	<td>Dra. Tania Ethel Cuadra Zelaya </td>
+  	<td>Facultad de Química y Farmacia, Departamento de Bioquímica y Microbiología</td>
+  	<td>Ciencias Exactas</td>
+  </tr>
+  <tr>
+  	<td>13.12</td>
+  	<td>Evolución histórica del constitucionalismo salvadoreño y sus desafíos actuales</td>
+  	<td>Dra. Evelyn Beatriz Farfán Mata</td>
+  	<td>Facultad de Jurisprudencia y Ciencias Sociales, Unidad de Investigación.</td>
+  	<td>Ciencias Sociales</td>
+  </tr>
+  <tr>
+  	<td>13.13</td>
+  	<td>Estudio in vitro sobre la influencia de los métodos de postcurado y protocolos de cementación en las fuerzas adhesivas de endocrowns confeccionados con resina composita de uso directo</td>
+  	<td>Dr. Mauricio Eduardo Méndez Renderos</td>
+  	<td>Facultad de Odontología, Centro de investigaciones en el área restaurativa</td>
+  	<td>Ciencias de la Salud</td>
+  </tr>
+  <tr>
+  	<td>13.14</td>
+  	<td>Encuesta de salud bucal en El Salvador 2015</td>
+  	<td>Dr. Guillermo Alfonso Aguirre Escobar</td>
+  	<td>Facultad de Odontología, Centro de investigaciones en el área de epidemiología</td>
+  	<td>Ciencias de la Salud</td>
+  </tr>
+  <tr>
+  	<td>13.15</td>
+  	<td>Optimización del balance de proteína en vacas de doble propósito en ordeño utilizando leguminosas forrajeras tropicales</td>
+  	<td>Ing. Agr. Elmer Edgardo Corea Guillén</td>
+  	<td>Facultad de Ciencias Agronómicas, Departamento de</td>
+  	<td>Ciencias Agrícolas</td>
+  </tr>
+  </tbody>
+</table>
+          </div><!--/.col-md-8-->
+                <aside class="col-md-4">
+                    <!-- <div class="widget search">
+                        <form role="form">
+                                <input type="text" class="form-control search_box" autocomplete="off" placeholder="Buscar Proyectos Aprobados 2014 Aquí">
+                        </form>
+                    </div> --><!--/.search-->
+    				<!--/.producción científica-->
+    				<div class="widget archieve">
+                                {% partial 'menudescargas' %}
+                    </div><!--/.producción científica-->
+    				<!--/.Seminarios científicos-->
+    				<div class="widget tags">
+    					 {% partial 'tagsproyectos' %}
+                    </div><!--/.tags-->	
+                    
+                </aside>     
+
+            </div><!--/.row-->
+
+         </div><!--/.blog-->
+
+    </section><!--/#blog-->
+    
+    
+     {% put scripts %}
+  <script>
+    $(document).ready(function() {
+    $('#di').DataTable({
+    	language:{
+    "decimal":        "",
+    "emptyTable":     "No hay datos disponibles en la tabla",
+    "info":           "Mostrando _START_ de _END_ de _TOTAL_ entradas",
+    "infoEmpty":      "Mostrando 0 to 0 of 0 entradas",
+    "infoFiltered":   "(filtrado de _MAX_ total entradas)",
+    "infoPostFix":    "",
+    "thousands":      ",",
+    "lengthMenu":     "Mostrar _MENU_ entradas",
+    "loadingRecords": "Cargando...",
+    "processing":     "Procesando...",
+    "search":         "Buscar:",
+    "zeroRecords":    "No se encontraron registros coincidentes",
+    "paginate": {
+        "first":      "Primero",
+        "last":       "Último",
+        "next":       "Siguiente",
+        "previous":   "Anterior"
+    },
+    "aria": {
+        "sortAscending":  ": Activar para ordenar la columna ascendente",
+        "sortDescending": ": Activar para ordenar la columna descendente"
+    }
+}
+    });
+} );
+</script>
+{% endput %}";s:4:"code";N;s:5:"title";s:13:"proyectos2014";s:3:"url";s:14:"/proyectos2014";s:6:"layout";s:7:"default";s:11:"description";s:145:"Proyectos de investigación aprobados en el año 2014 por la Secretaría de Investigaciones Científicas de la Universidad de El Salvador SIC-UES";s:10:"meta_title";s:29:"Proyectos aprobados año 2014";s:16:"meta_description";s:145:"Proyectos de investigación aprobados en el año 2014 por la Secretaría de Investigaciones Científicas de la Universidad de El Salvador SIC-UES";s:9:"is_hidden";s:1:"0";}}

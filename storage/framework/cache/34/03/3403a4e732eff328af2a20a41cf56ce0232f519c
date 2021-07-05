@@ -1,0 +1,38 @@
+1625524342a:1:{s:20:"samples/noticias.htm";a:11:{s:8:"fileName";s:20:"samples/noticias.htm";s:7:"content";s:595:"title = "blog"
+url = "/noticias/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "samples/categorias"
+postPage = "samples/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 1
+categoryPage = "samples/categorias"
+==
+<section id="blog" class="container">
+<div class="row">
+	<div class="col-sm-8">
+		{% component 'blogPosts' %}
+	</div>
+	<div class="col-sm-4">
+		{% component 'blogCategories' %}
+	</div>
+</div>
+</section>";s:5:"mtime";i:1510869960;s:6:"markup";s:211:"<section id="blog" class="container">
+<div class="row">
+	<div class="col-sm-8">
+		{% component 'blogPosts' %}
+	</div>
+	<div class="col-sm-4">
+		{% component 'blogCategories' %}
+	</div>
+</div>
+</section>";s:4:"code";N;s:5:"title";s:4:"blog";s:3:"url";s:15:"/noticias/:slug";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"blogPosts";a:7:{s:10:"pageNumber";s:11:"{{ :page }}";s:14:"categoryFilter";s:11:"{{ :slug }}";s:12:"postsPerPage";s:2:"10";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:17:"published_at desc";s:12:"categoryPage";s:18:"samples/categorias";s:8:"postPage";s:12:"samples/post";}s:14:"blogCategories";a:3:{s:4:"slug";s:11:"{{ :slug }}";s:12:"displayEmpty";s:1:"1";s:12:"categoryPage";s:18:"samples/categorias";}}}

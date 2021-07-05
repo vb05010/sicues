@@ -1,0 +1,45 @@
+1625524347a:1:{s:26:"cronologia-secretarios.htm";a:7:{s:8:"fileName";s:26:"cronologia-secretarios.htm";s:7:"content";s:1370:"description = "cronología secretarios de investigación"
+
+[viewBag]
+==
+<div class="widget categories">
+                        <h3><p align="center" class="panel panel-success">Cronología Secretarios de Investigación</p></h3>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="single_comments">
+    								<a href="{{'samples/miguel-sermeno'|page}}"><img src="{{ 'assets/images/blog/ingsermeno.png'|theme }}" alt=""></a>
+    								<p> Ing. MSc., José Miguel Sermeño <br> Secretario de Investigación</p>
+                                    <div class="entry-meta small muted">
+                                        <span>Junio 2017 - Actual</span>
+                                    </div>
+    							</div>
+    							<div class="single_comments">
+    								<img src="{{ 'assets/images/miembroscic/dr.escoto.png'|theme }}" alt="">
+    								<p>Ph.D Rafael Antonio Goméz Escoto <br> Secretario de Investigación </p>
+    								<div class="entry-meta small muted">
+                                       <span>Período Mayo 2015 - Mayo 2017</span>
+                                    </div>
+    							</div>
+                            </div>
+                        </div>                     
+                    </div><!--/.recent comments-->";s:5:"mtime";i:1503698221;s:6:"markup";s:1298:"<div class="widget categories">
+                        <h3><p align="center" class="panel panel-success">Cronología Secretarios de Investigación</p></h3>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="single_comments">
+    								<a href="{{'samples/miguel-sermeno'|page}}"><img src="{{ 'assets/images/blog/ingsermeno.png'|theme }}" alt=""></a>
+    								<p> Ing. MSc., José Miguel Sermeño <br> Secretario de Investigación</p>
+                                    <div class="entry-meta small muted">
+                                        <span>Junio 2017 - Actual</span>
+                                    </div>
+    							</div>
+    							<div class="single_comments">
+    								<img src="{{ 'assets/images/miembroscic/dr.escoto.png'|theme }}" alt="">
+    								<p>Ph.D Rafael Antonio Goméz Escoto <br> Secretario de Investigación </p>
+    								<div class="entry-meta small muted">
+                                       <span>Período Mayo 2015 - Mayo 2017</span>
+                                    </div>
+    							</div>
+                            </div>
+                        </div>                     
+                    </div><!--/.recent comments-->";s:4:"code";N;s:11:"description";s:41:"cronología secretarios de investigación";s:7:"viewBag";a:0:{}}}

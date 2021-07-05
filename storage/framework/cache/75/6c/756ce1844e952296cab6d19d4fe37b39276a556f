@@ -1,0 +1,79 @@
+1572387095a:1:{s:8:"home.htm";a:11:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:2562:"title = "Home"
+url = "/"
+layout = "home"
+description = "RadiantWeb specializes in robust theme and plugin development for October CMS & Concrete5 CMS."
+meta_title = "RadiantWeb Home"
+meta_description = "RadiantWeb specializes in robust theme and plugin development for October CMS & Concrete5 CMS."
+==
+        <h2 class="text-center top-space">Frequently Asked Questions</h2>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Which code editor would you recommend?</h4>
+                <p>I'd highly recommend you <a href="http://www.sublimetext.com/">Sublime Text</a> - a free to try text editor which I'm using daily. Awesome tool!</p>
+            </div>
+            <div class="col-sm-6">
+                <h4>Nice header. Where do I find more images like that one?</h4>
+                <p>
+                    Well, there are thousands of stock art galleries, but personally, 
+                    I prefer to use photos from these sites: <a href="http://unsplash.com">Unsplash.com</a> 
+                    and <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">Flickr - Creative Commons</a></p>
+            </div>
+        </div> <!-- /row -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Can I use it to build a site for my client?</h4>
+                <p>
+                    Yes, you can. You may use this template for any purpose, just don't forget about the <a href="http://creativecommons.org/licenses/by/3.0/">license</a>, 
+                    which says: "You must give appropriate credit", i.e. you must provide the name of the creator and a link to the original template in your work. 
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <h4>Can you customize this template for me?</h4>
+                <p>Yes, I can. Please drop us a line @ <a href="http://goradiantweb.com">goradiantweb.com</a> and describe your needs in details. Please note, my services are not cheap.</p>
+            </div>
+        </div> <!-- /row -->
+
+        <div class="jumbotron top-space">
+            <p>Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus recusandae facere magni ullam suscipit sunt atque rerum eaque iusto facilis esse nam veniam incidunt officia perspiciatis at voluptatibus. Libero, aliquid illum possimus numquam fuga.</p>
+            <br />
+            <p class="text-center"><a class="btn btn-primary btn-large">Learn more »</a></p>
+        </div>
+";s:5:"mtime";i:1572386480;s:6:"markup";s:2243:"<h2 class="text-center top-space">Frequently Asked Questions</h2>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Which code editor would you recommend?</h4>
+                <p>I'd highly recommend you <a href="http://www.sublimetext.com/">Sublime Text</a> - a free to try text editor which I'm using daily. Awesome tool!</p>
+            </div>
+            <div class="col-sm-6">
+                <h4>Nice header. Where do I find more images like that one?</h4>
+                <p>
+                    Well, there are thousands of stock art galleries, but personally, 
+                    I prefer to use photos from these sites: <a href="http://unsplash.com">Unsplash.com</a> 
+                    and <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">Flickr - Creative Commons</a></p>
+            </div>
+        </div> <!-- /row -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Can I use it to build a site for my client?</h4>
+                <p>
+                    Yes, you can. You may use this template for any purpose, just don't forget about the <a href="http://creativecommons.org/licenses/by/3.0/">license</a>, 
+                    which says: "You must give appropriate credit", i.e. you must provide the name of the creator and a link to the original template in your work. 
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <h4>Can you customize this template for me?</h4>
+                <p>Yes, I can. Please drop us a line @ <a href="http://goradiantweb.com">goradiantweb.com</a> and describe your needs in details. Please note, my services are not cheap.</p>
+            </div>
+        </div> <!-- /row -->
+
+        <div class="jumbotron top-space">
+            <p>Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus recusandae facere magni ullam suscipit sunt atque rerum eaque iusto facilis esse nam veniam incidunt officia perspiciatis at voluptatibus. Libero, aliquid illum possimus numquam fuga.</p>
+            <br />
+            <p class="text-center"><a class="btn btn-primary btn-large">Learn more »</a></p>
+        </div>";s:4:"code";N;s:5:"title";s:4:"Home";s:3:"url";s:1:"/";s:6:"layout";s:4:"home";s:11:"description";s:94:"RadiantWeb specializes in robust theme and plugin development for October CMS & Concrete5 CMS.";s:10:"meta_title";s:15:"RadiantWeb Home";s:16:"meta_description";s:94:"RadiantWeb specializes in robust theme and plugin development for October CMS & Concrete5 CMS.";}}

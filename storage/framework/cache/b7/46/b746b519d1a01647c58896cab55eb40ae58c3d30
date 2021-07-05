@@ -1,0 +1,62 @@
+1625524342a:1:{s:11:"offline.htm";a:11:{s:8:"fileName";s:11:"offline.htm";s:7:"content";s:1874:"title = "Sitio Web en Mantenimiento"
+url = "/offline"
+description = "Sitio Web en mantenimiento"
+meta_title = "Sitio Web en mantenimiento"
+meta_description = "Sitio Web en mantenimiento del consejo de Investigaciones Científicas de la Universidad de El Salvador"
+is_hidden = 0
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="SIC-UES en mantenimiento">
+<meta name="keywords" content="producción científica, CIC-UES, Documentos, Contáctenos, De Interés, Miembros del consejo, proyectos, Áreas del conocimiento">
+<meta name="author" content="Secretaría de Investigaciones Científicas de la Universidad de El Salvador">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>{{ this.page.title }} | {{ this.theme.site_name }}</title>
+<link href="{{ ['assets/css/offline.css']|theme }}" rel="stylesheet">
+<!-- favicon -->
+<link rel="shortcut icon" href="{{ 'assets/images/ico/favicon.ico'|theme }}">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ 'assets/images/ico/apple-touch-icon-144-precomposed.png'|theme }}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'assets/images/ico/apple-touch-icon-114-precomposed.png'|theme }}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ 'assets/images/ico/apple-touch-icon-72-precomposed.png'|theme }}">
+<link rel="apple-touch-icon-precomposed" href="{{ 'assets/images/ico/apple-touch-icon-57-precomposed.png'|theme }}">
+</head>
+<body>
+<div id="border">
+<div id="logobg">
+	<img src="{{ 'assets/images/logo.png'|theme }}" alt="logo"><br/>
+</div>	
+<h2>Fuera de Linea</h2>
+	<p>Este sitio Web se encuenta en Mantenimiento.<br>Por favor vuelva pronto.</p>
+</div>
+</body>
+</html>";s:5:"mtime";i:1485471596;s:6:"markup";s:1593:"<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="SIC-UES en mantenimiento">
+<meta name="keywords" content="producción científica, CIC-UES, Documentos, Contáctenos, De Interés, Miembros del consejo, proyectos, Áreas del conocimiento">
+<meta name="author" content="Secretaría de Investigaciones Científicas de la Universidad de El Salvador">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>{{ this.page.title }} | {{ this.theme.site_name }}</title>
+<link href="{{ ['assets/css/offline.css']|theme }}" rel="stylesheet">
+<!-- favicon -->
+<link rel="shortcut icon" href="{{ 'assets/images/ico/favicon.ico'|theme }}">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ 'assets/images/ico/apple-touch-icon-144-precomposed.png'|theme }}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'assets/images/ico/apple-touch-icon-114-precomposed.png'|theme }}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ 'assets/images/ico/apple-touch-icon-72-precomposed.png'|theme }}">
+<link rel="apple-touch-icon-precomposed" href="{{ 'assets/images/ico/apple-touch-icon-57-precomposed.png'|theme }}">
+</head>
+<body>
+<div id="border">
+<div id="logobg">
+	<img src="{{ 'assets/images/logo.png'|theme }}" alt="logo"><br/>
+</div>	
+<h2>Fuera de Linea</h2>
+	<p>Este sitio Web se encuenta en Mantenimiento.<br>Por favor vuelva pronto.</p>
+</div>
+</body>
+</html>";s:4:"code";N;s:5:"title";s:26:"Sitio Web en Mantenimiento";s:3:"url";s:8:"/offline";s:11:"description";s:26:"Sitio Web en mantenimiento";s:10:"meta_title";s:26:"Sitio Web en mantenimiento";s:16:"meta_description";s:103:"Sitio Web en mantenimiento del consejo de Investigaciones Científicas de la Universidad de El Salvador";s:9:"is_hidden";s:1:"0";}}

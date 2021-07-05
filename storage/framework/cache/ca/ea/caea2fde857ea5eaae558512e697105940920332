@@ -1,0 +1,35 @@
+1572387253a:1:{s:9:"index.htm";a:7:{s:8:"fileName";s:9:"index.htm";s:7:"content";s:557:"url = '/'
+layout = default
+==
+<section id="index-main">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="jumbotron">
+                    <h1 class="display-4">
+                        {{ 'index.title'|_ }}
+                    </h1>
+                    <p class="lead text-secondary">
+                        {{ 'index.text'|_ }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+";s:5:"mtime";i:1572386642;s:6:"markup";s:526:"<section id="index-main">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col d-flex align-items-center justify-content-center">
+                <div class="jumbotron">
+                    <h1 class="display-4">
+                        {{ 'index.title'|_ }}
+                    </h1>
+                    <p class="lead text-secondary">
+                        {{ 'index.text'|_ }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>";s:4:"code";N;s:3:"url";s:1:"/";s:6:"layout";s:7:"default";}}

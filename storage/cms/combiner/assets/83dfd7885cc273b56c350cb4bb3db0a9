@@ -1,0 +1,80 @@
+/*!
+ * Bootstart v1.0 for OctoberCMS
+ * by
+ * Al3xTig3r (Alessio Vietri) - https://alessiovietri.it
+ */
+/**
+ *  LAYOUT
+ */
+.text-primary {
+  color: !important; }
+
+.bg-primary {
+  background-color: !important; }
+
+.text-secondary {
+  color: !important; }
+
+.bg-secondary {
+  background-color: !important; }
+
+.text-success {
+  color: !important; }
+
+.bg-success {
+  background-color: !important; }
+
+.text-danger {
+  color: !important; }
+
+.bg-danger {
+  background-color: !important; }
+
+.text-warning {
+  color: !important; }
+
+.bg-warning {
+  background-color: !important; }
+
+.text-info {
+  color: !important; }
+
+.bg-info {
+  background-color: !important; }
+
+.text-light {
+  color: !important; }
+
+.bg-light {
+  background-color: !important; }
+
+.text-dark {
+  color: !important; }
+
+.bg-dark {
+  background-color: !important; }
+
+.text-body {
+  color: !important; }
+
+.bg-body {
+  background-color: !important; }
+
+.text-muted {
+  color: !important; }
+
+.bg-muted {
+  background-color: !important; }
+/**
+ *  INDEX
+ */
+#index-main {
+  height: 100vh; }
+
+#index-main div:not(.jumbotron) {
+  height: 100%; }
+/**
+ *  OVERRIDES
+ */
+.navbar .navbar-brand img {
+  max-height: 30px; }

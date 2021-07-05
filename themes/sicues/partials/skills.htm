@@ -1,0 +1,81 @@
+description = "Proyectos por áreas de conocimiento"
+
+[viewBag]
+==
+<div class="col-sm-6 wow fadeInDown">
+        <div class="skill">
+        <h2>PROYECTOS APROBADOS 2002-2015</h2>   
+            
+            <script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title: {
+			text: "Proyectos aprobados por áreas del conocimiento"
+		},
+		subtitles:[
+		{
+			text: "2002 - 2015"
+			//Uncomment properties below to see how they behave
+			//fontColor: "red",
+			//fontSize: 30
+		}
+		],
+      	exportFileName: "Proyectos aprobados por area del conocimiento (2002-2015)",
+		exportEnabled: true,
+        animationEnabled: true,
+		legend:{
+		verticalAlign: "bottom",
+		horizontalAlign: "center"
+		},
+      
+		dataPointMaxWidth: 20,
+		legend: {
+		fontSize: 7
+	},
+	axisX:{
+        title: "Secretaría de Investigación, Universidad de El Salvador SIC-UES | https://sic.ues.edu.sv ",
+        titleFontSize: 11,
+	},
+		data: [
+		{
+			type: "column",
+       toolTipContent: "{label}: {y}%",    
+	   indexLabel: "{y}%",
+	   indexLabelFontSize: 12,
+          
+			dataPoints: [
+				{ label: "Ciencias Exactas", y: 29.5 },
+				{ label: "Ciencias de la Salud",  y: 21.9 },
+				{ label: "Ciencias Agrícolas",  y: 8.7 },
+				{ label: "Ciencias Sociales",  y: 15.9 },
+              { label: "Ingeniería y Tecnología",  y: 9.8 },
+              { label: "Humanidades",  y: 14 }
+			]
+		}
+		],
+   /** Set axisY properties here*/
+    axisY:{
+      //prefix: "$",
+      suffix: "%"
+    }    
+  });
+	chart.render();
+}
+</script>
+<script type="text/javascript" src="{{ 'assets/js/canvasjs.min.js'|theme }}"></script>
+<div id="chartContainer" style="height: 250px; width: 100%;"></div>
+			
+</div>
+
+						
+						 <ul class="tag-cloud">
+                            <li><a class="btn btn-xs btn-primary" href="{{'samples/aprobados-y-finalizados'|page }}">Proyectos aprobados y finalizados</a></li>
+                            <li><a class="btn btn-xs btn-primary" href="{{'samples/inversion-proyectos'|page }}">Inversión proyectos</a></li>
+                            <li><a class="btn btn-xs btn-primary" href="{{'samples/eficiencia-terminal'|page }}">Eficiencia Terminal</a></li>
+                        </ul>
+                       
+                       
+                    
+
+                </div><!--/.col-sm-6-->
