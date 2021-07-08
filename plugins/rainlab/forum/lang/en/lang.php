@@ -86,7 +86,13 @@ return [
         'banned_comment' => 'Place a tick in this box if this user is banned from posting to the forum.',
         'forum_username' => 'Forum Username',
         'channels' => 'Forum channels',
-        'channels_desc' => 'Manage available forum channels.'
+        'channels_desc' => 'Manage available forum channels.',
+        'channels_filter' => 'Channel filter',
+        'channels_filter_description' => 'Enter a category slug or URL parameter to filter the topics by. Leave empty to show all topics.',
+        'rssfeed_title' => 'RSS Feed',
+        'rssfeed_description' => 'Generates an RSS feed containing topics from the forum.',
+        'rssfeed_forum' => 'Forum page',
+        'rssfeed_forum_description' => 'Name of the main forum page file for generating links. This property is used by the default component partial.',
     ],
     'embedch' => [
         'channel_name' => 'Embed Channel',
@@ -125,5 +131,13 @@ return [
         'slug_desc' => 'The URL route parameter used for looking up the topic by its slug. A hard coded slug can also be used.',
         'channel_title' => 'Channel Page',
         'channel_desc' => 'Page name to use for clicking on a channel.'
-    ]
+    ],
+    'components' => [
+        'general' => [
+            'properties' => [
+                'includeStyles' => 'Enable CSS',
+                'includeStyles_desc' => 'Include the CSS files with default styles for the forum',
+            ],
+        ],
+    ],
 ];

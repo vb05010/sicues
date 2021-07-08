@@ -186,6 +186,10 @@ abstract class TranslatableBehavior extends ExtensionBase
      */
     public function getTranslateAttributes($locale)
     {
+        if (!array_key_exists($locale, $this->translatableAttributes)) {
+            $this->loadTranslatableData($locale);
+        }
+
         return array_get($this->translatableAttributes, $locale, []);
     }
 
@@ -204,7 +208,7 @@ abstract class TranslatableBehavior extends ExtensionBase
         if ($locale == $this->translatableDefault) {
             $translatableAttributes = $this->model->attributes;
         }
-        else {          
+        else {
             /*
              * Ensure that the translatableData has been loaded
              * @see https://github.com/rainlab/translate-plugin/issues/302
@@ -243,7 +247,7 @@ abstract class TranslatableBehavior extends ExtensionBase
     }
 
     /**
-     * Restores the default language values on the model and 
+     * Restores the default language values on the model and
      * stores the translated values in the attributes table.
      * @return void
      */
@@ -322,6 +326,10 @@ abstract class TranslatableBehavior extends ExtensionBase
     {
         $translatable = [];
 
+        if (!is_array($this->model->translatable)) {
+            return [];
+        }
+
         foreach ($this->model->translatable as $attribute) {
             $translatable[] = is_array($attribute) ? array_shift($attribute) : $attribute;
         }
@@ -365,6 +373,24 @@ abstract class TranslatableBehavior extends ExtensionBase
         else {
             return array_key_exists($attribute, $dirty);
         }
+    }
+
+    /**
+     * Get the locales that have changed, if any
+     *
+     * @return array
+     */
+    public function getDirtyLocales()
+    {
+        $dirtyLocales = [];
+        $knownLocales = array_keys($this->translatableAttributes);
+        foreach ($knownLocales as $locale) {
+            if ($this->isTranslateDirty(null, $locale)) {
+                $dirtyLocales[] = $locale;
+            }
+        }
+
+        return $dirtyLocales;
     }
 
     /**

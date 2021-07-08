@@ -1,11 +1,15 @@
 <?php namespace RainLab\Translate;
 
+use App;
 use Lang;
 use Event;
 use Backend;
 use Cms\Classes\Page;
+use Cms\Classes\Theme;
 use System\Models\File;
+use Cms\Models\ThemeData;
 use System\Classes\PluginBase;
+use System\Classes\CombineAssets;
 use RainLab\Translate\Models\Message;
 use RainLab\Translate\Classes\EventRegistry;
 use RainLab\Translate\Classes\Translator;
@@ -34,6 +38,13 @@ class Plugin extends PluginBase
     public function register()
     {
         /*
+         * Load localized version of mail templates (akin to localized CMS content files)
+         */
+        Event::listen('mailer.beforeAddContent', function ($mailer, $message, $view, $data, $raw, $plain) {
+            return EventRegistry::instance()->findLocalizedMailViewContent($mailer, $message, $view, $data, $raw, $plain);
+        }, 1);
+
+        /*
          * Defer event with low priority to let others contribute before this registers.
          */
         Event::listen('backend.form.extendFieldsBefore', function($widget) {
@@ -41,17 +52,55 @@ class Plugin extends PluginBase
         }, -1);
 
         /*
-         * Handle translated page URLs
-         */
-        Page::extend(function($page) {
-            if (!$page->propertyExists('translatable')) {
-                $page->addDynamicProperty('translatable', []);
+        * Handle translated page URLs
+        */
+        Page::extend(function($model) {
+            if (!$model->propertyExists('translatable')) {
+                $model->addDynamicProperty('translatable', []);
             }
-            $page->translatable = array_merge($page->translatable, ['title', 'description', 'meta_title', 'meta_description']);
-            $page->extendClassWith('RainLab\Translate\Behaviors\TranslatablePageUrl');
-            $page->extendClassWith('RainLab\Translate\Behaviors\TranslatablePage');
+            $model->translatable = array_merge($model->translatable, ['title', 'description', 'meta_title', 'meta_description']);
+            if (!$model->isClassExtendedWith('RainLab\Translate\Behaviors\TranslatablePageUrl')) {
+                $model->extendClassWith('RainLab\Translate\Behaviors\TranslatablePageUrl');
+            }
+            if (!$model->isClassExtendedWith('RainLab\Translate\Behaviors\TranslatablePage')) {
+                $model->extendClassWith('RainLab\Translate\Behaviors\TranslatablePage');
+            }
         });
 
+        /*
+         * Extension logic for October CMS v1.0
+         */
+        if (!class_exists('System')) {
+            $this->extendLegacyPlatform();
+        }
+        /*
+         * Extension logic for October CMS v2.0
+         */
+        else {
+            Event::listen('cms.theme.createThemeDataModel', function($attributes) {
+                return new \RainLab\Translate\Models\MLThemeData($attributes);
+            });
+
+            Event::listen('cms.template.getTemplateToolbarSettingsButtons', function($extension, $dataHolder) {
+                if ($dataHolder->templateType === 'page') {
+                    EventRegistry::instance()->extendEditorPageToolbar($dataHolder);
+                }
+            });
+        }
+
+        /*
+         * Register console commands
+         */
+        $this->registerConsoleCommand('translate.scan', 'Rainlab\Translate\Console\ScanCommand');
+
+        $this->registerAssetBundles();
+    }
+
+    /**
+     * extendLegacyPlatform will add the legacy features expected in v1.0
+     */
+    protected function extendLegacyPlatform()
+    {
         /*
          * Add translation support to file models
          */
@@ -60,14 +109,37 @@ class Plugin extends PluginBase
                 $model->addDynamicProperty('translatable', []);
             }
             $model->translatable = array_merge($model->translatable, ['title', 'description']);
-            $model->extendClassWith('October\Rain\Database\Behaviors\Purgeable');
-            $model->extendClassWith('RainLab\Translate\Behaviors\TranslatableModel');
+            if (!$model->isClassExtendedWith('October\Rain\Database\Behaviors\Purgeable')) {
+                $model->extendClassWith('October\Rain\Database\Behaviors\Purgeable');
+            }
+            if (!$model->isClassExtendedWith('RainLab\Translate\Behaviors\TranslatableModel')) {
+                $model->extendClassWith('RainLab\Translate\Behaviors\TranslatableModel');
+            }
         });
 
         /*
-         * Register console commands
+         * Add translation support to theme settings
          */
-        $this->registerConsoleCommand('translate.scan', 'Rainlab\Translate\Console\ScanCommand');
+        ThemeData::extend(static function ($model) {
+            if (!$model->propertyExists('translatable')) {
+                $model->addDynamicProperty('translatable', []);
+            }
+
+            if (!$model->isClassExtendedWith('October\Rain\Database\Behaviors\Purgeable')) {
+                $model->extendClassWith('October\Rain\Database\Behaviors\Purgeable');
+            }
+            if (!$model->isClassExtendedWith('RainLab\Translate\Behaviors\TranslatableModel')) {
+                $model->extendClassWith('RainLab\Translate\Behaviors\TranslatableModel');
+            }
+
+            $model->bindEvent('model.afterFetch', static function() use ($model) {
+                foreach ($model->getFormFields() as $id => $field) {
+                    if (!empty($field['translatable'])) {
+                        $model->translatable[] = $id;
+                    }
+                }
+            });
+        });
     }
 
     public function boot()
@@ -78,6 +150,30 @@ class Plugin extends PluginBase
         Event::listen('cms.page.init', function($controller, $page) {
             EventRegistry::instance()->setMessageContext($page);
         }, 100);
+
+        /*
+         * Populate MenuItem properties with localized values if available
+         */
+        Event::listen('pages.menu.referencesGenerated', function (&$items) {
+            $locale = App::getLocale();
+            $iterator = function ($menuItems) use (&$iterator, $locale) {
+                $result = [];
+                foreach ($menuItems as $item) {
+                    $localeFields = array_get($item->viewBag, "locale.$locale", []);
+                    foreach ($localeFields as $fieldName => $fieldValue) {
+                        if ($fieldValue) {
+                            $item->$fieldName = $fieldValue;
+                        }
+                    }
+                    if ($item->items) {
+                        $item->items = $iterator($item->items);
+                    }
+                    $result[] = $item;
+                }
+                return $result;
+            };
+            $items = $iterator($items);
+        });
 
         /*
          * Import messages defined by the theme
@@ -121,6 +217,39 @@ class Plugin extends PluginBase
         Event::listen('pages.page.getMenuCacheKey', $modifyKey);
         Event::listen('pages.snippet.getMapCacheKey', $modifyKey);
         Event::listen('pages.snippet.getPartialMapCacheKey', $modifyKey);
+
+        if (class_exists('\RainLab\Pages\Classes\SnippetManager')) {
+            $handler = function ($controller, $template, $type) {
+                if (!$template->methodExists('getDirtyLocales')) {
+                    return;
+                }
+
+                // Get the locales that have changed
+                $dirtyLocales = $template->getDirtyLocales();
+
+                if (!empty($dirtyLocales)) {
+                    $theme = Theme::getEditTheme();
+                    $currentLocale = Lang::getLocale();
+
+                    foreach ($dirtyLocales as $locale) {
+                        if (!$template->isTranslateDirty(null, $locale)) {
+                            continue;
+                        }
+
+                        // Clear the RainLab.Pages caches for each dirty locale
+                        App::setLocale($locale);
+                        \RainLab\Pages\Classes\Page::clearMenuCache($theme);
+                        \RainLab\Pages\Classes\SnippetManager::clearCache($theme);
+                    }
+
+                    // Restore the original locale for this request
+                    App::setLocale($currentLocale);
+                }
+            };
+
+            Event::listen('cms.template.save', $handler);
+            Event::listen('pages.object.save', $handler);
+        }
     }
 
     public function registerComponents()
@@ -179,6 +308,8 @@ class Plugin extends PluginBase
             'filters' => [
                 '_'  => [$this, 'translateString'],
                 '__' => [$this, 'translatePlural'],
+                'transRaw'  => [$this, 'translateRawString'],
+                'transRawPlural' => [$this, 'translateRawPlural'],
                 'localeUrl' => [$this, 'localeUrl'],
             ]
         ];
@@ -186,14 +317,26 @@ class Plugin extends PluginBase
 
     public function registerFormWidgets()
     {
+        $mediaFinderClass = class_exists('System')
+            ? 'RainLab\Translate\FormWidgets\MLMediaFinderv2'
+            : 'RainLab\Translate\FormWidgets\MLMediaFinder';
+
         return [
             'RainLab\Translate\FormWidgets\MLText' => 'mltext',
             'RainLab\Translate\FormWidgets\MLTextarea' => 'mltextarea',
             'RainLab\Translate\FormWidgets\MLRichEditor' => 'mlricheditor',
             'RainLab\Translate\FormWidgets\MLMarkdownEditor' => 'mlmarkdowneditor',
             'RainLab\Translate\FormWidgets\MLRepeater' => 'mlrepeater',
-            'RainLab\Translate\FormWidgets\MLMediaFinder' => 'mlmediafinder',
+            $mediaFinderClass => 'mlmediafinder',
         ];
+    }
+
+    protected function registerAssetBundles()
+    {
+        CombineAssets::registerCallback(function ($combiner) {
+            $combiner->registerBundle('$/rainlab/translate/assets/less/messages.less');
+            $combiner->registerBundle('$/rainlab/translate/assets/less/multilingual.less');
+        });
     }
 
     public function localeUrl($url, $locale)
@@ -214,5 +357,15 @@ class Plugin extends PluginBase
     public function translatePlural($string, $count = 0, $params = [], $locale = null)
     {
         return Lang::choice(Message::trans($string, $params, $locale), $count, $params);
+    }
+
+    public function translateRawString($string, $params = [], $locale = null)
+    {
+        return Message::transRaw($string, $params, $locale);
+    }
+
+    public function translateRawPlural($string, $count = 0, $params = [], $locale = null)
+    {
+        return Lang::choice(Message::transRaw($string, $params, $locale), $count, $params);
     }
 }

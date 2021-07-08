@@ -1,12 +1,12 @@
 <?php
 namespace Composer\Installers\Test;
 
-use Composer\Installers\Installer;
-use Composer\Util\Filesystem;
-use Composer\Package\Package;
-use Composer\Package\RootPackage;
 use Composer\Composer;
 use Composer\Config;
+use Composer\Installers\Installer;
+use Composer\Package\Package;
+use Composer\Package\RootPackage;
+use Composer\Util\Filesystem;
 
 class InstallerTest extends TestCase
 {
@@ -50,8 +50,12 @@ class InstallerTest extends TestCase
             ->getMock();
         $this->composer->setDownloadManager($this->dm);
 
-        $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
-        $this->io = $this->getMock('Composer\IO\IOInterface');
+        $this->repository = $this->getMockBuilder('Composer\Repository\InstalledRepositoryInterface')->getMock();
+        $this->io = $this->getMockBuilder('Composer\IO\IOInterface')->getMock();
+
+        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
+        $this->composer->setPackage($consumerPackage);
+
     }
 
     /**
@@ -114,9 +118,19 @@ class InstallerTest extends TestCase
             array('croogo-plugin', true),
             array('croogo-theme', true),
             array('decibel-app', true),
+            array('dframe-module', true),
             array('dokuwiki-plugin', true),
             array('dokuwiki-template', true),
+            array('drupal-core', true),
             array('drupal-module', true),
+            array('drupal-theme', true),
+            array('drupal-library', true),
+            array('drupal-profile', true),
+            array('drupal-database-driver', true),
+            array('drupal-drush', true),
+            array('drupal-custom-theme', true),
+            array('drupal-custom-module', true),
+            array('drupal-custom-profile', true),
             array('dolibarr-module', true),
             array('ee3-theme', true),
             array('ee3-addon', true),
@@ -142,6 +156,9 @@ class InstallerTest extends TestCase
             array('joomla-library', true),
             array('kanboard-plugin', true),
             array('kirby-plugin', true),
+            array('known-plugin', true),
+            array('known-theme', true),
+            array('known-console', true),
             array('kohana-module', true),
             array('lms-plugin', true),
             array('lms-template', true),
@@ -154,6 +171,8 @@ class InstallerTest extends TestCase
             array('magento-library', true),
             array('majima-plugin', true),
             array('mako-package', true),
+            array('mantisbt-plugin', true),
+            array('miaoxing-plugin', true),
             array('modx-extra', true),
             array('modxevo-snippet', true),
             array('modxevo-plugin', true),
@@ -178,9 +197,12 @@ class InstallerTest extends TestCase
             array('prestashop-theme', true),
             array('puppet-module', true),
             array('porto-container', true),
+            array('processwire-module', true),
             array('radphp-bundle', true),
             array('redaxo-addon', true),
             array('redaxo-bestyle-plugin', true),
+            array('redaxo5-addon', true),
+            array('redaxo5-bestyle-plugin', true),
             array('reindex-theme', true),
             array('reindex-plugin', true),
             array('roundcube-plugin', true),
@@ -194,9 +216,16 @@ class InstallerTest extends TestCase
             array('silverstripe-theme', true),
             array('smf-module', true),
             array('smf-theme', true),
+            array('starbug-module', true),
+            array('starbug-theme', true),
+            array('starbug-custom-module', true),
+            array('starbug-custom-theme', true),
             array('sydes-module', true),
             array('sydes-theme', true),
+            array('sylius-theme', true),
             array('symfony1-plugin', true),
+            array('tastyigniter-extension', true),
+            array('tastyigniter-theme', true),
             array('thelia-module', true),
             array('thelia-frontoffice-template', true),
             array('thelia-backoffice-template', true),
@@ -208,7 +237,18 @@ class InstallerTest extends TestCase
             array('userfrosting-sprinkle', true),
             array('vanilla-plugin', true),
             array('vanilla-theme', true),
-            array('whmcs-gateway', true),
+            array('whmcs-addons', true),
+            array('whmcs-fraud', true),
+            array('whmcs-gateways', true),
+            array('whmcs-notifications', true),
+            array('whmcs-registrars', true),
+            array('whmcs-reports', true),
+            array('whmcs-security', true),
+            array('whmcs-servers', true),
+            array('whmcs-social', true),
+            array('whmcs-support', true),
+            array('whmcs-templates', true),
+            array('whmcs-includes', true),
             array('wolfcms-plugin', true),
             array('wordpress-plugin', true),
             array('wordpress-core', false),
@@ -276,13 +316,20 @@ class InstallerTest extends TestCase
             array('croogo-plugin', 'Plugin/Sitemaps/', 'fahad19/sitemaps'),
             array('croogo-theme', 'View/Themed/Readable/', 'rchavik/readable'),
             array('decibel-app', 'app/someapp/', 'author/someapp'),
+            array('dframe-module', 'modules/author/mymodule/', 'author/mymodule'),
             array('dokuwiki-plugin', 'lib/plugins/someplugin/', 'author/someplugin'),
             array('dokuwiki-template', 'lib/tpl/sometemplate/', 'author/sometemplate'),
             array('dolibarr-module', 'htdocs/custom/my_module/', 'shama/my_module'),
+            array('drupal-core', 'core/', 'drupal/core'),
             array('drupal-module', 'modules/my_module/', 'shama/my_module'),
-            array('drupal-theme', 'themes/my_module/', 'shama/my_module'),
-            array('drupal-profile', 'profiles/my_module/', 'shama/my_module'),
-            array('drupal-drush', 'drush/my_module/', 'shama/my_module'),
+            array('drupal-theme', 'themes/my_theme/', 'shama/my_theme'),
+            array('drupal-library', 'libraries/my_library/', 'shama/my_library'),
+            array('drupal-profile', 'profiles/my_profile/', 'shama/my_profile'),
+            array('drupal-database-driver', 'drivers/lib/Drupal/Driver/Database/my_driver/', 'shama/my_driver'),
+            array('drupal-drush', 'drush/my_command/', 'shama/my_command'),
+            array('drupal-custom-theme', 'themes/custom/my_theme/', 'shama/my_theme'),
+            array('drupal-custom-module', 'modules/custom/my_module/', 'shama/my_module'),
+            array('drupal-custom-profile', 'profiles/custom/my_profile/', 'shama/my_profile'),
             array('elgg-plugin', 'mod/sample_plugin/', 'test/sample_plugin'),
             array('eliasis-component', 'components/my_component/', 'shama/my_component'),
             array('eliasis-module', 'modules/my_module/', 'shama/my_module'),
@@ -307,6 +354,9 @@ class InstallerTest extends TestCase
             array('joomla-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
             array('kanboard-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
             array('kirby-plugin', 'site/plugins/my_plugin/', 'shama/my_plugin'),
+            array('known-plugin', 'IdnoPlugins/SamplePlugin/', 'known/SamplePlugin'),
+            array('known-theme', 'Themes/SampleTheme/', 'known/SampleTheme'),
+            array('known-console', 'ConsolePlugins/SampleConsolePlugin/', 'known/SampleConsolePlugin'),
             array('kohana-module', 'modules/my_package/', 'shama/my_package'),
             array('lms-plugin', 'plugins/MyPackage/', 'shama/MyPackage'),
             array('lms-plugin', 'plugins/MyPackage/', 'shama/my_package'),
@@ -329,12 +379,17 @@ class InstallerTest extends TestCase
             array('modxevo-template', 'assets/templates/my_template/', 'shama/my_template'),
             array('modxevo-lib', 'assets/lib/my_lib/', 'shama/my_lib'),
             array('mako-package', 'app/packages/my_package/', 'shama/my_package'),
+            array('mantisbt-plugin', 'plugins/MyPlugin/', 'shama/my_plugin'),
             array('mediawiki-extension', 'extensions/APC/', 'author/APC'),
             array('mediawiki-extension', 'extensions/APC/', 'author/APC-extension'),
             array('mediawiki-extension', 'extensions/UploadWizard/', 'author/upload-wizard'),
             array('mediawiki-extension', 'extensions/SyntaxHighlight_GeSHi/', 'author/syntax-highlight_GeSHi'),
             array('mediawiki-skin', 'skins/someskin/', 'author/someskin-skin'),
             array('mediawiki-skin', 'skins/someskin/', 'author/someskin'),
+            array('miaoxing-plugin', 'plugins/plugin/', 'shama/plugin'),
+            array('miaoxing-plugin', 'plugins/my-plugin/', 'shama/my-plugin'),
+            array('miaoxing-plugin', 'plugins/MyPlugin/', 'shama/MyPlugin'),
+            array('miaoxing-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
             array('microweber-module', 'userfiles/modules/my-thing/', 'author/my-thing-module'),
             array('modulework-module', 'modules/my_package/', 'shama/my_package'),
             array('moodle-mod', 'mod/my_package/', 'shama/my_package'),
@@ -357,8 +412,11 @@ class InstallerTest extends TestCase
             array('puppet-module', 'modules/puppet-name/', 'puppet/puppet-name'),
             array('porto-container', 'app/Containers/container-name/', 'test/container-name'),
             array('radphp-bundle', 'src/Migration/', 'atkrad/migration'),
+            array('processwire-module', 'site/modules/HelloWorld/', 'test/hello-world'),
             array('redaxo-addon', 'redaxo/include/addons/my_plugin/', 'shama/my_plugin'),
             array('redaxo-bestyle-plugin', 'redaxo/include/addons/be_style/plugins/my_plugin/', 'shama/my_plugin'),
+            array('redaxo5-addon', 'redaxo/src/addons/my_plugin/', 'shama/my_plugin'),
+            array('redaxo5-bestyle-plugin', 'redaxo/src/addons/be_style/plugins/my_plugin/', 'shama/my_plugin'),
             array('reindex-theme', 'themes/my_module/', 'author/my_module'),
             array('reindex-plugin', 'plugins/my_module/', 'author/my_module'),
             array('roundcube-plugin', 'plugins/base/', 'test/base'),
@@ -377,8 +435,15 @@ class InstallerTest extends TestCase
             array('silverstripe-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('smf-module', 'Sources/my_module/', 'shama/my_module'),
             array('smf-theme', 'Themes/my_theme/', 'shama/my_theme'),
+            array('starbug-module', 'modules/my_module/', 'shama/my_module'),
+            array('starbug-theme', 'themes/my_theme/', 'shama/my_theme'),
+            array('starbug-custom-module', 'app/modules/my_module/', 'shama/my_module'),
+            array('starbug-custom-theme', 'app/themes/my_theme/', 'shama/my_theme'),
+            array('sylius-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sfShamaPlugin'),
             array('symfony1-plugin', 'plugins/sfShamaPlugin/', 'shama/sf-shama-plugin'),
+            array('tastyigniter-extension', 'extensions/shama/my_extension/', 'shama/my_extension'),
+            array('tastyigniter-theme', 'themes/my_theme/', 'shama/my_theme'),
             array('thelia-module', 'local/modules/my_module/', 'shama/my_module'),
             array('thelia-frontoffice-template', 'templates/frontOffice/my_template_fo/', 'shama/my_template_fo'),
             array('thelia-backoffice-template', 'templates/backOffice/my_template_bo/', 'shama/my_template_bo'),
@@ -390,7 +455,18 @@ class InstallerTest extends TestCase
             array('userfrosting-sprinkle', 'app/sprinkles/my_sprinkle/', 'shama/my_sprinkle'),
             array('vanilla-plugin', 'plugins/my_plugin/', 'shama/my_plugin'),
             array('vanilla-theme', 'themes/my_theme/', 'shama/my_theme'),
-            array('whmcs-gateway', 'modules/gateways/gateway_name/', 'vendor/gateway_name'),
+            array('whmcs-addons', 'modules/addons/vendor_addon_name/', 'vendor/addon_name'),
+            array('whmcs-fraud', 'modules/fraud/vendor_fraud_name/', 'vendor/fraud_name'),
+            array('whmcs-gateways', 'modules/gateways/vendor_gateway_name/', 'vendor/gateway_name'),
+            array('whmcs-notifications', 'modules/notifications/vendor_notification_name/', 'vendor/notification_name'),
+            array('whmcs-registrars', 'modules/registrars/vendor_registrar_name/', 'vendor/registrar_name'),
+            array('whmcs-reports', 'modules/reports/vendor_report_name/', 'vendor/report_name'),
+            array('whmcs-security', 'modules/security/vendor_security_name/', 'vendor/security_name'),
+            array('whmcs-servers', 'modules/servers/vendor_server_name/', 'vendor/server_name'),
+            array('whmcs-social', 'modules/social/vendor_social_name/', 'vendor/social_name'),
+            array('whmcs-support', 'modules/support/vendor_support_name/', 'vendor/support_name'),
+            array('whmcs-templates', 'templates/vendor_template_name/', 'vendor/template_name'),
+            array('whmcs-includes', 'includes/vendor_include_name/', 'vendor/include_name'),
             array('wolfcms-plugin', 'wolf/plugins/my_plugin/', 'shama/my_plugin'),
             array('wordpress-plugin', 'wp-content/plugins/my_plugin/', 'shama/my_plugin'),
             array('wordpress-muplugin', 'wp-content/mu-plugins/my_plugin/', 'shama/my_plugin'),
@@ -414,10 +490,10 @@ class InstallerTest extends TestCase
      *
      * @return void
      *
-     * @expectedException \InvalidArgumentException
      */
     public function testGetCakePHPInstallPathException()
     {
+        $this->setExpectedException('InvalidArgumentException');
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/ftp', '1.0.0', '1.0.0');
 
@@ -433,9 +509,7 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('shama/ftp', '1.0.0', '1.0.0');
         $package->setType('cakephp-plugin');
-        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
             'installer-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'shama/ftp',
@@ -470,9 +544,7 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('slbmeh/my_plugin', '1.0.0', '1.0.0');
         $package->setType('wordpress-plugin');
-        $consumerPackage = new RootPackage('foo/bar', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
             'installer-paths' => array(
                 'my/custom/path/{$name}/' => array(
                     'type:wordpress-plugin'
@@ -491,13 +563,28 @@ class InstallerTest extends TestCase
         $installer = new Installer($this->io, $this->composer);
         $package = new Package('penyaskito/my_module', '1.0.0', '1.0.0');
         $package->setType('drupal-module');
-        $consumerPackage = new RootPackage('drupal/drupal', '1.0.0', '1.0.0');
-        $this->composer->setPackage($consumerPackage);
-        $consumerPackage->setExtra(array(
+        $this->composer->getPackage()->setExtra(array(
           'installer-paths' => array(
             'modules/custom/{$name}/' => array(
               'vendor:penyaskito'
             ),
+          ),
+        ));
+        $result = $installer->getInstallPath($package);
+        $this->assertEquals('modules/custom/my_module/', $result);
+    }
+
+    /**
+     * testStringPath
+     */
+    public function testStringPath()
+    {
+        $installer = new Installer($this->io, $this->composer);
+        $package = new Package('penyaskito/my_module', '1.0.0', '1.0.0');
+        $package->setType('drupal-module');
+        $this->composer->getPackage()->setExtra(array(
+          'installer-paths' => array(
+            'modules/custom/{$name}/' => 'vendor:penyaskito',
           ),
         ));
         $result = $installer->getInstallPath($package);
@@ -540,13 +627,56 @@ class InstallerTest extends TestCase
     {
         $package = new Package('foo', '1.0.0', '1.0.0');
 
-        $installer = $this->getMock('Composer\Installers\Installer', array('getInstallPath'), array($this->io, $this->composer));
+        $installer = $this->getMockBuilder('Composer\Installers\Installer')
+            ->setMethods(array('getInstallPath'))
+            ->setConstructorArgs(array($this->io, $this->composer))
+            ->getMock();
         $installer->expects($this->atLeastOnce())->method('getInstallPath')->with($package)->will($this->returnValue(sys_get_temp_dir().'/foo'));
 
-        $repo = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
+        $repo = $this->getMockBuilder('Composer\Repository\InstalledRepositoryInterface')->getMock();
         $repo->expects($this->once())->method('hasPackage')->with($package)->will($this->returnValue(true));
         $repo->expects($this->once())->method('removePackage')->with($package);
 
         $installer->uninstall($repo, $package);
+    }
+
+    /**
+     * testDisabledInstallers
+     *
+     * @dataProvider dataForTestDisabledInstallers
+     */
+    public function testDisabledInstallers($disabled, $type, $expected)
+    {
+        $this->composer->getPackage()->setExtra(array(
+            'installer-disable' => $disabled,
+        ));
+        $this->testSupports($type, $expected);
+    }
+
+    /**
+     * dataForTestDisabledInstallers
+     *
+     * @return array
+     */
+    public function dataForTestDisabledInstallers()
+    {
+        return array(
+            array(false, "drupal-module", true),
+            array(true, "drupal-module", false),
+            array("true", "drupal-module", true),
+            array("all", "drupal-module", false),
+            array("*", "drupal-module", false),
+            array("cakephp", "drupal-module", true),
+            array("drupal", "cakephp-plugin", true),
+            array("cakephp", "cakephp-plugin", false),
+            array("drupal", "drupal-module", false),
+            array(array("drupal", "cakephp"), "cakephp-plugin", false),
+            array(array("drupal", "cakephp"), "drupal-module", false),
+            array(array("cakephp", true), "drupal-module", false),
+            array(array("cakephp", "all"), "drupal-module", false),
+            array(array("cakephp", "*"), "drupal-module", false),
+            array(array("cakephp", "true"), "drupal-module", true),
+            array(array("drupal", "true"), "cakephp-plugin", true),
+        );
     }
 }

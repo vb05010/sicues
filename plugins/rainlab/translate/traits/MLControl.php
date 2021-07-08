@@ -134,6 +134,10 @@ trait MLControl
     {
         $this->addJs('/plugins/rainlab/translate/assets/js/multilingual.js', 'RainLab.Translate');
         $this->addCss('/plugins/rainlab/translate/assets/css/multilingual.css', 'RainLab.Translate');
+
+        if (!class_exists('System')) {
+            $this->addCss('/plugins/rainlab/translate/assets/css/multilingual-v1.css', 'RainLab.Translate');
+        }
     }
 
     /**
@@ -151,10 +155,10 @@ trait MLControl
         $studKey = Str::studly(implode(' ', HtmlHelper::nameToArray($key)));
         $mutateMethod = 'get'.$studKey.'AttributeTranslated';
 
-        if ($this->model->methodExists($mutateMethod)) {
+        if ($this->objectMethodExists($this->model, $mutateMethod)) {
             $value = $this->model->$mutateMethod($locale);
         }
-        elseif ($this->model->methodExists('getAttributeTranslated')) {
+        elseif ($this->objectMethodExists($this->model, 'getAttributeTranslated') && $this->defaultLocale->code != $locale) {
             $value = $this->model->noFallbackLocale()->getAttributeTranslated($key, $locale);
         }
         else {
@@ -193,12 +197,12 @@ trait MLControl
         $studKey = Str::studly(implode(' ', HtmlHelper::nameToArray($key)));
         $mutateMethod = 'set'.$studKey.'AttributeTranslated';
 
-        if ($this->model->methodExists($mutateMethod)) {
+        if ($this->objectMethodExists($this->model, $mutateMethod)) {
             foreach ($localeData as $locale => $value) {
                 $this->model->$mutateMethod($value, $locale);
             }
         }
-        elseif ($this->model->methodExists('setAttributeTranslated')) {
+        elseif ($this->objectMethodExists($this->model, 'setAttributeTranslated')) {
             foreach ($localeData as $locale => $value) {
                 $this->model->setAttributeTranslated($key, $value, $locale);
             }
@@ -259,5 +263,21 @@ trait MLControl
         }
 
         return false;
+    }
+
+    /**
+     * Internal helper for method existence checks.
+     *
+     * @param  object $object
+     * @param  string $method
+     * @return boolean
+     */
+    protected function objectMethodExists($object, $method)
+    {
+        if (method_exists($object, 'methodExists')) {
+            return $object->methodExists($method);
+        }
+
+        return method_exists($object, $method);
     }
 }

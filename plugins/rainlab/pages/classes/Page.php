@@ -117,8 +117,8 @@ class Page extends ContentBase
         parent::__construct($attributes);
 
         $this->customMessages = [
-            'url.regex'      => Lang::get('rainlab.pages::lang.page.invalid_url'),
-            'url.unique_url' => Lang::get('rainlab.pages::lang.page.url_not_unique')
+            'url.regex'      => 'rainlab.pages::lang.page.invalid_url',
+            'url.unique_url' => 'rainlab.pages::lang.page.url_not_unique',
         ];
     }
 
@@ -246,16 +246,17 @@ class Page extends ContentBase
         }
 
         /*
-         * Remove from meta
-         */
-        $this->removeFromMeta();
-
-        /*
          * Delete the object
          */
         $result = array_merge($result, [$this->getBaseFileName()]);
 
         parent::delete();
+
+        /*
+         * Remove from meta
+         */
+        $this->removeFromMeta();
+
 
         return $result;
     }
@@ -673,6 +674,17 @@ class Page extends ContentBase
     protected static function getMenuCacheKey($theme)
     {
         $key = crc32($theme->getPath()).'static-page-menu';
+        /**
+         * @event pages.page.getMenuCacheKey
+         * Enables modifying the key used to reference cached RainLab.Pages menu trees
+         *
+         * Example usage:
+         *
+         *     Event::listen('pages.page.getMenuCacheKey', function (&$key) {
+         *          $key = $key . '-' . App::getLocale();
+         *     });
+         *
+         */
         Event::fire('pages.page.getMenuCacheKey', [&$key]);
         return $key;
     }
@@ -802,8 +814,9 @@ class Page extends ContentBase
     /**
      * Handler for the backend.richeditor.getTypeInfo event.
      * Returns a menu item type information. The type information is returned as array
+     *
      * @param string $type Specifies the page link type
-     * @return array
+     * @return array Array of available link targets keyed by URL ['https://example.com/' => 'Homepage]
      */
     public static function getRichEditorTypeInfo($type)
     {
@@ -893,7 +906,8 @@ class Page extends ContentBase
         $iterator($pageList->getPageTree(), null, 0);
 
         self::$menuTreeCache = $menuTree;
-        $expiresAt = now()->addMinutes(Config::get('cms.parsedPageCacheTTL', 10));
+        $comboConfig = Config::get('cms.parsedPageCacheTTL', Config::get('cms.template_cache_ttl', 10));
+        $expiresAt = now()->addMinutes($comboConfig);
         Cache::put($key, serialize($menuTree), $expiresAt);
 
         return self::$menuTreeCache;

@@ -1,4 +1,4 @@
-1625524342a:1:{s:22:"samples/categorias.htm";a:11:{s:8:"fileName";s:22:"samples/categorias.htm";s:7:"content";s:599:"title = "Categorías"
+1625669469a:1:{s:22:"samples/categorias.htm";a:11:{s:8:"fileName";s:22:"samples/categorias.htm";s:7:"content";s:599:"title = "Categorías"
 url = "/categorias/:slug"
 layout = "default"
 is_hidden = 0

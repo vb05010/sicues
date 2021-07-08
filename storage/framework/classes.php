@@ -294,4 +294,12 @@
   'RainLab\\Blog\\FormWidgets\\BlogMarkdown' => 'plugins/rainlab/blog/formwidgets/BlogMarkdown.php',
   'RainLab\\Blog\\FormWidgets\\MLBlogMarkdown' => 'plugins/rainlab/blog/formwidgets/MLBlogMarkdown.php',
   'Backend\\Behaviors\\RelationController' => 'modules/backend/behaviors/RelationController.php',
+  'Backend\\Traits\\UploadableWidget' => 'modules/backend/traits/UploadableWidget.php',
+  'Backend\\Classes\\MainMenuItem' => 'modules/backend/classes/MainMenuItem.php',
+  'Backend\\Classes\\SideMenuItem' => 'modules/backend/classes/SideMenuItem.php',
+  'Cyd293\\BackendSkin\\RoutingServiceProvider' => 'plugins/cyd293/backendskin/RoutingServiceProvider.php',
+  'Cyd293\\BackendSkin\\Models\\Settings' => 'plugins/cyd293/backendskin/models/Settings.php',
+  'Cyd293\\BackendSkin\\Router\\UrlGenerator' => 'plugins/cyd293/backendskin/router/UrlGenerator.php',
+  'RainLab\\Forum\\Components\\RssFeed' => 'plugins/rainlab/forum/components/RssFeed.php',
+  'System\\Twig\\SecurityPolicy' => 'modules/system/twig/SecurityPolicy.php',
 );

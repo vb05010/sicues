@@ -9,4 +9,5 @@ return array(
     'Http_Exception' => $vendorDir . '/iron-io/iron_core/IronCore.class.php',
     'IronCore' => $vendorDir . '/iron-io/iron_core/IronCore.class.php',
     'JSON_Exception' => $vendorDir . '/iron-io/iron_core/IronCore.class.php',
+    'Normalizer' => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
 );

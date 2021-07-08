@@ -78,9 +78,11 @@ class Topic extends ComponentBase
                 'type'        => 'string',
             ],
             'postsPerPage' => [
-                'title'       => 'rainlab.forum::lang.topicpage.pagination_name',
-                'default'     => '20',
-                'type'        => 'string',
+                'title'             => 'rainlab.forum::lang.posts.per_page',
+                'type'              => 'string',
+                'validationPattern' => '^[0-9]+$',
+                'validationMessage' => 'rainlab.forum::lang.posts.per_page_validation',
+                'default'           => '20',
             ],
             'memberPage' => [
                 'title'       => 'rainlab.forum::lang.member.page_name',
@@ -94,6 +96,12 @@ class Topic extends ComponentBase
                 'type'        => 'dropdown',
                 'group'       => 'Links',
             ],
+            'includeStyles' => [
+                'title'       => 'rainlab.forum::lang.components.general.properties.includeStyles',
+                'description' => 'rainlab.forum::lang.components.general.properties.includeStyles_desc',
+                'type'        => 'checkbox',
+                'default'     => true
+            ],
         ];
     }
 
@@ -104,7 +112,9 @@ class Topic extends ComponentBase
 
     public function onRun()
     {
-        $this->addCss('assets/css/forum.css');
+        if ($this->property('includeStyles', true)) {
+            $this->addCss('assets/css/forum.css');
+        }
         $this->addJs('assets/js/forum.js');
 
         $this->prepareVars();
@@ -306,7 +316,7 @@ class Topic extends ComponentBase
 
             $member = $this->getMember();
             $channel = $this->getChannel();
-            
+
             if ($channel->is_moderated && !$member->is_moderator) {
                 throw new ApplicationException('You cannot create a topic in this channel.');
             }

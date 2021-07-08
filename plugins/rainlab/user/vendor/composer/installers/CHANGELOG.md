@@ -1,6 +1,53 @@
 # Change Log
 
-## [Unreleased]
+## v1.10.0 - 2021-01-14
+### Added
+* Added handling for `LibraryInstaller` returning `PromiseInterface`.
+* Added Moodle document converter, [#464](https://github.com/composer/installers/pull/464).
+* Added installer for Starbug packages, [#475](https://github.com/composer/installers/pull/475).
+* Added installer for Processwire module, [#472](https://github.com/composer/installers/pull/472).
+
+### Fixed
+* Fixed TAO Installer for proper work, [#437](https://github.com/composer/installers/pull/437).
+
+## v1.9.0 - 2020-04-07
+## Added
+* Added support for Composer 2.0.
+* Added drupal-database-driver type to Drupal Framework, [#452](https://github.com/composer/installers/pull/452).
+* Added support for declaring installer-paths values as strings [#449](https://github.com/composer/installers/pull/449).
+
+## v1.8.0 - 2020-02-07
+## Added
+* Added support for MantisBT plugins, [#442](https://github.com/composer/installers/pull/442).
+* Added drupal-config type to Drupal Framework, [#440](https://github.com/composer/installers/pull/440).
+* Added support for Sylius themes, [#445](https://github.com/composer/installers/pull/445).
+
+## v1.7.0 - 2019-08-12
+## Added
+* Added support for Redaxo v5, [#410](https://github.com/composer/installers/pull/410).
+* Added TAO extensions installer, [#424](https://github.com/composer/installers/pull/424).
+* Added Know installer, [#425](https://github.com/composer/installers/pull/425).
+* Added support for Drupal Console custom packages and languages, [#311](https://github.com/composer/installers/pull/311).
+* Added Drupal custom profile installation path, [#416](https://github.com/composer/installers/pull/416).
+* Add support drupal-site type, [#417](https://github.com/composer/installers/pull/417).
+* Added `customcertelement` for Moodle, [#408](https://github.com/composer/installers/pull/408).
+* Added Dframe installer, [#404](https://github.com/composer/installers/pull/404).
+* Added WHMCS installer, [#401](https://github.com/composer/installers/pull/401).
+
+## Fixed
+* Get `target-dir` from package attributes, [#432](https://github.com/composer/installers/pull/432).
+
+## Deprecated
+* Deprecated Pimcore installer, [#400](https://github.com/composer/installers/pull/400).
+
+## v1.6.0 - 2018-09-12
+## Added
+* Added ability to disable all or certain installers, [#376](https://github.com/composer/installers/pull/376).
+* Added MediaWiki Core, [#391](https://github.com/composer/installers/pull/391).
+* Added CiviCrm installer, [#385](https://github.com/composer/installers/pull/385).
+
+## Fixed
+* Normalise vendor directory containing hyphen, [#397](https://github.com/composer/installers/pull/397).
 
 ## v1.5.0 - 2017-12-29
 ### Added
