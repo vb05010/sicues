@@ -1,0 +1,31 @@
+1643712270a:1:{s:17:"sections/cta2.htm";a:6:{s:8:"fileName";s:17:"sections/cta2.htm";s:7:"content";s:692:"[viewBag]
+==
+<div class="shadow"></div>
+<div class="section frontpage-cta parallax-bg" data-parallax="scroll" data-image-src="{{ 'assets/images/samples/station-enhanced-2.jpg' | theme }}" id="cta2">
+    <div class="container wow zoomIn">
+        <div class="description">
+            <p>
+                <h2>Investiga en <br />La <em>Universidad</em> de El Salvador</h2>
+                
+                {% content 'cta2/content' %}
+                <p>&nbsp;</p>
+                <p><a href="#" target="_blank" class="btn btn-primary-custom btn-margin-top"><strong>Más información</strong></a></p>
+                <p>&nbsp;</p>
+            </p>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1642565452;s:6:"markup";s:679:"<div class="shadow"></div>
+<div class="section frontpage-cta parallax-bg" data-parallax="scroll" data-image-src="{{ 'assets/images/samples/station-enhanced-2.jpg' | theme }}" id="cta2">
+    <div class="container wow zoomIn">
+        <div class="description">
+            <p>
+                <h2>Investiga en <br />La <em>Universidad</em> de El Salvador</h2>
+                
+                {% content 'cta2/content' %}
+                <p>&nbsp;</p>
+                <p><a href="#" target="_blank" class="btn btn-primary-custom btn-margin-top"><strong>Más información</strong></a></p>
+                <p>&nbsp;</p>
+            </p>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:7:"viewBag";a:0:{}}}

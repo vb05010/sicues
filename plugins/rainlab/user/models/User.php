@@ -55,13 +55,12 @@ class User extends UserBase
         'created_ip_address',
         'last_ip_address'
     ];
-    
+
     /**
      * Reset guarded fields, because we use $fillable instead.
      * @var array The attributes that aren't mass assignable.
      */
     protected $guarded = ['*'];
-
 
     /**
      * Purge attributes from data set.
@@ -148,6 +147,16 @@ class User extends UserBase
     //
     // Getters
     //
+
+    /**
+     * clearPersistCode will forcibly sign the user out
+     */
+    public function clearPersistCode()
+    {
+        $this->persist_code = null;
+        $this->timestamps = false;
+        $this->save();
+    }
 
     /**
      * Gets a code for when the user is persisted to a cookie or session which identifies the user.
@@ -460,11 +469,16 @@ class User extends UserBase
      */
     public function isOnline()
     {
-        return $this->getLastSeen() > $this->freshTimestamp()->subMinutes(5);
+        if (!$this->last_seen) {
+            return false;
+        }
+
+        return $this->last_seen > $this->freshTimestamp()->subMinutes(5);
     }
 
     /**
      * Returns the date this user was last seen.
+     * @deprecated use last_seen attribute
      * @return Carbon\Carbon
      */
     public function getLastSeen()

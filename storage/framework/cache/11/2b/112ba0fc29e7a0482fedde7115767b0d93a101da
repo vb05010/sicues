@@ -1,0 +1,18 @@
+1643712270a:1:{s:8:"home.htm";a:9:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:287:"title = "Inicio"
+url = "/"
+layout = "clean"
+is_hidden = 0
+==
+{% partial 'sections/intro' %}
+{% partial 'sections/welcome' %}
+{% partial 'sections/features' %}
+{% partial 'sections/cta' %}
+{% partial 'sections/posts' %}
+{% partial 'sections/cta2' %}
+{% partial 'sections/contact' %}";s:5:"mtime";i:1631820579;s:6:"markup";s:226:"{% partial 'sections/intro' %}
+{% partial 'sections/welcome' %}
+{% partial 'sections/features' %}
+{% partial 'sections/cta' %}
+{% partial 'sections/posts' %}
+{% partial 'sections/cta2' %}
+{% partial 'sections/contact' %}";s:4:"code";N;s:5:"title";s:6:"Inicio";s:3:"url";s:1:"/";s:6:"layout";s:5:"clean";s:9:"is_hidden";s:1:"0";}}

@@ -478,10 +478,13 @@ class Page extends ContentBase
 
             $type = $node->hasAttribute('type') ? trim($node->getAttribute('type')) : null;
             $ignore = $node->hasAttribute('ignore') ? trim($node->getAttribute('ignore')) : false;
+            if ($type === 'hidden') {
+                $ignore = true;
+            }
 
             $placeholderInfo = [
-                'title'  => $title,
-                'type'   => $type ?: 'html',
+                'title' => $title,
+                'type' => $type ?: 'html',
                 'ignore' => $ignore
             ];
 
@@ -578,6 +581,9 @@ class Page extends ContentBase
         $this->attributes['placeholders'] = $placeholders;
     }
 
+    /**
+     * getProcessedMarkup will return the processed markup of a page
+     */
     public function getProcessedMarkup()
     {
         if ($this->processedMarkupCache !== false) {
@@ -600,6 +606,11 @@ class Page extends ContentBase
         if (!empty($globalVars)) {
             $markup = TextParser::parse($markup, $globalVars);
         }
+
+        /*
+         * Event hook
+         */
+        Event::fire('pages.page.getProcessedMarkup', [&$markup]);
 
         return $this->processedMarkupCache = $markup;
     }

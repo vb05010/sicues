@@ -1,0 +1,75 @@
+1643710149a:1:{s:18:"sicues/cic-ues.htm";a:12:{s:8:"fileName";s:18:"sicues/cic-ues.htm";s:7:"content";s:2495:"title = "CIC UES"
+url = "/cic-ues"
+layout = "titled"
+description = "Página del Consejo de Investigaciones Científicas de la Universidad de El Salvador"
+meta_title = "CIC UES"
+meta_description = "Consejo de Investigaciones Científicas de la Universidad de El Salvador"
+is_hidden = 0
+==
+<div class="row">
+    <div class="col-md-7">
+    	<h3>Consejo de Investigaciones Científicas</h3>
+        <p align="justify">La Universidad de El Salvador (UES), única Universidad Estatal del País. Impulsa la Investigación Científica mediante la Política de Investigación Científica y Tecnológica con el desarrollo de las Investigaciones en las áreas del Conocimiento que propicien la formación de recursos humanos capaces de impactar en el desarrollo científico y tecnológico de avanzada; e investigaciones que incluyan temáticas que respondan a necesidades críticas del País.</p>
+        
+        <p align="justify">Mediante este esfuerzo se espera favorecer la formación de grupos multidisciplinarios de investigación y su interacción con otras instituciones nacionales y extranjeras.</p>
+        
+        <p align="justify">Así como contribuir a establecer la Política Nacional de Ciencia y Tecnología, y promover la integración y coordinación de la Investigación con la docencia y la proyección social en las entidades académicas en el País.</p>
+        
+        <p align="justify">Para alcanzar sus objetivos la Universidad de El Salvador ha establecido las áreas y líneas prioritarias de investigación en:</p>
+        <ul>
+        	<li>Medio Ambiente y Recursos Naturales.</li>
+        	<li>Seguridad Alimentaria y Nutricional.</li>
+        	<li>Rescate de la Identidad Nacional.</li>
+        	<li>Promoción de la Salud.</li>
+        	<li>Enfermedades nuevas Emergentes y Re-emergentes.</li>
+        	<li>Causas y Mitigación de la Pobreza.</li>
+        	<li>Investigación educativa.</li>
+        </ul>
+        <p>Para lo cual implementa las políticas de:</p>
+        <ul>
+        	<li>Financiamiento-</li>
+        	<li>Asignación de Recursos Financieros.</li>
+        	<li>Rescate de la Identidad Nacional.</li>
+        	<li>Propiedad Intelectual.</li>
+        	<li>Usufructo.</li>
+        	<li>Organización de la Investigación.</li>
+        	<li>Formación de Recursos Humanos.</li>
+        </ul>
+    </div>
+    <div class="col-md-5">
+        {% partial 'modules/cicues' %}
+    </div> <!-- end col-md-5-->
+</div> <!-- end row-->";s:5:"mtime";i:1643140675;s:6:"markup";s:2207:"<div class="row">
+    <div class="col-md-7">
+    	<h3>Consejo de Investigaciones Científicas</h3>
+        <p align="justify">La Universidad de El Salvador (UES), única Universidad Estatal del País. Impulsa la Investigación Científica mediante la Política de Investigación Científica y Tecnológica con el desarrollo de las Investigaciones en las áreas del Conocimiento que propicien la formación de recursos humanos capaces de impactar en el desarrollo científico y tecnológico de avanzada; e investigaciones que incluyan temáticas que respondan a necesidades críticas del País.</p>
+        
+        <p align="justify">Mediante este esfuerzo se espera favorecer la formación de grupos multidisciplinarios de investigación y su interacción con otras instituciones nacionales y extranjeras.</p>
+        
+        <p align="justify">Así como contribuir a establecer la Política Nacional de Ciencia y Tecnología, y promover la integración y coordinación de la Investigación con la docencia y la proyección social en las entidades académicas en el País.</p>
+        
+        <p align="justify">Para alcanzar sus objetivos la Universidad de El Salvador ha establecido las áreas y líneas prioritarias de investigación en:</p>
+        <ul>
+        	<li>Medio Ambiente y Recursos Naturales.</li>
+        	<li>Seguridad Alimentaria y Nutricional.</li>
+        	<li>Rescate de la Identidad Nacional.</li>
+        	<li>Promoción de la Salud.</li>
+        	<li>Enfermedades nuevas Emergentes y Re-emergentes.</li>
+        	<li>Causas y Mitigación de la Pobreza.</li>
+        	<li>Investigación educativa.</li>
+        </ul>
+        <p>Para lo cual implementa las políticas de:</p>
+        <ul>
+        	<li>Financiamiento-</li>
+        	<li>Asignación de Recursos Financieros.</li>
+        	<li>Rescate de la Identidad Nacional.</li>
+        	<li>Propiedad Intelectual.</li>
+        	<li>Usufructo.</li>
+        	<li>Organización de la Investigación.</li>
+        	<li>Formación de Recursos Humanos.</li>
+        </ul>
+    </div>
+    <div class="col-md-5">
+        {% partial 'modules/cicues' %}
+    </div> <!-- end col-md-5-->
+</div> <!-- end row-->";s:4:"code";N;s:5:"title";s:7:"CIC UES";s:3:"url";s:8:"/cic-ues";s:6:"layout";s:6:"titled";s:11:"description";s:84:"Página del Consejo de Investigaciones Científicas de la Universidad de El Salvador";s:10:"meta_title";s:7:"CIC UES";s:16:"meta_description";s:72:"Consejo de Investigaciones Científicas de la Universidad de El Salvador";s:9:"is_hidden";s:1:"0";}}

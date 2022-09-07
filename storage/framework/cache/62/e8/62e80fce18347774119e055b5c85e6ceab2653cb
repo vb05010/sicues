@@ -1,0 +1,73 @@
+1643712270a:1:{s:20:"sections/contact.htm";a:6:{s:8:"fileName";s:20:"sections/contact.htm";s:7:"content";s:2286:"[viewBag]
+==
+<div class="section frontpage-open1 bg-white" id="open">
+    <div class="container">
+        <h2 class="block-title wow zoomIn">Contáctanos</h2>
+        <div class="wow fadeIn">
+            <!-- <p class="text-center">On the left, we placed contact form.</p> -->
+            <!-- <p class="text-center">On the left, we embedded the Google Maps code and wrapped it with <code>&lt;div class="map"&gt;&lt;/div&gt;</code></p> -->
+            <p>&nbsp;</p>
+            <div class="row">
+                <div class="col-md-7">
+                    <h4>Mapa de ubicación</h4>
+                    <div class="map">
+                        <div class="googlemaps">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.007296124741!2d-89.20390888614625!3d13.718007790369322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f633085a6faf643%3A0x794c7d459cebe6ea!2sCentro%20de%20Investigaci%C3%B3n%20y%20Desarrollo%20en%20Salud%20%22CENSALUD%22!5e0!3m2!1ses!2ssv!4v1639165810792!5m2!1ses!2ssv" width="600" height="375" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h4>Escríbenos</h4>
+                    <p align="justify">Para mayor información escriba al correo electrónico: "sic@ues.edu.sv" o llame al teléfono: (+503) 2225 8434 o complete el formulario disponible en el siguiente enlace:</p>
+                    <p><a href="{{'sicues/contactenos.htm' | page }}" class="btn btn-primary-custom btn-margin-top"><strong>Formulario de contacto</strong></a></p>
+                    <div id="container">
+            	<!-- <div id="left">
+            		<img  src="{{ 'assets/images/samples/ues.jpg' | theme }}" class="img-responsive" />
+            	</div> -->
+  				<!-- <div id="right">
+  					<img src="{{ 'assets/images/samples/reima.jpg' | theme }}" class="img-responsive" />
+  				</div> -->
+  				<!-- <div id="center">
+  					<img src="{{ 'assets/images/samples/csuca.jpg' | theme }}" class="img-responsive" />
+  				</div> -->
+            </div> <!--end container-->
+        </div>
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1642629571;s:6:"markup";s:2273:"<div class="section frontpage-open1 bg-white" id="open">
+    <div class="container">
+        <h2 class="block-title wow zoomIn">Contáctanos</h2>
+        <div class="wow fadeIn">
+            <!-- <p class="text-center">On the left, we placed contact form.</p> -->
+            <!-- <p class="text-center">On the left, we embedded the Google Maps code and wrapped it with <code>&lt;div class="map"&gt;&lt;/div&gt;</code></p> -->
+            <p>&nbsp;</p>
+            <div class="row">
+                <div class="col-md-7">
+                    <h4>Mapa de ubicación</h4>
+                    <div class="map">
+                        <div class="googlemaps">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.007296124741!2d-89.20390888614625!3d13.718007790369322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f633085a6faf643%3A0x794c7d459cebe6ea!2sCentro%20de%20Investigaci%C3%B3n%20y%20Desarrollo%20en%20Salud%20%22CENSALUD%22!5e0!3m2!1ses!2ssv!4v1639165810792!5m2!1ses!2ssv" width="600" height="375" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h4>Escríbenos</h4>
+                    <p align="justify">Para mayor información escriba al correo electrónico: "sic@ues.edu.sv" o llame al teléfono: (+503) 2225 8434 o complete el formulario disponible en el siguiente enlace:</p>
+                    <p><a href="{{'sicues/contactenos.htm' | page }}" class="btn btn-primary-custom btn-margin-top"><strong>Formulario de contacto</strong></a></p>
+                    <div id="container">
+            	<!-- <div id="left">
+            		<img  src="{{ 'assets/images/samples/ues.jpg' | theme }}" class="img-responsive" />
+            	</div> -->
+  				<!-- <div id="right">
+  					<img src="{{ 'assets/images/samples/reima.jpg' | theme }}" class="img-responsive" />
+  				</div> -->
+  				<!-- <div id="center">
+  					<img src="{{ 'assets/images/samples/csuca.jpg' | theme }}" class="img-responsive" />
+  				</div> -->
+            </div> <!--end container-->
+        </div>
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:7:"viewBag";a:0:{}}}

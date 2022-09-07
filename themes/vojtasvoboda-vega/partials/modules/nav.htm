@@ -1,0 +1,167 @@
+description = "Menú Superior"
+
+[viewBag]
+==
+<div class="nav-wrapper">
+    <div class="navbar navbar-custom" role="navigation">
+        <div class="container">
+            <!-- Logo -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><i class="fa fa-bars"></i></button>
+                <!-- <a class="navbar-brand text-logo" href="{{ url('') }}">{{ this.theme.site_title }}</a> -->
+                <img class="img-responsive" style="margin-top:5px; width: 271px; height: 96px;" src="https://sic.ues.edu.sv/themes/vojtasvoboda-vega/assets/images/sicueslogo.png" />
+            </div>
+            <!-- /Logo -->
+
+            <!-- Navigation -->
+            <div class="navbar-collapse collapse">
+                <ul id="menu-header" class="nav navbar-nav navbar-right menu-header">
+                    <li class="page-scroll menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Inicio" href="{{ 'home.htm' | page }}">Inicio</a>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown">
+                        <a title="Acerca de" href="#" data-toggle="dropdown" class="dropdown-toggle">Acerca de <b class="fa fa-angle-down"></b></a>
+                        <ul role="menu" class=" dropdown-menu">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="SIC UES" href="{{'sicues/sicues.htm' | page}}">SIC UES &#8211; Secretaría de Investigaciones Científicas</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="CIC" href="{{'sicues/cic-ues.htm' | page}}">CIC UES &#8211; Consejo de Investigaciones Científicas</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Autoridades UES" href="{{'sicues/autoridades-ues.htm' | page}}"> Autoridades de la Universidad de <br />El Salvador</a>
+                            </li>
+                            <li class="divider menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="---" href="#">&#8212;</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Documentos" href="#">Archivos &#8211; (Documentos de ínteres)</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Directorio" href="#">Investigadores &#8211; (Directorio)</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Reserva" href="{{'sicues/solicitud-reserva-auditorio.htm' | page }}">Solicitud Reserva Auditorio</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown">
+                        <a title="Investigación" href="#" data-toggle="dropdown" class="dropdown-toggle">Investigación <b class="fa fa-angle-down"></b></a>
+                        <ul role="menu" class=" dropdown-menu">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="PI" href="#">Programas de Investigación</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Seguimiento de proyectos" href="{{'sicues/seguimiento-proyectos.htm' | page}}">Seguimiento de proyectos de proyectos de investigación</a>
+                            </li>
+                            <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Oferta de Servicios Especializados" href="#">Oferta de Servicios Especializados</a>
+                            </li> -->
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Publicaciones Científicas" href="#">Publicaciones Científicas</a>
+                            </li>
+                            <!--<li class="divider menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="---" href="#">&#8212;</a>
+                            </li>-->
+                            <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Post - Full Width" href="{{ 'samples/blog-detail' | page }}">Archivos &#8211; (Documentos de ínteres)</a>
+                            </li> -->
+                            <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Post - With Sidebar" href="{{ 'samples/blog-detail-with-sidebar' | page }}">Investigadores &#8211; (Directorio)</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown"> <!--Menu otrive-->
+                        <a title="Investigación" href="#" data-toggle="dropdown" class="dropdown-toggle">OTRIVE <b class="fa fa-angle-down"></b></a>
+                        <ul role="menu" class=" dropdown-menu">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="OTRIVE" href="{{'sicues/otrive.htm' | page }}">Acerca de OTRIVE</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Ofeta de Servicios Especializados" href="{{'sicues/seguimiento-proyectos.htm' | page}}">Ofeta de Servicios Especializados</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Propiedad Intelectual" href="#">Propiedad Intelectual</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Ofeta Académica de Posgrado UES" href="#">Ofeta Académica de Posgrado UES</a>
+                            </li>
+                            <!--<li class="divider menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="---" href="#">&#8212;</a>
+                            </li>-->
+                            <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Post - Full Width" href="{{ 'samples/blog-detail' | page }}">Archivos &#8211; (Documentos de ínteres)</a>
+                            </li> -->
+                            <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Post - With Sidebar" href="{{ 'samples/blog-detail-with-sidebar' | page }}">Investigadores &#8211; (Directorio)</a>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <!-- <li class="page-scroll hidden-sm hidden-md menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Oficina de Transferencia" href="{{'sicues/otrive.htm' | page }}">OTRIVE</a>
+                    </li> -->
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown">
+                        <a title="EPI SIC" href="#" data-toggle="dropdown" class="dropdown-toggle">Comunicación Científica <b class="fa fa-angle-down"></b></a>
+                        <ul role="menu" class=" dropdown-menu">
+                           <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a title="Boletines" href="#"> Boletines</a>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                <a title="Infografías" href="#"> Infografías</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Documentales" href="#"> Documentales</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Cápsulas" href="#"> Cápsulas</a>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="Revista minerva" href="https://minerva.sic.ues.edu.sv" target="_blank"> Revista Minerva</a>
+                            </li>
+                           <!-- <li class="divider menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="---" href="#">&#8212;</a>
+                            </li>-->
+                            <!--<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown">
+                                <a title="Navigation Level 3" href="#">Navigation Level 3</a>
+                                <ul role="menu" class=" dropdown-menu">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                        <a title="Level 3" href="#">Level 3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="divider menu-item menu-item-type-custom menu-item-object-custom">
+                                <a title="---" href="#">&#8212;</a>
+                            </li>
+                            <li class="qtranxs-lang-menu qtranxs-lang-menu-en menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown">
+                                <a title="English" href="#"><span class="glyphicon English"></span>&nbsp;Language:&nbsp;<img src="{{ 'assets/images/flags/gb.png' | theme }}" alt="English" /></a>
+                                <ul role="menu" class=" dropdown-menu">
+                                    <li class="qtranxs-lang-menu-item qtranxs-lang-menu-item-en menu-item menu-item-type-custom menu-item-object-custom">
+                                        <a title="English" href="eUrl }}/en/"><span class="glyphicon English"></span>&nbsp;<img src="{{ 'assets/images/flags/gb.png' | theme }}" alt="English" />&nbsp;English</a>
+                                    </li>
+                                    <li class="qtranxs-lang-menu-item qtranxs-lang-menu-item-de menu-item menu-item-type-custom menu-item-object-custom">
+                                        <a title="Deutsch" href="{{ baseUrl }}/de/"><span class="glyphicon Deutsch"></span>&nbsp;<img src="{{ 'assets/images/flags/de.png' | theme }}" alt="Deutsch" />&nbsp;Deutsch</a>
+                                    </li>
+                                </ul>
+                            </li>.-->
+                        </ul>
+                    </li>
+                    
+                   <!-- <li class="page-scroll hidden-sm hidden-md menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Latest Posts" href="#latest">Formación</a>
+                    </li>
+                    <li class="page-scroll hidden-sm hidden-md menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a href="https://minerva.sic.ues.edu.sv/index.php/Minerva" target="_blank">Revista Minerva</a>
+                    </li>-->
+                    <li class="page-scroll hidden-sm hidden-md menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item active">
+                        <a title="Convocatoria 20 - 2022" href="{{ 'sicues/convocatoria20-2022.htm' | page }}">Convocatoria 2022</a>
+                    </li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                        <a title="Contáctenos" href="{{ 'sicues/contactenos.htm' | page }}">Contáctenos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

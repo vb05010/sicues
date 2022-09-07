@@ -1,0 +1,98 @@
+1643438293a:1:{s:22:"sicues/contactenos.htm";a:13:{s:8:"fileName";s:22:"sicues/contactenos.htm";s:7:"content";s:4348:"title = "Contáctenos"
+url = "/contactenos"
+layout = "titled"
+description = "Página de contácto de la Secretaría de Investigaciones Científicas de la Universidad de El Salvador"
+meta_title = "Contáctenos"
+meta_description = "Página de contácto de la Secretaría de Investigaciones Científicas de la Universidad de El Salvador"
+is_hidden = 0
+
+[customForm]
+formCode = "contact_form"
+==
+<div class="section frontpage-open1 bg-white" id="open">
+    <div class="container">
+        <!-- <h2 class="block-title wow zoomIn">Contáctenos</h2> -->
+        <div class="wow fadeIn">
+           <spam style="color:#a00;">SIC UES. 1er. Nivel, Edificio de CENSALUD. <em>Ciudad Universitaria "Dr. Fabio Castillo Figueroa", Final Av. Héroes y Mártires del 30 julio, San Salvador, El Salvador, América Central. </em></spam>
+            <div class="row">
+                <div class="col-md-7">
+                    <h4>Mapa de ubicación</h4>
+                    <div class="map">
+                        <div class="googlemaps">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.007296124741!2d-89.20390888614625!3d13.718007790369322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f633085a6faf643%3A0x794c7d459cebe6ea!2sCentro%20de%20Investigaci%C3%B3n%20y%20Desarrollo%20en%20Salud%20%22CENSALUD%22!5e0!3m2!1ses!2ssv!4v1639165810792!5m2!1ses!2ssv" width="603" height="360" style="border:0;"  allowfullscreen="" loading="lazy"></iframe>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h4>Escríbenos</h4>
+                    {% component 'customForm' %}
+                    <!-- <div role="form" class="wpcf7" id="wpcf7-f400-o1" lang="en-US" dir="ltr">
+                        <div class="screen-reader-response"></div>
+                        <form action="#" method="post" class="wpcf7-form" novalidate="novalidate">
+                            <div style="display: none;">
+                                <input type="hidden" name="_wpcf7" value="400" />
+                                <input type="hidden" name="_wpcf7_version" value="4.5.1" />
+                                <input type="hidden" name="_wpcf7_locale" value="en_US" />
+                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f400-o1" />
+                                <input type="hidden" name="_wpnonce" value="3dee91dd9d" />
+                            </div>
+                            
+                            <div class="form-group"><span class="wpcf7-form-control-wrap full-name"><input type="text" name="full-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Nombre" /></span></div>
+                            <div class="form-group"><span class="wpcf7-form-control-wrap email"><input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form-control" aria-required="true" aria-invalid="false" placeholder="Correo electrónico" /></span></div>
+                            <div class="form-group"><span class="wpcf7-form-control-wrap message"><textarea name="message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea form-control" aria-invalid="false" placeholder="Mensaje"></textarea></span></div>
+                            <div class="form-action"><input type="submit" value="Enviar Mensaje" class="wpcf7-form-control wpcf7-submit btn btn-primary-custom btn-block btn-lg" /></div>
+                            <div class="wpcf7-response-output wpcf7-display-none"></div>
+                        </form>
+                    </div> -->
+                </div>
+                 <!-- <h3>Secretaría de Investigaciones Científicas SIC UES</h3> -->
+            <!-- <h4>Ciudad Universitaria "Dr. Fabio Castillo Figueroa", Final Av. Héroes y Mártires del 30 julio, San Salvador, El Salvador, América Central. <br /> 1er. Nivel, Edificio de CENSALUD. Tel. (503) 2225-8434 correo electronico: sic@ues.edu.sv</h4> -->
+            <!-- <p>&nbsp;</p> -->
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1642660184;s:6:"markup";s:3956:"<div class="section frontpage-open1 bg-white" id="open">
+    <div class="container">
+        <!-- <h2 class="block-title wow zoomIn">Contáctenos</h2> -->
+        <div class="wow fadeIn">
+           <spam style="color:#a00;">SIC UES. 1er. Nivel, Edificio de CENSALUD. <em>Ciudad Universitaria "Dr. Fabio Castillo Figueroa", Final Av. Héroes y Mártires del 30 julio, San Salvador, El Salvador, América Central. </em></spam>
+            <div class="row">
+                <div class="col-md-7">
+                    <h4>Mapa de ubicación</h4>
+                    <div class="map">
+                        <div class="googlemaps">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.007296124741!2d-89.20390888614625!3d13.718007790369322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f633085a6faf643%3A0x794c7d459cebe6ea!2sCentro%20de%20Investigaci%C3%B3n%20y%20Desarrollo%20en%20Salud%20%22CENSALUD%22!5e0!3m2!1ses!2ssv!4v1639165810792!5m2!1ses!2ssv" width="603" height="360" style="border:0;"  allowfullscreen="" loading="lazy"></iframe>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h4>Escríbenos</h4>
+                    {% component 'customForm' %}
+                    <!-- <div role="form" class="wpcf7" id="wpcf7-f400-o1" lang="en-US" dir="ltr">
+                        <div class="screen-reader-response"></div>
+                        <form action="#" method="post" class="wpcf7-form" novalidate="novalidate">
+                            <div style="display: none;">
+                                <input type="hidden" name="_wpcf7" value="400" />
+                                <input type="hidden" name="_wpcf7_version" value="4.5.1" />
+                                <input type="hidden" name="_wpcf7_locale" value="en_US" />
+                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f400-o1" />
+                                <input type="hidden" name="_wpnonce" value="3dee91dd9d" />
+                            </div>
+                            
+                            <div class="form-group"><span class="wpcf7-form-control-wrap full-name"><input type="text" name="full-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Nombre" /></span></div>
+                            <div class="form-group"><span class="wpcf7-form-control-wrap email"><input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form-control" aria-required="true" aria-invalid="false" placeholder="Correo electrónico" /></span></div>
+                            <div class="form-group"><span class="wpcf7-form-control-wrap message"><textarea name="message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea form-control" aria-invalid="false" placeholder="Mensaje"></textarea></span></div>
+                            <div class="form-action"><input type="submit" value="Enviar Mensaje" class="wpcf7-form-control wpcf7-submit btn btn-primary-custom btn-block btn-lg" /></div>
+                            <div class="wpcf7-response-output wpcf7-display-none"></div>
+                        </form>
+                    </div> -->
+                </div>
+                 <!-- <h3>Secretaría de Investigaciones Científicas SIC UES</h3> -->
+            <!-- <h4>Ciudad Universitaria "Dr. Fabio Castillo Figueroa", Final Av. Héroes y Mártires del 30 julio, San Salvador, El Salvador, América Central. <br /> 1er. Nivel, Edificio de CENSALUD. Tel. (503) 2225-8434 correo electronico: sic@ues.edu.sv</h4> -->
+            <!-- <p>&nbsp;</p> -->
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:12:"Contáctenos";s:3:"url";s:12:"/contactenos";s:6:"layout";s:6:"titled";s:11:"description";s:103:"Página de contácto de la Secretaría de Investigaciones Científicas de la Universidad de El Salvador";s:10:"meta_title";s:12:"Contáctenos";s:16:"meta_description";s:103:"Página de contácto de la Secretaría de Investigaciones Científicas de la Universidad de El Salvador";s:9:"is_hidden";s:1:"0";s:10:"customForm";a:1:{s:8:"formCode";s:12:"contact_form";}}}

@@ -1,0 +1,37 @@
+description = "Menú vertical cicues"
+
+[viewBag]
+==
+<p><img class="img-responsive" src="{{ 'assets/images/samples/about-img.jpg' | theme }}" alt="" /></p>
+        <p>&nbsp;</p>
+                <h3 class="widget-title"> Sobre el CIC UES </h3>
+ <div class="vertical-menu">
+  <a href="{{'sicues/miembros-cei.htm' | page}}"><i class="fa fa-users" aria-hidden="true"></i> Miembros del CEI UES</a>
+  <a href="{{'sicues/funciones-cicues.htm' | page}}"><i class="fa fa-cogs" aria-hidden="true"></i> Funciones del CIC UES</a>
+  <a href="{{'sicues/reglamento-cicues.htm' | page}}"><i class="fa fa-book" aria-hidden="true"></i> Reglamento del CIC UES</a>
+  <!-- <a href="{{'sicues/seguimiento-proyectos.htm' | page}}"><i class="fa fa-check-square-o" aria-hidden="true"></i> Seguimiento de Proyectos de Investigación</a> -->
+  <!-- <a href="#"><i class="fa fa-list" aria-hidden="true"></i> Publicaciones Científicas</a> -->
+</div>
+
+<style>
+	.vertical-menu {
+  width: 443px; /* Set a width if you like */
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #a00; /* Add a green color to the "active/current" link */
+  color: white;
+}
+</style>

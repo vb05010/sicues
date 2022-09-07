@@ -1,0 +1,39 @@
+1643712270a:1:{s:16:"sections/cta.htm";a:6:{s:8:"fileName";s:16:"sections/cta.htm";s:7:"content";s:1052:"[viewBag]
+==
+<div class="shadow"></div>
+<div class="section frontpage-cta parallax-bg" data-parallax="scroll" data-image-src="{{ 'assets/images/samples/rural-enhanced-1.jpg' | theme }}" id="cta">
+    <div class="container wow zoomIn description">
+        <div class="description">
+            <h2>SEGUIMIENTO DE PROYECTOS DE <em>INVESTIGACIÓN</em></h2>
+            <p class="small">
+                Otorgar el  <strong><em>Financiamiento</em></strong> para un proyecto no es suficiente.<br />
+                <strong><em>Es también necesario</em></strong>  que éste se ejecute de manera correcta, en forma oportuna y en conformidad con los compromisos adquiridos por los investigadores.
+            </p>
+            <p>&nbsp;</p>
+           
+            {% content 'cta/content' %}
+            <p>
+                <a class="btn btn-primary-custom btn-margin-top btn-margin-bottom" href="{{'sicues/seguimiento-proyectos.htm' | page}}">Más información</a>
+            </p>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1643148373;s:6:"markup";s:1039:"<div class="shadow"></div>
+<div class="section frontpage-cta parallax-bg" data-parallax="scroll" data-image-src="{{ 'assets/images/samples/rural-enhanced-1.jpg' | theme }}" id="cta">
+    <div class="container wow zoomIn description">
+        <div class="description">
+            <h2>SEGUIMIENTO DE PROYECTOS DE <em>INVESTIGACIÓN</em></h2>
+            <p class="small">
+                Otorgar el  <strong><em>Financiamiento</em></strong> para un proyecto no es suficiente.<br />
+                <strong><em>Es también necesario</em></strong>  que éste se ejecute de manera correcta, en forma oportuna y en conformidad con los compromisos adquiridos por los investigadores.
+            </p>
+            <p>&nbsp;</p>
+           
+            {% content 'cta/content' %}
+            <p>
+                <a class="btn btn-primary-custom btn-margin-top btn-margin-bottom" href="{{'sicues/seguimiento-proyectos.htm' | page}}">Más información</a>
+            </p>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:7:"viewBag";a:0:{}}}

@@ -1,0 +1,207 @@
+1643712270a:1:{s:18:"sections/posts.htm";a:7:{s:8:"fileName";s:18:"sections/posts.htm";s:7:"content";s:5780:"description = "Formación"
+
+[viewBag]
+==
+<div class="section frontpage-recent-posts bg-white" id="latest">
+    <div class="container">
+
+        <h2 class="block-title wow bounceIn">Formación</h2>
+
+        <div class="row">
+            <div class="col-md-4 col-sm-4 wow zoomIn">
+                <div class="post-grid recent-entry">
+                    <div class="recent-entry-image image">
+                        <a class="post-thumbnail post-thumbnail-recent" href="#">
+                            <img width="350" height="220" src="{{ 'assets/images/samples/girl-1031772_1920-1-350x220.jpg' | theme }}" class="img-responsive wp-post-image" alt="Taller Virtual de Edición Editorial de Revistas Científicas en Open Journal System (OJS)" />
+                        </a>
+                        <div class="caption">
+                            <div class="caption-inner">
+                                <a href="{{'sicues/taller-ojs.htm' | page}}" class="icon-link white"><i class="fa fa-link"></i></a>
+                            </div>
+                            <div class="helper"></div>
+                        </div>
+                    </div>
+
+                    <!-- Post Title -->
+                    <h4 class="recent-entry-title">
+                        <a href="{{'sicues/taller-ojs.htm' | page}}">Taller Virtual de Edición Editorial de Revistas Científicas en Open Journal System (OJS)</a>
+                    </h4>
+                    <!-- /Post Title -->
+
+                    <div class="recent-entry-content">
+                        <p>Programa para el Fortalecimiento de Revistas Científicas UES</p>
+                    </div>
+
+                    <!-- Post Meta -->
+                    <div class="recent-entry-meta">
+                        Responsable: Secretaría de Investigaciones Científicas<br />Importante: Disponibilidad de laptop y conexión a internet.
+                    </div>
+                    <!-- /Post Meta -->
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 wow zoomIn">
+                <div class="post-grid recent-entry">
+                    <div class="recent-entry-image image">
+                        <a class="post-thumbnail post-thumbnail-recent" href="https://sic.ues.edu.sv/congreso-internacional/" target="_blank">
+                            <img width="350" height="220" src="{{ 'assets/images/samples/golden-gate-bridge-350x220.jpg' | theme }}" class="img-responsive wp-post-image" alt="I Congreso Internacional de Medio Ambiente" />
+                        </a>
+                        <div class="caption">
+                            <div class="caption-inner">
+                                <a href="#" class="icon-link white"><i class="fa fa-link"></i></a>
+                            </div>
+                            <div class="helper"></div>
+                        </div>
+                    </div>
+
+                    <!-- Post Title -->
+                    <h4 class="recent-entry-title">
+                        <a href="https://sic.ues.edu.sv/congreso-internacional/" target="_blank">I Congreso internacional de educación ambiental y su impacto sobre la gestión integral de riesgo de desastres y los medios de vida ante el cambio climático</a>
+                    </h4>
+                    <!-- /Post Title -->
+
+                    <div class="recent-entry-content">
+                        <p>Este congreso forma parte de la política ambiental de la Universidad de El Salvador,...</p>
+                    </div>
+
+                    <!-- Post Meta -->
+                    <div class="recent-entry-meta">
+							Sesiones virtuales; además, las inscripciones y ponencias serán gratuitas para ponentes nacionales e internacionales. 
+					</div>
+                    <!-- /Post Meta -->
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 wow zoomIn">
+                <div class="post-grid recent-entry">
+                    <div class="recent-entry-image image">
+                        <a class="post-thumbnail post-thumbnail-recent" href="#">
+                            <img width="350" height="220" src="{{ 'assets/images/samples/office-computer-350x220.jpg' | theme }}" class="img-responsive wp-post-image" alt="Premium one-on-one support." />
+                        </a>
+                        <div class="caption">
+                            <div class="caption-inner">
+                                <a href="#" class="icon-link white"><i class="fa fa-link"></i></a>
+                            </div>
+                            <div class="helper"></div>
+                        </div>
+                    </div>
+
+                    <!-- Post Title -->
+                    <!-- <h4 class="recent-entry-title">
+                        <a href="#">Premium one-on-one support.</a>
+                    </h4> -->
+                    <!-- /Post Title -->
+
+                    <!-- <div class="recent-entry-content">
+                        <p>Duis tempus condimentum cursus. Proin posuere et dui nec posuere. Ut tempus odio sit amet ligula bibendum egestas. Ut imperdiet mi id elit fermentum aliquet. Sed vitae eros a mi pulvinar blandit. Fusce at hendrerit dolor, et hendrerit arcu.</p>
+                    </div> -->
+
+                    <!-- Post Meta -->
+                    <!-- <div class="recent-entry-meta">
+                        Posted: Feb 16, 2016<br />Under: <a href="#" rel="category tag">Sample Posts</a>, <a href="#" rel="category tag">Uncategorized</a>
+                    </div> -->
+                    <!-- /Post Meta -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1643391205;s:6:"markup";s:5739:"<div class="section frontpage-recent-posts bg-white" id="latest">
+    <div class="container">
+
+        <h2 class="block-title wow bounceIn">Formación</h2>
+
+        <div class="row">
+            <div class="col-md-4 col-sm-4 wow zoomIn">
+                <div class="post-grid recent-entry">
+                    <div class="recent-entry-image image">
+                        <a class="post-thumbnail post-thumbnail-recent" href="#">
+                            <img width="350" height="220" src="{{ 'assets/images/samples/girl-1031772_1920-1-350x220.jpg' | theme }}" class="img-responsive wp-post-image" alt="Taller Virtual de Edición Editorial de Revistas Científicas en Open Journal System (OJS)" />
+                        </a>
+                        <div class="caption">
+                            <div class="caption-inner">
+                                <a href="{{'sicues/taller-ojs.htm' | page}}" class="icon-link white"><i class="fa fa-link"></i></a>
+                            </div>
+                            <div class="helper"></div>
+                        </div>
+                    </div>
+
+                    <!-- Post Title -->
+                    <h4 class="recent-entry-title">
+                        <a href="{{'sicues/taller-ojs.htm' | page}}">Taller Virtual de Edición Editorial de Revistas Científicas en Open Journal System (OJS)</a>
+                    </h4>
+                    <!-- /Post Title -->
+
+                    <div class="recent-entry-content">
+                        <p>Programa para el Fortalecimiento de Revistas Científicas UES</p>
+                    </div>
+
+                    <!-- Post Meta -->
+                    <div class="recent-entry-meta">
+                        Responsable: Secretaría de Investigaciones Científicas<br />Importante: Disponibilidad de laptop y conexión a internet.
+                    </div>
+                    <!-- /Post Meta -->
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 wow zoomIn">
+                <div class="post-grid recent-entry">
+                    <div class="recent-entry-image image">
+                        <a class="post-thumbnail post-thumbnail-recent" href="https://sic.ues.edu.sv/congreso-internacional/" target="_blank">
+                            <img width="350" height="220" src="{{ 'assets/images/samples/golden-gate-bridge-350x220.jpg' | theme }}" class="img-responsive wp-post-image" alt="I Congreso Internacional de Medio Ambiente" />
+                        </a>
+                        <div class="caption">
+                            <div class="caption-inner">
+                                <a href="#" class="icon-link white"><i class="fa fa-link"></i></a>
+                            </div>
+                            <div class="helper"></div>
+                        </div>
+                    </div>
+
+                    <!-- Post Title -->
+                    <h4 class="recent-entry-title">
+                        <a href="https://sic.ues.edu.sv/congreso-internacional/" target="_blank">I Congreso internacional de educación ambiental y su impacto sobre la gestión integral de riesgo de desastres y los medios de vida ante el cambio climático</a>
+                    </h4>
+                    <!-- /Post Title -->
+
+                    <div class="recent-entry-content">
+                        <p>Este congreso forma parte de la política ambiental de la Universidad de El Salvador,...</p>
+                    </div>
+
+                    <!-- Post Meta -->
+                    <div class="recent-entry-meta">
+							Sesiones virtuales; además, las inscripciones y ponencias serán gratuitas para ponentes nacionales e internacionales. 
+					</div>
+                    <!-- /Post Meta -->
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 wow zoomIn">
+                <div class="post-grid recent-entry">
+                    <div class="recent-entry-image image">
+                        <a class="post-thumbnail post-thumbnail-recent" href="#">
+                            <img width="350" height="220" src="{{ 'assets/images/samples/office-computer-350x220.jpg' | theme }}" class="img-responsive wp-post-image" alt="Premium one-on-one support." />
+                        </a>
+                        <div class="caption">
+                            <div class="caption-inner">
+                                <a href="#" class="icon-link white"><i class="fa fa-link"></i></a>
+                            </div>
+                            <div class="helper"></div>
+                        </div>
+                    </div>
+
+                    <!-- Post Title -->
+                    <!-- <h4 class="recent-entry-title">
+                        <a href="#">Premium one-on-one support.</a>
+                    </h4> -->
+                    <!-- /Post Title -->
+
+                    <!-- <div class="recent-entry-content">
+                        <p>Duis tempus condimentum cursus. Proin posuere et dui nec posuere. Ut tempus odio sit amet ligula bibendum egestas. Ut imperdiet mi id elit fermentum aliquet. Sed vitae eros a mi pulvinar blandit. Fusce at hendrerit dolor, et hendrerit arcu.</p>
+                    </div> -->
+
+                    <!-- Post Meta -->
+                    <!-- <div class="recent-entry-meta">
+                        Posted: Feb 16, 2016<br />Under: <a href="#" rel="category tag">Sample Posts</a>, <a href="#" rel="category tag">Uncategorized</a>
+                    </div> -->
+                    <!-- /Post Meta -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:11:"description";s:10:"Formación";s:7:"viewBag";a:0:{}}}
