@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Installation wizard for October
 
 The wizard installation is a recommended way to install October. It is simpler than the command-line installation and doesn't require any special skills.
@@ -22,3 +23,7 @@ October CMS has a few system requirements:
 
 As of PHP 5.5, some OS distributions may require you to manually install the PHP JSON extension.
 When using Ubuntu, this can be done via ``apt-get install php5-json``.
+=======
+# sicues
+>>>>>>> 7d7ac6d9f7667215cd4e3ba76b30832d41166768
+# sicues
